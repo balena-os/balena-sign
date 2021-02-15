@@ -1,0 +1,9 @@
+version: "2"
+
+services:
+  balenasign:
+    build: ./balenasign
+    restart: always
+    privileged: true
+    ports:
+    - "80:8080"

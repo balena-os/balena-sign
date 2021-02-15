@@ -1,0 +1,25 @@
+FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3.8-build as build
+
+COPY requirements.txt /var/tmp/requirements.txt
+RUN pip3 install -r /var/tmp/requirements.txt
+RUN install_packages linux-kbuild-4.19
+
+
+FROM balenalib/%%BALENA_MACHINE_NAME%%-python:3.8
+COPY --from=build /usr/local/bin/uwsgi /usr/src/linux-kbuild-4.19/scripts/sign-file /usr/local/bin/
+COPY --from=build /usr/local/lib/python3.8/site-packages/ /usr/local/lib/python3.8/
+
+RUN install_packages cryptsetup efitools gnupg2 libxml2 sbsigntool
+RUN mkdir -p /opt/balena
+RUN useradd -r balenasign -m -d /opt/balena/balenasign
+RUN mkdir -p /opt/balena/balenasign/secrets/gpg
+RUN mkdir -p /opt/balena/balenasign/secrets/x509
+
+COPY start.sh /usr/local/bin/
+COPY app /opt/balena/balenasign
+COPY api.yml /opt/balena/balenasign/
+
+RUN chown -R balenasign:balenasign /opt/balena/balenasign
+RUN chmod 0700 /opt/balena/balenasign/secrets/gpg
+
+CMD /usr/local/bin/start.sh

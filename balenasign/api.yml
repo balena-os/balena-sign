@@ -1,0 +1,287 @@
+openapi: 3.0.0
+
+info:
+  title: balenaSign API
+  version: 0.9.1
+
+paths:
+  /gpg/keys:
+    get:
+      operationId: balenasign.gpg.keys
+      responses:
+        200:
+          description: Fingerprints of GPG keys available on the server
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/gpgKeysResponse"
+
+  /gpg/key/{key_id}:
+    get:
+      operationId: balenasign.gpg.key
+      parameters:
+      - $ref: "#/components/parameters/gpgKey"
+      responses:
+        200:
+          description: Armored GPG public key for the given fingerprint
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/gpgKeyResponse"
+
+  /gpg/sign:
+    post:
+      operationId: balenasign.gpg.sign
+      security:
+      - apiKey: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/gpgSignRequest"
+      responses:
+        200:
+          description: base64-encoded GPG signature of the given payload
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/gpgSignResponse"
+
+  /secureboot/pk/{cert_id}:
+    get:
+      operationId: balenasign.secureboot.pk
+      parameters:
+      - $ref: "#/components/parameters/certId"
+      responses:
+        200:
+          description: base64-encoded platform key for UEFI
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/securebootPKResponse"
+
+  /secureboot/kek/{cert_id}:
+    get:
+      operationId: balenasign.secureboot.kek
+      parameters:
+      - $ref: "#/components/parameters/certId"
+      responses:
+        200:
+          description: base64-encoded key exchange key for UEFI
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/securebootKEKResponse"
+
+  /secureboot/db/{cert_id}:
+    get:
+      operationId: balenasign.secureboot.db
+      parameters:
+      - $ref: "#/components/parameters/certId"
+      responses:
+        200:
+          description: base64-encoded db for UEFI
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/securebootDbResponse"
+
+  /secureboot/sign:
+    post:
+      operationId: balenasign.secureboot.sign
+      security:
+      - apiKey: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/securebootSignRequest"
+      responses:
+        200:
+          description: base64-encoded signed EFI binary
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/securebootSignResponse"
+
+  /kmod/cert/{cert_id}:
+    get:
+      operationId: balenasign.kmod.cert
+      parameters:
+      - $ref: "#/components/parameters/certId"
+      responses:
+        200:
+          description: Certificate to verify kernel modules signature
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/kmodCertResponse"
+
+  /kmod/sign:
+    post:
+      operationId: balenasign.kmod.sign
+      security:
+      - apiKey: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/kmodSignRequest"
+      responses:
+        200:
+          description: base64-encoded signed kernel module
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/kmodSignResponse"
+
+components:
+  securitySchemes:
+    apiKey:
+      x-apikeyInfoFunc: balenasign.apikey.get
+      type: apiKey
+      in: header
+      name: X-API-Key
+
+  parameters:
+    gpgKey:
+      name: key_id
+      description: Fingeprint of the GPG key to fetch
+      in: path
+      required: true
+      schema:
+        $ref: "#/components/schemas/gpgKeyFingerprint"
+
+    certId:
+      name: cert_id
+      description: ID of the certificate to fetch
+      in: path
+      required: true
+      schema:
+        $ref: "#/components/schemas/certId"
+
+  schemas:
+    base64:
+      type: string
+      pattern: "^[a-zA-Z0-9/\\+]+=?=?$"
+
+    certId:
+      type: string
+
+    gpgKey:
+      type: string
+
+    gpgKeyFingerprint:
+      type: string
+      pattern: "^[a-fA-F0-9]+$"
+
+    gpgKeyFingerprintList:
+      type: array
+      items:
+        $ref: "#/components/schemas/gpgKeyFingerprint"
+
+
+    gpgKeysResponse:
+      type: object
+      required:
+      - keys
+      properties:
+        keys:
+          $ref: "#/components/schemas/gpgKeyFingerprintList"
+
+    gpgKeyResponse:
+      type: object
+      required:
+      - key
+      properties:
+        key:
+          $ref: "#/components/schemas/gpgKey"
+
+    gpgSignRequest:
+      type: object
+      required:
+      - key_id
+      - payload
+      properties:
+        key_id:
+          $ref: "#/components/schemas/gpgKeyFingerprint"
+        payload:
+          $ref: "#/components/schemas/base64"
+
+    gpgSignResponse:
+      type: object
+      required:
+      - signature
+      properties:
+        signature:
+          $ref: "#/components/schemas/base64"
+
+    securebootPKResponse:
+      type: object
+      required:
+      - pk
+      properties:
+        pk:
+          $ref: "#/components/schemas/base64"
+
+    securebootKEKResponse:
+      type: object
+      required:
+      - kek
+      properties:
+        kek:
+          $ref: "#/components/schemas/base64"
+
+    securebootDbResponse:
+      type: object
+      required:
+      - db
+      properties:
+        db:
+          $ref: "#/components/schemas/base64"
+
+    securebootSignRequest:
+      type: object
+      required:
+      - key_id
+      - payload
+      properties:
+        key_id:
+          $ref: "#/components/schemas/certId"
+        payload:
+          $ref: "#/components/schemas/base64"
+
+    securebootSignResponse:
+      type: object
+      required:
+      - signed
+      properties:
+        signed:
+          $ref: "#/components/schemas/base64"
+
+    kmodCertResponse:
+      type: object
+      required:
+      - cert
+      properties:
+        cert:
+          type: string
+
+    kmodSignRequest:
+      type: object
+      required:
+      - key_id
+      - payload
+      properties:
+        key_id:
+          $ref: "#/components/schemas/certId"
+        payload:
+          $ref: "#/components/schemas/base64"
+
+    kmodSignResponse:
+      type: object
+      required:
+      - signed
+      properties:
+        signed:
+          $ref: "#/components/schemas/base64"
