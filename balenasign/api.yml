@@ -29,6 +29,24 @@ paths:
               schema:
                 $ref: "#/components/schemas/gpgKeyResponse"
 
+  /gpg/key:
+    post:
+      operationId: balenasign.gpg.new
+      security:
+      - apiKey: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/gpgNewRequest"
+      responses:
+        200:
+          description: Fingerprint of the newly created GPG key
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/gpgNewResponse"
+
   /gpg/sign:
     post:
       operationId: balenasign.gpg.sign
@@ -180,6 +198,22 @@ components:
       items:
         $ref: "#/components/schemas/gpgKeyFingerprint"
 
+    gpgKeyNameReal:
+      type: string
+
+    gpgKeyNameEmail:
+      type: string
+
+    gpgKeyNameComment:
+      type: string
+
+    gpgKeyLength:
+      type: integer
+      default: 2048
+      enum:
+      - 2048
+      - 4096
+
 
     gpgKeysResponse:
       type: object
@@ -188,6 +222,29 @@ components:
       properties:
         keys:
           $ref: "#/components/schemas/gpgKeyFingerprintList"
+
+    gpgNewResponse:
+      type: object
+      required:
+      - fingerprint
+      properties:
+        fingerprint:
+          $ref: "#/components/schemas/gpgKeyFingerprint"
+
+    gpgNewRequest:
+      type: object
+      required:
+      - name_real
+      - name_email
+      properties:
+        name_real:
+          $ref: "#/components/schemas/gpgKeyNameReal"
+        name_email:
+          $ref: "#/components/schemas/gpgKeyNameEmail"
+        name_comment:
+          $ref: "#/components/schemas/gpgKeyNameComment"
+        key_length:
+          $ref: "#/components/schemas/gpgKeyLength"
 
     gpgKeyResponse:
       type: object

@@ -17,6 +17,21 @@ def keys():
     return response
 
 
+def new(body, user):
+    gpg = gnupg.GPG(gnupghome=GPG_HOME_DIR)
+
+    # This assumes the request body maps to gen_key_input kwargs
+    # which works but is a baaaad practice
+    key_input = gpg.gen_key_input(key_type="RSA", expire_date=0, **body)
+
+    # Necessary because the `no_protection` kwarg does not seem to work
+    key_input = "%no-protection\n" + key_input
+    key = gpg.gen_key(key_input)
+
+    response = {"fingerprint": key.fingerprint}
+    return response
+
+
 def key(key_id):
     gpg = gnupg.GPG(gnupghome=GPG_HOME_DIR)
 
