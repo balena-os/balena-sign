@@ -65,6 +65,37 @@ paths:
               schema:
                 $ref: "#/components/schemas/gpgSignResponse"
 
+  /cert:
+    post:
+      operationId: balenasign.cert.new
+      security:
+      - apiKey: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/certNewRequest"
+      responses:
+        200:
+          description: Newly created certificate
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/certNewResponse"
+
+  /cert/{cert_id}:
+    get:
+      operationId: balenasign.cert.get
+      parameters:
+      - $ref: "#/components/parameters/certId"
+      responses:
+        200:
+          description: The requested certificate in PEM format
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/certNewResponse"
+
   /secureboot/pk/{cert_id}:
     get:
       operationId: balenasign.secureboot.pk
@@ -186,6 +217,19 @@ components:
     certId:
       type: string
 
+    certSubject:
+      type: string
+
+    certData:
+      type: string
+
+    keyLength:
+      type: integer
+      default: 2048
+      enum:
+      - 2048
+      - 4096
+
     gpgKey:
       type: string
 
@@ -207,14 +251,6 @@ components:
     gpgKeyNameComment:
       type: string
 
-    gpgKeyLength:
-      type: integer
-      default: 2048
-      enum:
-      - 2048
-      - 4096
-
-
     gpgKeysResponse:
       type: object
       required:
@@ -222,14 +258,6 @@ components:
       properties:
         keys:
           $ref: "#/components/schemas/gpgKeyFingerprintList"
-
-    gpgNewResponse:
-      type: object
-      required:
-      - fingerprint
-      properties:
-        fingerprint:
-          $ref: "#/components/schemas/gpgKeyFingerprint"
 
     gpgNewRequest:
       type: object
@@ -244,7 +272,15 @@ components:
         name_comment:
           $ref: "#/components/schemas/gpgKeyNameComment"
         key_length:
-          $ref: "#/components/schemas/gpgKeyLength"
+          $ref: "#/components/schemas/keyLength"
+
+    gpgNewResponse:
+      type: object
+      required:
+      - fingerprint
+      properties:
+        fingerprint:
+          $ref: "#/components/schemas/gpgKeyFingerprint"
 
     gpgKeyResponse:
       type: object
@@ -272,6 +308,27 @@ components:
       properties:
         signature:
           $ref: "#/components/schemas/base64"
+
+    certNewRequest:
+      type: object
+      required:
+      - subject
+      - cert_id
+      properties:
+        cert_id:
+          $ref: "#/components/schemas/certId"
+        subject:
+          $ref: "#/components/schemas/certSubject"
+        key_length:
+          $ref: "#/components/schemas/keyLength"
+
+    certNewResponse:
+      type: object
+      required:
+      - cert
+      properties:
+        cert:
+          $ref: "#/components/schemas/certData"
 
     securebootPKResponse:
       type: object
