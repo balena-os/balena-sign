@@ -56,7 +56,7 @@ def sign(body, user):
         payload_filename, signed_filename
     ]
     with tempfile.TemporaryFile() as tmp_file:
-        retcode = subprocess.call(
+        retcode = subprocess.run(
             sign_cmd, stdout=tmp_file, stderr=subprocess.STDOUT
         )
         os.unlink(payload_filename)

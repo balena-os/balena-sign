@@ -36,9 +36,9 @@ def get_esl_path(cert_path, uuid=DEFAULT_EFI_UUID):
 
     if not os.path.isfile(esl_path):
         cmd = ["cert-to-efi-sig-list", "-g", str(uuid), cert_path, esl_path]
-        retcode = subprocess.call(cmd)
+        cmd_result = subprocess.run(cmd)
 
-        if retcode != 0:
+        if cmd_result.returncode != 0:
             raise RuntimeError("Failed to generate EFI signature list")
 
     return esl_path

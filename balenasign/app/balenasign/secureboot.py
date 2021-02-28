@@ -31,8 +31,8 @@ def pk(cert_id):
             "sign-efi-sig-list", "-k", key_path,
             "-c", cert_path, "PK", esl_path, pk_path
         ]
-        retcode = subprocess.call(cmd)
-        if retcode != 0:
+        cmd_result = subprocess.run(cmd)
+        if cmd_result.returncode != 0:
             return {"error": "Failed to sign EFI signature list"}, 500
 
     with open(pk_path, "rb") as f:
@@ -64,8 +64,8 @@ def kek(cert_id):
             "sign-efi-sig-list", "-k", key_path,
             "-c", cert_path, "KEK", esl_path, kek_path
         ]
-        retcode = subprocess.call(cmd)
-        if retcode != 0:
+        cmd_result = subprocess.run(cmd)
+        if cmd_result.returncode != 0:
             return {"error": "Failed to sign EFI signature list"}, 500
 
     with open(kek_path, "rb") as f:
@@ -97,8 +97,8 @@ def db(cert_id):
             "sign-efi-sig-list", "-k", key_path,
             "-c", cert_path, "db", esl_path, db_path
         ]
-        retcode = subprocess.call(cmd)
-        if retcode != 0:
+        cmd_result = subprocess.run(cmd)
+        if cmd_result.returncode != 0:
             return {"error": "Failed to sign EFI signature list"}, 500
 
     with open(db_path, "rb") as f:
@@ -131,22 +131,13 @@ def sign(body, user):
 
     signed_filename = "%s.signed" % payload_filename
 
-    cmd_output = None
-    sbsign_cmd = [
+    cmd = [
         "sbsign", "--key", key_file, "--cert", cert_file,
         "--output", signed_filename, payload_filename
     ]
-    with tempfile.TemporaryFile() as tmp_file:
-        retcode = subprocess.call(
-            sbsign_cmd, stdout=tmp_file, stderr=subprocess.STDOUT
-        )
-        os.unlink(payload_filename)
-        cmd_output_len = tmp_file.tell()
-        if cmd_output_len > 0:
-            tmp_file.seek(0)
-            cmd_output = tmp_file.read(cmd_output_len)
+    cmd_result = subprocess.run(cmd)
 
-    if retcode:
+    if cmd_result.returncode != 0:
         unlink_if_exists(signed_filename)
         return {"error": "Signature failed"}, 500
 
@@ -156,13 +147,10 @@ def sign(body, user):
             "signed": binascii.b2a_base64(signed_payload).decode().rstrip("\n")
         }
 
-    if cmd_output is not None:
-        response["extra_output"] = cmd_output.decode()
-
     os.unlink(signed_filename)
 
     LOG.info(
-        "%s successfully signed a payload using '%s' certificate", user, cert_id
+        "%s successfully signed a payload using '%s' certificate", user, key_id
     )
 
     return response

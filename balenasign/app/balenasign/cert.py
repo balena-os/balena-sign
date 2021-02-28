@@ -43,8 +43,8 @@ def new(body, user):
         "-days", "3650", "-sha512", "-nodes"
     ]
 
-    retcode = subprocess.call(cmd)
-    if retcode != 0:
+    cmd_result = subprocess.run(cmd)
+    if cmd_result.returncode != 0:
         return {"error": "Failed to generate certificate"}, 500
 
     with open(cert_path, "r") as f:
