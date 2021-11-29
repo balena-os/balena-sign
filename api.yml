@@ -98,7 +98,7 @@ paths:
 
   /secureboot/pk/{cert_id}:
     get:
-      operationId: secureboot.pk
+      operationId: secureboot.get_pk
       parameters:
         - $ref: "#/components/parameters/certId"
       responses:
@@ -109,9 +109,27 @@ paths:
               schema:
                 $ref: "#/components/schemas/securebootPKResponse"
 
+  /secureboot/pk:
+    post:
+      operationId: secureboot.sign_pk
+      security:
+      - apiKey: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/securebootESLSignRequest"
+      responses:
+        200:
+          description: empty
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/securebootESLSignResponse"
+
   /secureboot/kek/{cert_id}:
     get:
-      operationId: secureboot.kek
+      operationId: secureboot.get_kek
       parameters:
         - $ref: "#/components/parameters/certId"
       responses:
@@ -122,9 +140,27 @@ paths:
               schema:
                 $ref: "#/components/schemas/securebootKEKResponse"
 
+  /secureboot/kek:
+    post:
+      operationId: secureboot.sign_kek
+      security:
+      - apiKey: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/securebootESLSignRequest"
+      responses:
+        200:
+          description: empty
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/securebootESLSignResponse"
+
   /secureboot/db/{cert_id}:
     get:
-      operationId: secureboot.db
+      operationId: secureboot.get_db
       parameters:
         - $ref: "#/components/parameters/certId"
       responses:
@@ -135,9 +171,27 @@ paths:
               schema:
                 $ref: "#/components/schemas/securebootDbResponse"
 
-  /secureboot/sign:
+  /secureboot/db:
     post:
-      operationId: secureboot.sign
+      operationId: secureboot.sign_db
+      security:
+      - apiKey: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/securebootESLSignRequest"
+      responses:
+        200:
+          description: empty
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/securebootESLSignResponse"
+
+  /secureboot/efi:
+    post:
+      operationId: secureboot.sign_efi
       security:
         - apiKey: []
       requestBody:
@@ -353,6 +407,19 @@ components:
       properties:
         db:
           $ref: "#/components/schemas/base64"
+
+    securebootESLSignRequest:
+      type: object
+      required:
+      - key_id
+      properties:
+        key_id:
+          $ref: "#/components/schemas/certId"
+        signing_key_id:
+          $ref: "#/components/schemas/certId"
+
+    securebootESLSignResponse:
+      type: object
 
     securebootSignRequest:
       type: object
