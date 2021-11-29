@@ -56,7 +56,7 @@ def sign(body, user):
         payload_filename, signed_filename
     ]
     with tempfile.TemporaryFile() as tmp_file:
-        retcode = subprocess.run(
+        cmd_result = subprocess.run(
             sign_cmd, stdout=tmp_file, stderr=subprocess.STDOUT
         )
         os.unlink(payload_filename)
@@ -65,7 +65,7 @@ def sign(body, user):
             tmp_file.seek(0)
             cmd_output = tmp_file.read(cmd_output_len)
 
-    if retcode:
+    if cmd_result.returncode:
         unlink_if_exists(signed_filename)
         return {"error": "Signature failed"}, 500
 
@@ -81,7 +81,7 @@ def sign(body, user):
     os.unlink(signed_filename)
 
     LOG.info(
-        "%s successfully signed a payload using '%s' certificate", user, cert_id
+        "%s successfully signed a payload using '%s' key", user, key_id
     )
 
     return response

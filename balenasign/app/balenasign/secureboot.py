@@ -10,107 +10,121 @@ from balenasign.utils import X509_DIR, get_esl_path, unlink_if_exists
 LOG = logging.getLogger("secureboot")
 
 
-def pk(cert_id):
+ALLOWED_VARS = {"PK", "KEK", "db"}
+
+
+def _get_signed_esl(cert_id, var):
+    if var not in ALLOWED_VARS:
+        raise ValueError("`var` must be one of %s" % ALLOWED_VARS)
+
     cert_filename = "%s.crt" % cert_id
     cert_path = os.path.join(X509_DIR, cert_filename)
 
     if not os.path.isfile(cert_path):
         return {"error": "Certificate '%s' does not exist" % cert_id}, 404
 
-    pk_path = "%s.pk" % cert_path[:-4]
-    if not os.path.isfile(pk_path):
-        key_filename = "%s.key" % cert_id
-        key_path = os.path.join(X509_DIR, key_filename)
+    auth_path = "%s.%s.auth" % (cert_path[:-4], var)
+    if not os.path.isfile(auth_path):
+        return {
+            "error": "%s not found for certificate '%s'" % (var, cert_id)
+        }, 404
 
-        if not os.path.isfile(key_path):
-            return {
-                "error": "Private key '%s' does not exist" % cert_id}, 404
-
-        esl_path = get_esl_path(cert_path)
-        cmd = [
-            "sign-efi-sig-list", "-k", key_path,
-            "-c", cert_path, "PK", esl_path, pk_path
-        ]
-        cmd_result = subprocess.run(cmd)
-        if cmd_result.returncode != 0:
-            return {"error": "Failed to sign EFI signature list"}, 500
-
-    with open(pk_path, "rb") as f:
-        pk_data = f.read()
+    with open(auth_path, "rb") as f:
+        auth_data = f.read()
 
     response = {
-        "pk": binascii.b2a_base64(pk_data).decode().rstrip("\n")
+        var.lower(): binascii.b2a_base64(auth_data).decode().rstrip("\n")
     }
+
+    esl_path = get_esl_path(cert_path)
+    if os.path.isfile(esl_path):
+        with open(esl_path, "rb") as f:
+            esl_data = f.read()
+
+        response["esl"] = binascii.b2a_base64(esl_data).decode().rstrip("\n")
+
     return response
 
 
-def kek(cert_id):
+def _sign_esl(cert_id, signing_cert_id, var):
+    if var not in ALLOWED_VARS:
+        raise ValueError("`var` must be one of %s" % ALLOWED_VARS)
+
     cert_filename = "%s.crt" % cert_id
     cert_path = os.path.join(X509_DIR, cert_filename)
 
     if not os.path.isfile(cert_path):
         return {"error": "Certificate '%s' does not exist" % cert_id}, 404
 
-    kek_path = "%s.kek" % cert_path[:-4]
-    if not os.path.isfile(kek_path):
-        key_filename = "%s.key" % cert_id
-        key_path = os.path.join(X509_DIR, key_filename)
+    signing_cert_filename = "%s.crt" % signing_cert_id
+    signing_cert_path = os.path.join(X509_DIR, signing_cert_filename)
 
-        if not os.path.isfile(key_path):
-            return {"error": "Private key '%s' does not exist" % cert_id}, 404
+    if not os.path.isfile(signing_cert_path):
+        return {
+            "error": "Certificate '%s' does not exist" % signing_cert_id
+        }, 404
 
-        esl_path = get_esl_path(cert_path)
-        cmd = [
-            "sign-efi-sig-list", "-k", key_path,
-            "-c", cert_path, "KEK", esl_path, kek_path
-        ]
-        cmd_result = subprocess.run(cmd)
-        if cmd_result.returncode != 0:
-            return {"error": "Failed to sign EFI signature list"}, 500
+    auth_path = "%s.%s.auth" % (cert_path[:-4], var)
+    if os.path.isfile(auth_path):
+        return {
+            "error": "%s for '%s' has already been signed" % (var, cert_id)
+        }, 409
 
-    with open(kek_path, "rb") as f:
-        kek_data = f.read()
+    signing_key_filename = "%s.key" % signing_cert_id
+    signing_key_path = os.path.join(X509_DIR, signing_key_filename)
 
-    response = {
-        "kek": binascii.b2a_base64(kek_data).decode().rstrip("\n")
-    }
+    if not os.path.isfile(signing_key_path):
+        return {
+            "error": "Private key '%s' does not exist" % signing_cert_id
+        }, 404
+
+    esl_path = get_esl_path(cert_path)
+    cmd = [
+        "sign-efi-sig-list", "-k", signing_key_path, "-c", signing_cert_path,
+        var, esl_path, auth_path
+    ]
+    cmd_result = subprocess.run(cmd)
+    if cmd_result.returncode != 0:
+        return {"error": "Failed to sign EFI signature list"}, 500
+
+    response = {}
     return response
 
 
-def db(cert_id):
-    cert_filename = "%s.crt" % cert_id
-    cert_path = os.path.join(X509_DIR, cert_filename)
-
-    if not os.path.isfile(cert_path):
-        return {"error": "Certificate '%s' does not exist" % cert_id}, 404
-
-    db_path = "%s.db" % cert_path[:-4]
-    if not os.path.isfile(db_path):
-        key_filename = "%s.key" % cert_id
-        key_path = os.path.join(X509_DIR, key_filename)
-
-        if not os.path.isfile(key_path):
-            return {"error": "Private key '%s' does not exist" % cert_id}, 404
-
-        esl_path = get_esl_path(cert_path)
-        cmd = [
-            "sign-efi-sig-list", "-k", key_path,
-            "-c", cert_path, "db", esl_path, db_path
-        ]
-        cmd_result = subprocess.run(cmd)
-        if cmd_result.returncode != 0:
-            return {"error": "Failed to sign EFI signature list"}, 500
-
-    with open(db_path, "rb") as f:
-        db_data = f.read()
-
-    response = {
-        "db": binascii.b2a_base64(db_data).decode().rstrip("\n")
-    }
-    return response
+def get_pk(cert_id):
+    return _get_signed_esl(cert_id, "PK")
 
 
-def sign(body, user):
+def get_kek(cert_id):
+    return _get_signed_esl(cert_id, "KEK")
+
+
+def get_db(cert_id):
+    return _get_signed_esl(cert_id, "db")
+
+
+def sign_pk(body, user):
+    cert_id = body["key_id"]
+    signing_cert_id = body.get("signing_key_id", cert_id)
+
+    return _sign_esl(cert_id, signing_cert_id, "PK")
+
+
+def sign_kek(body, user):
+    cert_id = body["key_id"]
+    signing_cert_id = body.get("signing_key_id", cert_id)
+
+    return _sign_esl(cert_id, signing_cert_id, "KEK")
+
+
+def sign_db(body, user):
+    cert_id = body["key_id"]
+    signing_cert_id = body.get("signing_key_id", cert_id)
+
+    return _sign_esl(cert_id, signing_cert_id, "db")
+
+
+def sign_efi(body, user):
     key_id = body["key_id"]
     key_file = os.path.join(X509_DIR, "%s.key" % key_id)
     if not os.path.isfile(key_file):
