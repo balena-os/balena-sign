@@ -61,4 +61,4 @@ then
   fi
 fi
 
-exec /usr/local/bin/uwsgi --http-socket :8080 --uid balenasign --gid balenasign --processes 4 --chdir /opt/balena/balenasign --pythonpath /opt/balena/balenasign/app --module balenasign.app
+exec /usr/local/bin/uwsgi --http-socket :8080 --socket-timeout 300 --http-timeout 300 --uid balenasign --gid balenasign --processes 4 --chdir /opt/balena/balenasign --pythonpath /opt/balena/balenasign/app --module balenasign.app
