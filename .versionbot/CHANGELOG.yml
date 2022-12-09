@@ -1,1 +1,97 @@
-[]
+- commits:
+    - subject: Enable flowzone workflows
+      hash: 90322243d243e76ec897d718f2143402c9c3dac2
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+    - subject: Add repo.yml to enable versionbot
+      hash: 7f5520b97d021b4176c5ca40fb915220c8f9a5d4
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+    - subject: Use subprocess.run instead of subprocess.call for executing commands
+      hash: 215aa890a544c1e14cb967be4b6fcc084072d2db
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+    - subject: Add endpoints for creating and fetching SSL certificates
+      hash: 5106190b44dfd7d6dc35339bfb0ecbf142973b73
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+    - subject: Add endpoint for creating GPG keys
+      hash: 3a3c463fb4b865f676edb2ef3a0ee2cbadddcc7f
+      body: ""
+      footer:
+        Change-Type: minor
+        change-type: minor
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+    - subject: Remove redundant icon
+      hash: 17c38635be7f51dc28551fc3725e20bc581f13aa
+      body: |
+        copy/paste leftovers
+      footer:
+        Change-Type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+    - subject: Add icon
+      hash: aa7aff0dbaedbc784a04f8bec90c64e9227b8258
+      body: ""
+      footer:
+        Change-Type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+    - subject: Initial commit
+      hash: d9df9fbefee112e17435ba962569335a0a73b956
+      body: >
+        This is an import of a first version working e2e with balenaOS's yocto
+        build
+
+        - Add versionbot metadata
+
+        - Add changelog
+
+        - Add readme
+
+        - Add docker-compose
+
+        - Add the actual balenasign code
+      footer:
+        Change-Type: minor
+        change-type: minor
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+  version: 0.1.0
+  title: ""
+  date: 2022-12-09T11:18:09.227Z
