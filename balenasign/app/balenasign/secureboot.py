@@ -4,7 +4,8 @@ import os
 import subprocess
 import tempfile
 
-from balenasign.utils import X509_DIR, get_esl_path, unlink_if_exists
+from balenasign.utils import X509_DIR
+from balenasign.utils import get_der_path, get_esl_path, unlink_if_exists
 
 
 LOG = logging.getLogger("secureboot")
@@ -42,6 +43,13 @@ def _get_signed_esl(cert_id, var):
             esl_data = f.read()
 
         response["esl"] = binascii.b2a_base64(esl_data).decode().rstrip("\n")
+
+    der_path = get_der_path(cert_path)
+    if os.path.isfile(der_path):
+        with open(der_path, "rb") as f:
+            der_data = f.read()
+
+        response["der"] = binascii.b2a_base64(der_data).decode().rstrip("\n")
 
     return response
 
