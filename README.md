@@ -4,6 +4,19 @@ Service used to sign data over the network and retrieve the respective public
 keys. The service is a rough analogy to TPM hardware - it holds private keys
 that it never exposes and provides an API that lets users use them for signing.
 
+## Authorization
+
+Balena sign uses balenaCloud as the authentication backend. Authorization is controlled by specifying a `FLEET_ID` environment variable. This value enforces that the balenaCloud API key provided must have permissions (operator/developer/etc) access to that fleet to be authorized with this application.
+
+API Keys are handled by passing them in the `X-API-KEY` header like in the follow httpie request:
+
+```
+http POST 10.0.0.13/gpg/keys \
+  "Content-Type: application/json" \
+  "X-API-KEY: $AUTH" <-- your balenaCloud api token
+  ...
+```
+
 ## Setup
 
 [![balena deploy button](https://www.balena.io/deploy.svg)](https://dashboard.balena-cloud.com/deploy?repoUrl=https://github.com/balena-os/balena-sign)
@@ -15,10 +28,14 @@ just fine even though x86 HW is likely to generally perform better due to more
 crypto features implemented in hardware.
 
 1. Deploy the app to balenaCloud.
-2. Add at least one API key - this is at this moment done by setting
-   an environment variable named `BALENASIGN_API_KEY_${API_KEY}` with
-   a username as value. Example: `BALENASIGN_API_KEY_123456=jenkins` means
-   API key `123456` will map to user `jenkins`.
+2. Set the `FLEED_ID` environment variable for balena-sign to check for authentication.
+
+## Configuration
+
+You can specify a different API domain for the authentication backend.
+
+By default balena-sign will use `api.balena-cloud.com` but you can override this by setting
+`BALENA_API_DOMAIN` as an environment variable with the domain for the new balenaCloud API.
 
 ### Optional
 

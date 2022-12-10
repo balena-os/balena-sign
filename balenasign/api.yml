@@ -20,7 +20,7 @@ paths:
     get:
       operationId: balenasign.gpg.key
       parameters:
-      - $ref: "#/components/parameters/gpgKey"
+        - $ref: "#/components/parameters/gpgKey"
       responses:
         200:
           description: Armored GPG public key for the given fingerprint
@@ -33,7 +33,7 @@ paths:
     post:
       operationId: balenasign.gpg.new
       security:
-      - apiKey: []
+        - apiKey: []
       requestBody:
         content:
           application/json:
@@ -51,7 +51,7 @@ paths:
     post:
       operationId: balenasign.gpg.sign
       security:
-      - apiKey: []
+        - apiKey: []
       requestBody:
         content:
           application/json:
@@ -69,7 +69,7 @@ paths:
     post:
       operationId: balenasign.cert.new
       security:
-      - apiKey: []
+        - apiKey: []
       requestBody:
         content:
           application/json:
@@ -87,7 +87,7 @@ paths:
     get:
       operationId: balenasign.cert.get
       parameters:
-      - $ref: "#/components/parameters/certId"
+        - $ref: "#/components/parameters/certId"
       responses:
         200:
           description: The requested certificate in PEM format
@@ -100,7 +100,7 @@ paths:
     get:
       operationId: balenasign.secureboot.pk
       parameters:
-      - $ref: "#/components/parameters/certId"
+        - $ref: "#/components/parameters/certId"
       responses:
         200:
           description: base64-encoded platform key for UEFI
@@ -113,7 +113,7 @@ paths:
     get:
       operationId: balenasign.secureboot.kek
       parameters:
-      - $ref: "#/components/parameters/certId"
+        - $ref: "#/components/parameters/certId"
       responses:
         200:
           description: base64-encoded key exchange key for UEFI
@@ -126,7 +126,7 @@ paths:
     get:
       operationId: balenasign.secureboot.db
       parameters:
-      - $ref: "#/components/parameters/certId"
+        - $ref: "#/components/parameters/certId"
       responses:
         200:
           description: base64-encoded db for UEFI
@@ -139,7 +139,7 @@ paths:
     post:
       operationId: balenasign.secureboot.sign
       security:
-      - apiKey: []
+        - apiKey: []
       requestBody:
         content:
           application/json:
@@ -157,7 +157,7 @@ paths:
     get:
       operationId: balenasign.kmod.cert
       parameters:
-      - $ref: "#/components/parameters/certId"
+        - $ref: "#/components/parameters/certId"
       responses:
         200:
           description: Certificate to verify kernel modules signature
@@ -170,7 +170,7 @@ paths:
     post:
       operationId: balenasign.kmod.sign
       security:
-      - apiKey: []
+        - apiKey: []
       requestBody:
         content:
           application/json:
@@ -187,7 +187,7 @@ paths:
 components:
   securitySchemes:
     apiKey:
-      x-apikeyInfoFunc: balenasign.apikey.get
+      x-apikeyInfoFunc: balenasign.auth.validate
       type: apiKey
       in: header
       name: X-API-Key
@@ -227,8 +227,8 @@ components:
       type: integer
       default: 2048
       enum:
-      - 2048
-      - 4096
+        - 2048
+        - 4096
 
     gpgKey:
       type: string
@@ -254,7 +254,7 @@ components:
     gpgKeysResponse:
       type: object
       required:
-      - keys
+        - keys
       properties:
         keys:
           $ref: "#/components/schemas/gpgKeyFingerprintList"
@@ -262,8 +262,8 @@ components:
     gpgNewRequest:
       type: object
       required:
-      - name_real
-      - name_email
+        - name_real
+        - name_email
       properties:
         name_real:
           $ref: "#/components/schemas/gpgKeyNameReal"
@@ -277,7 +277,7 @@ components:
     gpgNewResponse:
       type: object
       required:
-      - fingerprint
+        - fingerprint
       properties:
         fingerprint:
           $ref: "#/components/schemas/gpgKeyFingerprint"
@@ -285,7 +285,7 @@ components:
     gpgKeyResponse:
       type: object
       required:
-      - key
+        - key
       properties:
         key:
           $ref: "#/components/schemas/gpgKey"
@@ -293,8 +293,8 @@ components:
     gpgSignRequest:
       type: object
       required:
-      - key_id
-      - payload
+        - key_id
+        - payload
       properties:
         key_id:
           $ref: "#/components/schemas/gpgKeyFingerprint"
@@ -304,7 +304,7 @@ components:
     gpgSignResponse:
       type: object
       required:
-      - signature
+        - signature
       properties:
         signature:
           $ref: "#/components/schemas/base64"
@@ -312,8 +312,8 @@ components:
     certNewRequest:
       type: object
       required:
-      - subject
-      - cert_id
+        - subject
+        - cert_id
       properties:
         cert_id:
           $ref: "#/components/schemas/certId"
@@ -325,7 +325,7 @@ components:
     certNewResponse:
       type: object
       required:
-      - cert
+        - cert
       properties:
         cert:
           $ref: "#/components/schemas/certData"
@@ -333,7 +333,7 @@ components:
     securebootPKResponse:
       type: object
       required:
-      - pk
+        - pk
       properties:
         pk:
           $ref: "#/components/schemas/base64"
@@ -341,7 +341,7 @@ components:
     securebootKEKResponse:
       type: object
       required:
-      - kek
+        - kek
       properties:
         kek:
           $ref: "#/components/schemas/base64"
@@ -349,7 +349,7 @@ components:
     securebootDbResponse:
       type: object
       required:
-      - db
+        - db
       properties:
         db:
           $ref: "#/components/schemas/base64"
@@ -357,8 +357,8 @@ components:
     securebootSignRequest:
       type: object
       required:
-      - key_id
-      - payload
+        - key_id
+        - payload
       properties:
         key_id:
           $ref: "#/components/schemas/certId"
@@ -368,7 +368,7 @@ components:
     securebootSignResponse:
       type: object
       required:
-      - signed
+        - signed
       properties:
         signed:
           $ref: "#/components/schemas/base64"
@@ -376,7 +376,7 @@ components:
     kmodCertResponse:
       type: object
       required:
-      - cert
+        - cert
       properties:
         cert:
           type: string
@@ -384,8 +384,8 @@ components:
     kmodSignRequest:
       type: object
       required:
-      - key_id
-      - payload
+        - key_id
+        - payload
       properties:
         key_id:
           $ref: "#/components/schemas/certId"
@@ -395,7 +395,7 @@ components:
     kmodSignResponse:
       type: object
       required:
-      - signed
+        - signed
       properties:
         signed:
           $ref: "#/components/schemas/base64"

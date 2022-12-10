@@ -42,7 +42,3 @@ def get_esl_path(cert_path, uuid=DEFAULT_EFI_UUID):
             raise RuntimeError("Failed to generate EFI signature list")
 
     return esl_path
-
-
-def init_logging(level=logging.INFO):
-    logging.basicConfig(level=level)
