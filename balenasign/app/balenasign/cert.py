@@ -40,7 +40,7 @@ def new(body, user):
     cmd = [
         "openssl", "req", "-new", "-x509", "-newkey", "rsa:%d" % key_length,
         "-subj", body["subject"], "-keyout", key_path, "-out", cert_path,
-        "-days", "3650", "-sha512", "-nodes"
+        "-days", "3650", "-sha256", "-nodes"
     ]
 
     cmd_result = subprocess.run(cmd)
