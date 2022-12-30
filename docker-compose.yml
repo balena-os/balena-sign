@@ -1,9 +1,151 @@
-version: "2"
+---
+version: "2.4"
+
+x-default-healthcheck: &default-healthcheck
+  interval: 45s
+  timeout: 15s
+  retries: 3
+
+x-default-environment: &default-environment
+  VERBOSE: "false"
+
+x-default-privileges-trait: &with-default-privileges
+  cap_add:
+    - SYS_ADMIN
+    - SYS_RESOURCE
+  security_opt:
+    - apparmor:unconfined
+  tmpfs:
+    - /run
+    - /sys/fs/cgroup
+
+x-extended-privileges-trait: &with-extended-privileges
+  security_opt:
+    - apparmor:unconfined
+    - seccomp:unconfined
+
+x-network-privileges-trait: &with-network-privileges
+  cap_add:
+    - NET_ADMIN
+    - SYS_ADMIN
+    - SYS_RESOURCE
+
+x-base-service-definition: &base-service
+  restart: unless-stopped
 
 services:
-  balenasign:
-    build: ./balenasign
-    restart: always
-    privileged: true
+  # https://github.com/balena-io/open-balena-haproxy
+  haproxy:
+    <<: [
+      *with-default-privileges,
+      *base-service,
+    ]
+    build: src/haproxy
+    sysctls:
+      # https://github.com/docker-library/haproxy/issues/160
+      net.ipv4.ip_unprivileged_port_start: 0
+    healthcheck:
+      <<: *default-healthcheck
+      test: curl -I --fail localhost/health
     ports:
-    - "80:8080"
+      - "80:80/tcp"
+    environment:
+      <<: *default-environment
+      LOGLEVEL: info
+
+  # only relevant when running in AWS/EC2
+  # FIXME: use container contracts when additional types are supported
+  # https://www.balena.io/docs/learn/develop/container-contracts/#valid-contract-types
+  tag-sidecar:
+    image: bash:alpine3.14
+    restart: 'no'
+    entrypoint:
+      - /usr/local/bin/bash
+      - '-c'
+    command:
+      - |
+        set -eua
+
+        [[ $VERBOSE =~ on|On|Yes|yes|true|True ]] && set -x
+
+        [[ $ENABLED == 'true' ]] || exit
+
+        curl_with_opts() {
+            curl --fail --silent --retry 3 --connect-timeout 3 --compressed "$@"
+        }
+
+        get_aws_meta() {
+            if [[ $1 =~ ^.*/$ ]]; then
+                for key in $(curl_with_opts "$1"); do
+                    get_aws_meta "$1${key}"
+                done
+            else
+                echo "$(echo "$1" | cut -c41-);$(curl_with_opts "$1" | tr '\n' ',')"
+            fi
+        }
+
+        which curl || apk add curl --no-cache
+        which jq || apk add jq --no-cache
+
+        device_id="$(curl_with_opts \
+          "${BALENA_API_URL}/v6/device?\$filter=uuid%20eq%20'${BALENA_DEVICE_UUID}'" \
+          -H "Content-Type: application/json" \
+          -H "Authorization: Bearer ${BALENA_API_KEY}" | jq -r .d[].id)"
+
+        for key in $(curl_with_opts http://169.254.169.254/latest/meta-data \
+          | grep -Ev 'iam|metrics|identity-credentials|network|events'); do
+            for kv in $(get_aws_meta "http://169.254.169.254/latest/meta-data/${key}"); do
+                tag_key="$(echo "${kv}" | awk -F';' '{print $1}')"
+                value="$(echo "${kv}" | awk -F';' '{print $2}')"
+
+                curl_with_opts "${BALENA_API_URL}/v6/device_tag" \
+                  -H "Content-Type: application/json" \
+                  -H "Authorization: Bearer ${BALENA_API_KEY}" \
+                  --data "{\"device\":\"${device_id}\",\"tag_key\":\"${tag_key}\",\"value\":\"${value}\"}"
+            done
+        done
+    environment:
+      <<: *default-environment
+      ENABLED: 'true'
+    labels:
+      io.balena.features.balena-api: 1
+
+  # only relevant when running in AWS/EC2
+  ssm-agent:
+    <<: [
+      *with-extended-privileges,
+      *with-network-privileges,
+      *with-default-privileges,
+      *base-service,
+    ]
+    build: src/ssm-agent
+    privileged: true
+    entrypoint:
+      - /bin/sh
+      - '-c'
+    command:
+      - |
+        set -exa
+
+        curl_with_opts() {
+            curl --fail --silent --retry 3 --connect-timeout 3 --compressed "$@"
+        }
+
+        if curl_with_opts http://169.254.169.254/latest/dynamic/instance-identity/document; then
+            exec /usr/bin/amazon-ssm-agent "$@"
+        else
+            sleep infinity
+        fi
+
+    labels:
+      io.balena.features.balena-api: 1
+      io.balena.features.balena-socket: 1
+      io.balena.features.dbus: 1
+      io.balena.features.supervisor-api: 1
+
+  balenasign:
+    build: balenasign
+    privileged: true
+    <<: [
+      *base-service,
+    ]
