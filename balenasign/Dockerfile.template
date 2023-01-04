@@ -22,4 +22,6 @@ COPY api.yml /opt/balena/balenasign/
 RUN chown -R balenasign:balenasign /opt/balena/balenasign
 RUN chmod 0700 /opt/balena/balenasign/secrets/gpg
 
+ENV HOME=/tmp
+
 CMD /usr/local/bin/start.sh
