@@ -1,4 +1,118 @@
 - commits:
+    - subject: Update balena/open-balena-haproxy Docker tag to v4.2.0
+      hash: 015e5813c7d9724b5599921927f92261e3715dbf
+      body: |
+        Update balena/open-balena-haproxy to 4.2.0
+
+        Update balena/open-balena-haproxy from 4.1.3 to 4.2.0
+      footer:
+        Change-type: minor
+        change-type: minor
+      author: Renovate Bot
+      nested: []
+    - subject: Update dependency urllib3 to 1.26.14
+      hash: 543bebab28d49219ece6aa9339bf031f098c627d
+      body: |
+        Update urllib3 to 1.26.14
+
+        Update urllib3 from 1.26.3 to 1.26.14
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+    - subject: Add haproxy + AWS/EC2 specific
+      hash: 0042d89e8711fda6ac399add7278feb6503a4f26
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: ab77
+      nested: []
+    - subject: Update dependency uWSGI to 2.0.21
+      hash: 6e9c6b94ed6ba7defed5d4e62cac57f94c7c76f1
+      body: |
+        Update uWSGI to 2.0.21
+
+        Update uWSGI from 2.0.19.1 to 2.0.21
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+    - subject: Update dependency flask to 1.1.4
+      hash: 2dad1a40a46a0a7aa8f7df9a86adc4b42668f2b5
+      body: |
+        Update flask to 1.1.4
+
+        Update flask from 1.1.2 to 1.1.4
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+    - subject: Use balena-cloud authentication for HTTP security
+      hash: 85b9f86c66ac176a6f78b0583d98d885fee8b519
+      body: ""
+      footer:
+        Closes: "#3"
+        closes: "#3"
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+    - subject: Default to SHA256 hashes in X.509 certificates
+      hash: d82dea8c129d884e0b389b9c77000e957b819b5d
+      body: >
+        This is the minimum required by the UEFI spec, anything more causes
+        failures
+
+        in some UEFI implementations.
+
+
+        While this is technically a regression (going down from SHA512 to SHA256),
+
+        we expect a separate PR to expose this in the API and make SHA512 available
+
+        if requested.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+    - subject: Increase HTTP and socket timeouts
+      hash: f11eb5375c1cdee537c1a334b6fefee9d62395a5
+      body: >
+        This is useful for slow clients or when proxying via the public
+
+        device URL in balenaCloud. In practice we have observed that the default
+
+        60s is exactly the boundary that sometimes works and sometimes times out.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+    - subject: Update to linux-kbuild-5.10 because previous version was not available
+      hash: 92609489cc5fa860ceeda9823057caeab09288d3
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+  version: 0.2.0
+  title: ""
+  date: 2023-01-11T23:06:46.921Z
+- commits:
     - subject: Enable flowzone workflows
       hash: 90322243d243e76ec897d718f2143402c9c3dac2
       body: ""

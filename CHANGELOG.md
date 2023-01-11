@@ -4,6 +4,19 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v0.2.0
+## (2023-01-11)
+
+* Update balena/open-balena-haproxy Docker tag to v4.2.0 [Renovate Bot]
+* Update dependency urllib3 to 1.26.14 [Renovate Bot]
+* Add haproxy + AWS/EC2 specific [ab77]
+* Update dependency uWSGI to 2.0.21 [Renovate Bot]
+* Update dependency flask to 1.1.4 [Renovate Bot]
+* Use balena-cloud authentication for HTTP security [20k-ultra]
+* Default to SHA256 hashes in X.509 certificates [Michal Toman]
+* Increase HTTP and socket timeouts [Michal Toman]
+* Update to linux-kbuild-5.10 because previous version was not available [20k-ultra]
+
 * Enable flowzone workflows [Michal Toman]
 * Add repo.yml to enable versionbot [Michal Toman]
 * Use subprocess.run instead of subprocess.call for executing commands [Michal Toman]
