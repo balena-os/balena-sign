@@ -11,7 +11,7 @@ def create_application():
     load_config(glob=True)
 
     LOG.info(
-        f" api_domain={balenasign.config.CONFIG.api_domain} fleet_id={balenasign.config.CONFIG.fleet_id}")
+        f"Configured to authenticate with FLEET_ID={balenasign.config.CONFIG.fleet_id}")
 
     app = connexion.FlaskApp("balena sign API", options={"swagger_ui": False})
     app.add_api("api.yml")
