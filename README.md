@@ -32,10 +32,7 @@ crypto features implemented in hardware.
 
 ## Configuration
 
-You can specify a different API domain for the authentication backend.
-
-By default balena-sign will use `api.balena-cloud.com` but you can override this by setting
-`BALENA_API_DOMAIN` as an environment variable with the domain for the new balenaCloud API.
+Specify the fleet that the provided `X-API-KEY` value has access to by setting a `FLEET_ID` to the ID of the fleet.
 
 ### Optional
 
