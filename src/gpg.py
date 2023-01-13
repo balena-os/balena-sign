@@ -2,7 +2,7 @@ import binascii
 import gnupg
 import logging
 
-from balenasign.utils import GPG_HOME_DIR
+from utils import GPG_HOME_DIR
 
 
 LOG = logging.getLogger("gpg")

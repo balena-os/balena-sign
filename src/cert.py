@@ -2,7 +2,7 @@ import logging
 import os
 import subprocess
 
-from balenasign.utils import X509_DIR
+from utils import X509_DIR
 
 
 LOG = logging.getLogger("cert")

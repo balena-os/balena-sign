@@ -1,8 +1,8 @@
 import connexion
 import logging
 
-import balenasign.config
-from balenasign.config import load as load_config
+import config
+from config import load as load_config
 
 LOG = logging.getLogger("app")
 
@@ -11,7 +11,8 @@ def create_application():
     load_config(glob=True)
 
     LOG.info(
-        f"Configured to authenticate with FLEET_ID={balenasign.config.CONFIG.fleet_id}")
+        f"Configured to authenticate with FLEET_ID={config.CONFIG.fleet_id}"
+    )
 
     app = connexion.FlaskApp("balena sign API", options={"swagger_ui": False})
     app.add_api("api.yml")

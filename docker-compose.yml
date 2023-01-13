@@ -36,11 +36,8 @@ x-base-service-definition: &base-service
 services:
   # https://github.com/balena-io/open-balena-haproxy
   haproxy:
-    <<: [
-      *with-default-privileges,
-      *base-service,
-    ]
-    build: src/haproxy
+    <<: [*with-default-privileges, *base-service]
+    build: haproxy
     sysctls:
       # https://github.com/docker-library/haproxy/issues/160
       net.ipv4.ip_unprivileged_port_start: 0
@@ -58,10 +55,10 @@ services:
   # https://www.balena.io/docs/learn/develop/container-contracts/#valid-contract-types
   tag-sidecar:
     image: bash:alpine3.14
-    restart: 'no'
+    restart: "no"
     entrypoint:
       - /usr/local/bin/bash
-      - '-c'
+      - "-c"
     command:
       - |
         set -eua
@@ -106,23 +103,24 @@ services:
         done
     environment:
       <<: *default-environment
-      ENABLED: 'true'
+      ENABLED: "true"
     labels:
       io.balena.features.balena-api: 1
 
   # only relevant when running in AWS/EC2
   ssm-agent:
-    <<: [
-      *with-extended-privileges,
-      *with-network-privileges,
-      *with-default-privileges,
-      *base-service,
-    ]
-    build: src/ssm-agent
+    <<:
+      [
+        *with-extended-privileges,
+        *with-network-privileges,
+        *with-default-privileges,
+        *base-service,
+      ]
+    build: ssm-agent
     privileged: true
     entrypoint:
       - /bin/sh
-      - '-c'
+      - "-c"
     command:
       - |
         set -exa
@@ -144,8 +142,6 @@ services:
       io.balena.features.supervisor-api: 1
 
   balenasign:
-    build: balenasign
+    build: .
     privileged: true
-    <<: [
-      *base-service,
-    ]
+    <<: [*base-service]
