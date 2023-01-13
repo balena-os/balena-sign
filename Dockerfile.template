@@ -16,7 +16,7 @@ RUN mkdir -p /opt/balena/balenasign/secrets/gpg
 RUN mkdir -p /opt/balena/balenasign/secrets/x509
 
 COPY start.sh /usr/local/bin/
-COPY app /opt/balena/balenasign
+COPY src /opt/balena/balenasign
 COPY api.yml /opt/balena/balenasign/
 
 RUN chown -R balenasign:balenasign /opt/balena/balenasign

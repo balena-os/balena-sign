@@ -4,7 +4,7 @@ import os
 import subprocess
 import tempfile
 
-from balenasign.utils import X509_DIR, unlink_if_exists
+from utils import X509_DIR, unlink_if_exists
 
 
 LOG = logging.getLogger("kmod")

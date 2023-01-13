@@ -1,7 +1,7 @@
 from balena import Balena 
 from balena.exceptions import ApplicationNotFound
 
-from balenasign.config import CONFIG
+from config import CONFIG
 
 def validate(key, fleet_id=CONFIG.fleet_id, required_scopes=None):
     balena_client = get_client(key)

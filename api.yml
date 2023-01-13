@@ -7,7 +7,7 @@ info:
 paths:
   /gpg/keys:
     get:
-      operationId: balenasign.gpg.keys
+      operationId: gpg.keys
       responses:
         200:
           description: Fingerprints of GPG keys available on the server
@@ -18,7 +18,7 @@ paths:
 
   /gpg/key/{key_id}:
     get:
-      operationId: balenasign.gpg.key
+      operationId: gpg.key
       parameters:
         - $ref: "#/components/parameters/gpgKey"
       responses:
@@ -31,7 +31,7 @@ paths:
 
   /gpg/key:
     post:
-      operationId: balenasign.gpg.new
+      operationId: gpg.new
       security:
         - apiKey: []
       requestBody:
@@ -49,7 +49,7 @@ paths:
 
   /gpg/sign:
     post:
-      operationId: balenasign.gpg.sign
+      operationId: gpg.sign
       security:
         - apiKey: []
       requestBody:
@@ -67,7 +67,7 @@ paths:
 
   /cert:
     post:
-      operationId: balenasign.cert.new
+      operationId: cert.new
       security:
         - apiKey: []
       requestBody:
@@ -85,7 +85,7 @@ paths:
 
   /cert/{cert_id}:
     get:
-      operationId: balenasign.cert.get
+      operationId: cert.get
       parameters:
         - $ref: "#/components/parameters/certId"
       responses:
@@ -98,7 +98,7 @@ paths:
 
   /secureboot/pk/{cert_id}:
     get:
-      operationId: balenasign.secureboot.pk
+      operationId: secureboot.pk
       parameters:
         - $ref: "#/components/parameters/certId"
       responses:
@@ -111,7 +111,7 @@ paths:
 
   /secureboot/kek/{cert_id}:
     get:
-      operationId: balenasign.secureboot.kek
+      operationId: secureboot.kek
       parameters:
         - $ref: "#/components/parameters/certId"
       responses:
@@ -124,7 +124,7 @@ paths:
 
   /secureboot/db/{cert_id}:
     get:
-      operationId: balenasign.secureboot.db
+      operationId: secureboot.db
       parameters:
         - $ref: "#/components/parameters/certId"
       responses:
@@ -137,7 +137,7 @@ paths:
 
   /secureboot/sign:
     post:
-      operationId: balenasign.secureboot.sign
+      operationId: secureboot.sign
       security:
         - apiKey: []
       requestBody:
@@ -155,7 +155,7 @@ paths:
 
   /kmod/cert/{cert_id}:
     get:
-      operationId: balenasign.kmod.cert
+      operationId: kmod.cert
       parameters:
         - $ref: "#/components/parameters/certId"
       responses:
@@ -168,7 +168,7 @@ paths:
 
   /kmod/sign:
     post:
-      operationId: balenasign.kmod.sign
+      operationId: kmod.sign
       security:
         - apiKey: []
       requestBody:
@@ -187,7 +187,7 @@ paths:
 components:
   securitySchemes:
     apiKey:
-      x-apikeyInfoFunc: balenasign.auth.validate
+      x-apikeyInfoFunc: auth.validate
       type: apiKey
       in: header
       name: X-API-Key
