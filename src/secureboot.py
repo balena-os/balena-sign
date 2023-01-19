@@ -114,11 +114,11 @@ def sign(body, user):
     key_id = body["key_id"]
     key_file = os.path.join(X509_DIR, "%s.key" % key_id)
     if not os.path.isfile(key_file):
-        return {"error": "Private key '%s' does not exist" % cert_id}, 404
+        return {"error": "Private key '%s' does not exist" % key_id}, 404
 
     cert_file = os.path.join(X509_DIR, "%s.crt" % key_id)
     if not os.path.isfile(cert_file):
-        return {"error": "Certificate '%s' does not exist" % cert_id}, 404
+        return {"error": "Certificate '%s' does not exist" % key_id}, 404
 
     try:
         payload = binascii.a2b_base64(body["payload"])
