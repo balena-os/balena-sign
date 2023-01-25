@@ -31,7 +31,12 @@ x-network-privileges-trait: &with-network-privileges
     - SYS_RESOURCE
 
 x-base-service-definition: &base-service
+  volumes:
+    - secrets:/opt/balena/balenasign/secrets
   restart: unless-stopped
+
+volumes:
+  secrets:
 
 services:
   # https://github.com/balena-io/open-balena-haproxy
