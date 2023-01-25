@@ -43,3 +43,21 @@ def get_esl_path(cert_path, efi_uuid=None):
             raise RuntimeError("Failed to generate EFI signature list")
 
     return esl_path
+
+
+def get_der_path(cert_path):
+    if not cert_path.endswith(".crt"):
+        raise ValueError("`cert_path` must end with .crt")
+
+    der_path = "%s.der" % (cert_path[:-4])
+
+    if not os.path.isfile(der_path):
+        cmd = ["openssl", "x509", "-in", cert_path, "-outform", "der", "-out", der_path]
+        cmd_result = subprocess.run(cmd)
+
+        if cmd_result.returncode != 0:
+            raise RuntimeError(
+                "Failed to generate DER version of the certificate"
+            )
+
+    return der_path
