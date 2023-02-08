@@ -29,6 +29,9 @@ def new(body, user):
     key = gpg.gen_key(key_input)
 
     response = {"fingerprint": key.fingerprint}
+
+    LOG.info("%s successfully generated a new gpg key %s", user, key.fingerprint)
+
     return response
 
 
