@@ -24,6 +24,41 @@ paths:
               schema:
                 $ref: "#/components/schemas/bootstrapResponse"
 
+  /import:
+    post:
+      operationId: vault.import_secrets
+      description: Import signing material from an encrypted file
+      security:
+        - apiKey: []
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/importRequest"
+      responses:
+        204:
+          description: Signing material successfully imported
+
+  /export:
+    post:
+      operationId: vault.export_secrets
+      description: Encrypt signing material and export as a single file
+      security:
+        - apiKey: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/exportRequest"
+      responses:
+        200:
+          description: Signing material successfully exported
+          content:
+            application/octet-stream:
+              schema:
+                type: string
+                format: binary
+
   /gpg/keys:
     get:
       operationId: gpg.keys
@@ -377,6 +412,33 @@ components:
     gpgKeyNameComment:
       type: string
       default: ""
+
+    symmetricKey:
+      type: string
+      description: Used with a cipher to encrypt/decrypt data
+
+    encryptedSecrets:
+      type: string
+      format: binary
+
+    importRequest:
+      type: object
+      required:
+        - symmetricKey
+        - encryptedSecrets
+      properties:
+        symmetricKey:
+          $ref: "#/components/schemas/symmetricKey"
+        encryptedSecrets:
+          $ref: "#/components/schemas/encryptedSecrets"
+
+    exportRequest:
+      type: object
+      required:
+        - symmetricKey
+      properties:
+        symmetricKey:
+          $ref: "#/components/schemas/symmetricKey"
 
     gpgKeysResponse:
       type: object

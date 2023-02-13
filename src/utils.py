@@ -6,16 +6,20 @@ import uuid
 
 
 __all__ = [
-    "APP_DIR", "GPG_HOME_DIR", "MODULE_DIR", "SECRETS_DIR",
-    "X509_DIR", "unlink_if_exists"
+    "APP_DIR",
+    "GPG_HOME_DIR",
+    "MODULE_DIR",
+    "VAULT_DIR",
+    "X509_DIR",
+    "unlink_if_exists",
 ]
 
 
 MODULE_DIR = os.path.dirname(__file__)
 APP_DIR = os.path.dirname(MODULE_DIR)
-SECRETS_DIR = os.path.join(APP_DIR, "secrets")
-GPG_HOME_DIR = os.path.join(SECRETS_DIR, "gpg")
-X509_DIR = os.path.join(SECRETS_DIR, "x509")
+VAULT_DIR = os.path.join(APP_DIR, "secrets")
+GPG_HOME_DIR = os.path.join(VAULT_DIR, "gpg")
+X509_DIR = os.path.join(VAULT_DIR, "x509")
 
 
 def unlink_if_exists(path):
@@ -56,8 +60,6 @@ def get_der_path(cert_path):
         cmd_result = subprocess.run(cmd)
 
         if cmd_result.returncode != 0:
-            raise RuntimeError(
-                "Failed to generate DER version of the certificate"
-            )
+            raise RuntimeError("Failed to generate DER version of the certificate")
 
     return der_path
