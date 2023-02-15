@@ -153,7 +153,7 @@ paths:
     get:
       operationId: secureboot.get_pk
       parameters:
-        - $ref: "#/components/parameters/certId"
+        - $ref: "#/components/parameters/certIdList"
       responses:
         200:
           description: base64-encoded platform key for UEFI
@@ -184,7 +184,7 @@ paths:
     get:
       operationId: secureboot.get_kek
       parameters:
-        - $ref: "#/components/parameters/certId"
+        - $ref: "#/components/parameters/certIdList"
       responses:
         200:
           description: base64-encoded key exchange key for UEFI
@@ -215,7 +215,7 @@ paths:
     get:
       operationId: secureboot.get_db
       parameters:
-        - $ref: "#/components/parameters/certId"
+        - $ref: "#/components/parameters/certIdList"
       responses:
         200:
           description: base64-encoded db for UEFI
@@ -338,6 +338,15 @@ components:
       schema:
         $ref: "#/components/schemas/certId"
 
+    certIdList:
+      name: cert_id
+      description: Multiple IDs of the certificates to fetch
+      in: path
+      required: true
+      explode: true
+      schema:
+        $ref: "#/components/schemas/certIdList"
+
   schemas:
     base64:
       type: string
@@ -353,6 +362,11 @@ components:
     certData:
       type: string
       example: "-----BEGIN CERTIFICATE-----\nMIIDxzCCAq+gAwIBAgIUSuCy+XvUSQSSDinU0qUAmt4lnZ0wDQYJKoZIhvcNAQEL\nBQAwczELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xEDAOBgNVBAcM\nB1NlYXR0bGUxFTATBgNVBAoMDEJhbGVuYSwgSW5jLjELMAkGA1UECwwCSVQxGTAX\nBgNVBAMMEGJhbGVuYS1jbG91ZC5jb20wHhcNMjMwMjA4MjMyOTM0WhcNMzMwMjA1\nMjMyOTM0WjBzMQswCQYDVQQGEwJVUzETMBEGA1UECAwKV2FzaGluZ3RvbjEQMA4G\nA1UEBwwHU2VhdHRsZTEVMBMGA1UECgwMQmFsZW5hLCBJbmMuMQswCQYDVQQLDAJJ\nVDEZMBcGA1UEAwwQYmFsZW5hLWNsb3VkLmNvbTCCASIwDQYJKoZIhvcNAQEBBQAD\nggEPADCCAQoCggEBAMBUb+7YMkQqJiTZPAVd62ifTWP3+AjjYIfNoroTZFnLVPQ3\n54dv1sAoPek7xesBwwCuq9HoKBHp7Uk9bNiE13JsMp5DucnndHIuiQGd+XYkHTAQ\nhhrUrzaBX+R7fzaL2ziHz7sRgUn1HK17Vasc9zOmiF7grrG89QYkBa53Se9q2/rA\nqOqi12FdnhcBUwha+/58CpCXi/m8fKj6U9z46GJkx++Lx65I7nWvdJFTT9oKZAQT\nzV9igB3SU2QHREE5bQoLr2h8Lc8l3znyyy9MV0xrUsccct8VSMd0jiETJfpA/Bjp\n/oTajcJKjebQeskFCKdxoAb2hQosBUhvBIswUxkCAwEAAaNTMFEwHQYDVR0OBBYE\nFBck/AQEhIe4i0l1H5dN6KsaI9HrMB8GA1UdIwQYMBaAFBck/AQEhIe4i0l1H5dN\n6KsaI9HrMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAJWEw5df\nngqgMyp0mvyRV+BodQweAUIQ/DpCTY+EHET1DncNKVSB3M4JolGbbD7qnQpN1+PE\ng7J+ukxtfc2QmsEs9Wi+/+01j9iCm0m+H5JoOxBKJ+kBYJEciHjcosTCRCqc++Dm\nXhBG2DjASP/oOOLc9NzUPMXiSNXfBNkheluJNbNGMV6qDnEVnTG/5/hnbvylGONi\nb2UxbEo0J8l+1iXkWMLkH6U5NDit/97WvJlaE/oJJVCp+DNbupH/E8b19jW+ht7/\nEKt5BlUoE+d4UQJfai8nROkqqw64cxv+f6VgYYZHIqTbKn75SYBEy85mHsdv3TYN\nCRhjJiTOvxQg9FE=\n-----END CERTIFICATE-----\n"
+
+    certIdList:
+      type: array
+      items:
+        $ref: "#/components/schemas/certId"
 
     keyLength:
       type: integer
@@ -578,7 +592,9 @@ components:
         append:
           type: boolean
         key_id:
-          $ref: "#/components/schemas/certId"
+          oneOf:
+            - $ref: "#/components/schemas/certId"
+            - $ref: "#/components/schemas/certIdList"
         signing_key_id:
           $ref: "#/components/schemas/certId"
 
