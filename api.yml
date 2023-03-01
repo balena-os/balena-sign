@@ -305,22 +305,6 @@ components:
         - 2048
         - 4096
 
-    certIds:
-      type: object
-      properties:
-        db:
-          type: string
-          example: "balenaos-db"
-        kmod:
-          type: string
-          example: "balenaos-kmod"
-        pk:
-          type: string
-          example: "balenaos-pk"
-        kek:
-          type: string
-          example: "balenaos-kek"
-
     bootstrapRequest:
       type: object
       required:
@@ -332,15 +316,18 @@ components:
         certificates:
           type: object
           required:
-            - ids
-            - subject
+            - pk
+            - kek
+            - kmod
           properties:
-            ids:
-              $ref: "#/components/schemas/certIds"
-            subject:
-              $ref: "#/components/schemas/certSubject"
-            key_length:
-              $ref: "#/components/schemas/keyLength"
+            pk:
+              $ref: "#/components/schemas/certNewRequest"
+            kek:
+              $ref: "#/components/schemas/certNewRequest"
+            db:
+              $ref: "#/components/schemas/certNewRequest"
+            kmod:
+              $ref: "#/components/schemas/certNewRequest"
 
     bootstrapResponse:
       type: object
@@ -353,18 +340,17 @@ components:
         certificates:
           type: object
           required:
-            - db
-            - kmod
             - pk
             - kek
+            - kmod
           properties:
-            db:
-              $ref: "#/components/schemas/certData"
-            kmod:
-              $ref: "#/components/schemas/certData"
             pk:
               $ref: "#/components/schemas/certData"
             kek:
+              $ref: "#/components/schemas/certData"
+            db:
+              $ref: "#/components/schemas/certData"
+            kmod:
               $ref: "#/components/schemas/certData"
 
     gpgKey:
