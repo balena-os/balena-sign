@@ -24,6 +24,40 @@ paths:
               schema:
                 $ref: "#/components/schemas/bootstrapResponse"
 
+  /import:
+    post:
+      operationId: vault.import_secrets
+      description: Import signing material from an encrypted file
+      security:
+        - apiKey: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/importRequest"
+      responses:
+        204:
+          description: Signing material successfully imported
+
+  /export:
+    post:
+      operationId: vault.export_secrets
+      description: Encrypt signing material and export as a single file
+      security:
+        - apiKey: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/exportRequest"
+      responses:
+        200:
+          description: Signing material successfully exported
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/exportResponse"
+
   /gpg/keys:
     get:
       operationId: gpg.keys
@@ -285,7 +319,7 @@ components:
   schemas:
     base64:
       type: string
-      pattern: "^[a-zA-Z0-9/\\+]+=?=?$"
+      pattern: "^[a-zA-Z0-9_/\\+\\-]+=?=?$"
 
     certId:
       type: string
@@ -377,6 +411,39 @@ components:
     gpgKeyNameComment:
       type: string
       default: ""
+
+    importRequest:
+      type: object
+      required:
+        - key
+        - data
+        - salt
+      properties:
+        key:
+          $ref: "#/components/schemas/base64"
+        data:
+          $ref: "#/components/schemas/base64"
+        salt:
+          $ref: "#/components/schemas/base64"
+
+    exportRequest:
+      type: object
+      required:
+        - key
+      properties:
+        key:
+          $ref: "#/components/schemas/base64"
+
+    exportResponse:
+      type: object
+      required:
+        - data
+        - salt
+      properties:
+        data:
+          $ref: "#/components/schemas/base64"
+        salt:
+          $ref: "#/components/schemas/base64"
 
     gpgKeysResponse:
       type: object
