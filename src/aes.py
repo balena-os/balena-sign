@@ -1,45 +1,42 @@
+import binascii
+import os
+
 from cryptography.fernet import Fernet
 from cryptography.hazmat.primitives import hashes
 from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
-import base64
-import os
 
 ITERATIONS = 100000
 KEY_LENGTH = 32
 SALT_LENGTH = 16
 
 
-def encrypt_file(fd, passphrase):
+def encrypt(data, passphrase):
     # Derive a secure key from the passphrase
     salt = os.urandom(SALT_LENGTH)
     key = derive_key(passphrase.encode(), salt)
-
-    # Read the plaintext from the file
-    plaintext = fd.read()
 
     # Init fernet class
     f = Fernet(key)
 
     # Encrypt plaintext
-    ciphertext = f.encrypt(plaintext)
+    ciphertext = f.encrypt(data)
 
-    # Return the salt and ciphertext 
-    return salt + ciphertext
+    # Return the salt and ciphertext
+    return {
+        "data": ciphertext.decode(),
+        "salt": binascii.b2a_base64(salt).decode().rstrip("\n")
+    }
 
 
-def decrypt_file(fd, passphrase):
-    # Read the salt and ciphertext from the encrypted file
-    salt = fd.read(SALT_LENGTH)
-    ciphertext = fd.read()
-
+def decrypt(data, salt, passphrase):
     # Use the passphrase and salt to derive a key
-    key = derive_key(passphrase.encode(), salt)
+    key = derive_key(passphrase.encode(), binascii.a2b_base64(salt.encode()))
 
     # Init fernet class
     f = Fernet(key)
 
     # Decrypt ciphertext
-    plaintext = f.decrypt(ciphertext)
+    plaintext = f.decrypt(data)
 
     # Return the plaintext of the decrypted file
     return plaintext
@@ -54,4 +51,4 @@ def derive_key(passphrase, salt):
         length=KEY_LENGTH,
     )
     # Return key and salt used (salt is needed to reconstruct key)
-    return base64.urlsafe_b64encode(kdf.derive(passphrase))
+    return binascii.b2a_base64(kdf.derive(passphrase))

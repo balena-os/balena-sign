@@ -32,7 +32,7 @@ paths:
         - apiKey: []
       requestBody:
         content:
-          multipart/form-data:
+          application/json:
             schema:
               $ref: "#/components/schemas/importRequest"
       responses:
@@ -54,10 +54,9 @@ paths:
         200:
           description: Signing material successfully exported
           content:
-            application/octet-stream:
+            application/json:
               schema:
-                type: string
-                format: binary
+                $ref: "#/components/schemas/exportResponse"
 
   /gpg/keys:
     get:
@@ -320,7 +319,7 @@ components:
   schemas:
     base64:
       type: string
-      pattern: "^[a-zA-Z0-9/\\+]+=?=?$"
+      pattern: "^[a-zA-Z0-9_/\\+\\-]+=?=?$"
 
     certId:
       type: string
@@ -413,32 +412,38 @@ components:
       type: string
       default: ""
 
-    symmetricKey:
-      type: string
-      description: Used with a cipher to encrypt/decrypt data
-
-    encryptedSecrets:
-      type: string
-      format: binary
-
     importRequest:
       type: object
       required:
-        - symmetricKey
-        - encryptedSecrets
+        - key
+        - data
+        - salt
       properties:
-        symmetricKey:
-          $ref: "#/components/schemas/symmetricKey"
-        encryptedSecrets:
-          $ref: "#/components/schemas/encryptedSecrets"
+        key:
+          $ref: "#/components/schemas/base64"
+        data:
+          $ref: "#/components/schemas/base64"
+        salt:
+          $ref: "#/components/schemas/base64"
 
     exportRequest:
       type: object
       required:
-        - symmetricKey
+        - key
       properties:
-        symmetricKey:
-          $ref: "#/components/schemas/symmetricKey"
+        key:
+          $ref: "#/components/schemas/base64"
+
+    exportResponse:
+      type: object
+      required:
+        - data
+        - salt
+      properties:
+        data:
+          $ref: "#/components/schemas/base64"
+        salt:
+          $ref: "#/components/schemas/base64"
 
     gpgKeysResponse:
       type: object
