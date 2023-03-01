@@ -5,6 +5,25 @@ info:
   version: 0.9.1
 
 paths:
+  /bootstrap:
+    post:
+      operationId: app.bootstrap
+      description: Create all the signing material needed in one step
+      security:
+        - apiKey: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/bootstrapRequest"
+      responses:
+        200:
+          description: Values of created signing material
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/bootstrapResponse"
+
   /gpg/keys:
     get:
       operationId: gpg.keys
@@ -113,7 +132,7 @@ paths:
     post:
       operationId: secureboot.sign_pk
       security:
-      - apiKey: []
+        - apiKey: []
       requestBody:
         content:
           application/json:
@@ -144,7 +163,7 @@ paths:
     post:
       operationId: secureboot.sign_kek
       security:
-      - apiKey: []
+        - apiKey: []
       requestBody:
         content:
           application/json:
@@ -175,7 +194,7 @@ paths:
     post:
       operationId: secureboot.sign_db
       security:
-      - apiKey: []
+        - apiKey: []
       requestBody:
         content:
           application/json:
@@ -273,9 +292,11 @@ components:
 
     certSubject:
       type: string
+      example: "/C=US/ST=Washington/L=Seattle/O=Balena, Inc./OU=IT/CN=balena-cloud.com"
 
     certData:
       type: string
+      example: "-----BEGIN CERTIFICATE-----\nMIIDxzCCAq+gAwIBAgIUSuCy+XvUSQSSDinU0qUAmt4lnZ0wDQYJKoZIhvcNAQEL\nBQAwczELMAkGA1UEBhMCVVMxEzARBgNVBAgMCldhc2hpbmd0b24xEDAOBgNVBAcM\nB1NlYXR0bGUxFTATBgNVBAoMDEJhbGVuYSwgSW5jLjELMAkGA1UECwwCSVQxGTAX\nBgNVBAMMEGJhbGVuYS1jbG91ZC5jb20wHhcNMjMwMjA4MjMyOTM0WhcNMzMwMjA1\nMjMyOTM0WjBzMQswCQYDVQQGEwJVUzETMBEGA1UECAwKV2FzaGluZ3RvbjEQMA4G\nA1UEBwwHU2VhdHRsZTEVMBMGA1UECgwMQmFsZW5hLCBJbmMuMQswCQYDVQQLDAJJ\nVDEZMBcGA1UEAwwQYmFsZW5hLWNsb3VkLmNvbTCCASIwDQYJKoZIhvcNAQEBBQAD\nggEPADCCAQoCggEBAMBUb+7YMkQqJiTZPAVd62ifTWP3+AjjYIfNoroTZFnLVPQ3\n54dv1sAoPek7xesBwwCuq9HoKBHp7Uk9bNiE13JsMp5DucnndHIuiQGd+XYkHTAQ\nhhrUrzaBX+R7fzaL2ziHz7sRgUn1HK17Vasc9zOmiF7grrG89QYkBa53Se9q2/rA\nqOqi12FdnhcBUwha+/58CpCXi/m8fKj6U9z46GJkx++Lx65I7nWvdJFTT9oKZAQT\nzV9igB3SU2QHREE5bQoLr2h8Lc8l3znyyy9MV0xrUsccct8VSMd0jiETJfpA/Bjp\n/oTajcJKjebQeskFCKdxoAb2hQosBUhvBIswUxkCAwEAAaNTMFEwHQYDVR0OBBYE\nFBck/AQEhIe4i0l1H5dN6KsaI9HrMB8GA1UdIwQYMBaAFBck/AQEhIe4i0l1H5dN\n6KsaI9HrMA8GA1UdEwEB/wQFMAMBAf8wDQYJKoZIhvcNAQELBQADggEBAJWEw5df\nngqgMyp0mvyRV+BodQweAUIQ/DpCTY+EHET1DncNKVSB3M4JolGbbD7qnQpN1+PE\ng7J+ukxtfc2QmsEs9Wi+/+01j9iCm0m+H5JoOxBKJ+kBYJEciHjcosTCRCqc++Dm\nXhBG2DjASP/oOOLc9NzUPMXiSNXfBNkheluJNbNGMV6qDnEVnTG/5/hnbvylGONi\nb2UxbEo0J8l+1iXkWMLkH6U5NDit/97WvJlaE/oJJVCp+DNbupH/E8b19jW+ht7/\nEKt5BlUoE+d4UQJfai8nROkqqw64cxv+f6VgYYZHIqTbKn75SYBEy85mHsdv3TYN\nCRhjJiTOvxQg9FE=\n-----END CERTIFICATE-----\n"
 
     keyLength:
       type: integer
@@ -284,12 +305,61 @@ components:
         - 2048
         - 4096
 
+    bootstrapRequest:
+      type: object
+      required:
+        - gpg
+        - certificates
+      properties:
+        gpg:
+          $ref: "#/components/schemas/gpgNewRequest"
+        certificates:
+          type: object
+          required:
+            - pk
+            - kek
+            - kmod
+          properties:
+            pk:
+              $ref: "#/components/schemas/certNewRequest"
+            kek:
+              $ref: "#/components/schemas/certNewRequest"
+            db:
+              $ref: "#/components/schemas/certNewRequest"
+            kmod:
+              $ref: "#/components/schemas/certNewRequest"
+
+    bootstrapResponse:
+      type: object
+      required:
+        - gpg
+        - certificates
+      properties:
+        gpg:
+          $ref: "#/components/schemas/gpgNewResponse"
+        certificates:
+          type: object
+          required:
+            - pk
+            - kek
+            - kmod
+          properties:
+            pk:
+              $ref: "#/components/schemas/certData"
+            kek:
+              $ref: "#/components/schemas/certData"
+            db:
+              $ref: "#/components/schemas/certData"
+            kmod:
+              $ref: "#/components/schemas/certData"
+
     gpgKey:
       type: string
 
     gpgKeyFingerprint:
       type: string
       pattern: "^[a-fA-F0-9]+$"
+      example: "61D762833B1F104A4237E7E5B9C6464953950D96"
 
     gpgKeyFingerprintList:
       type: array
@@ -298,12 +368,15 @@ components:
 
     gpgKeyNameReal:
       type: string
+      example: "balenaOS build server"
 
     gpgKeyNameEmail:
       type: string
+      example: "security@balena.io"
 
     gpgKeyNameComment:
       type: string
+      default: ""
 
     gpgKeysResponse:
       type: object
@@ -411,7 +484,7 @@ components:
     securebootESLSignRequest:
       type: object
       required:
-      - key_id
+        - key_id
       properties:
         key_id:
           $ref: "#/components/schemas/certId"
