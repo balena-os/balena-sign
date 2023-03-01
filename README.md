@@ -30,6 +30,19 @@ crypto features implemented in hardware.
 1. Deploy the app to balenaCloud.
 2. Set the `FLEED_ID` environment variable for balena-sign to check for authentication.
 
+You can bootstrap all the secrets necessary for integration with balenaOS yocto build using a single bootstrap command:
+```
+curl -X POST -H "X-API-Key: XXX" -H "Content-type: application/json" -d '{
+  "gpg": {"name_real": "balenaOS GRUB GPG key", "name_email": "security@balena.io"},
+  "certificates": {
+    "pk": {"cert_id": "balenaos-pk", "subject": "/CN=balenaOS PK/"},
+    "kek": {"cert_id": "balenaos-kek", "subject": "/CN=balenaOS KEK/"},
+    "db": {"cert_id": "balenaos-db", "subject": "/CN=balenaOS db/"},
+    "kmod": {"cert_id": "balenaos-kmod", "subject": "/CN=key for signing 3rd party balenaOS kernel modules/", "key_length": 4096}
+  }
+}'
+```
+
 ## Configuration
 
 Specify the fleet that the provided `X-API-KEY` value has access to by setting a `FLEET_ID` to the ID of the fleet.
