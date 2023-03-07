@@ -1,4 +1,274 @@
 - commits:
+    - subject: "flowzone: don't try to publish"
+      hash: 4af679b393a2566b56cce78409189c2542aceb5f
+      body: |
+        The balena-sign application will live in a restricted fleet and
+        deployments will be managed manually with specific restricted keys
+        to access it (BalenaCloud(balena-restricted) API token)
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+    - subject: "app: fix signing of kek and db certificates"
+      hash: b0a7823ee14fec10752eecce2f7f94905b382c46
+      body: >
+        Correct what seems some copy/paste errors that make the bootstrap endpoint
+
+        not generate the singned certificates correctly.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+    - subject: Change import/export API from binary to JSON
+      hash: 2e4934815cc234dee93bd6c5ab8f15677ef0fd0a
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+    - subject: Added endpoints to export/import AES encrypted backups of vault
+      hash: 68ccf5253d9eb3b015f79aa5911ec6b8f2fc5456
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+    - subject: Add example bootstrap command to README
+      hash: c8999377de4326f1c0b40e8c3734b08e80e17155
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+    - subject: Extend bootstrap functionality
+      hash: 6857d1077afd89c816fa409772a7adb6b9027d82
+      body: |
+        Update the /bootstrap endpoint to
+        - Treat each cert individually, do not share subject
+        - Make db optional
+        - Chain-sign PK->PK, PK->KEK, KEK->db
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+    - subject: Added `POST /bootstrap` to quickly setup all signing material needed
+      hash: 1ac60316fb090f1ed0305c61d722619338383a9d
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+    - subject: Also provide certificates in DER format
+      hash: 98de3c5cf72fe18479582c93bbb0252cd02e6c0c
+      body: |
+        We want to use Tianocore with QEMU, this only accepts DER certs.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+    - subject: Allow chain-signing of secure boot variables
+      hash: 1618bb3c94cb570f539f67f294ec2e1c06790ff3
+      body: >
+        We want to be able to self-sign PK, sign KEK with PK and sign db with KEK
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+    - subject: Added a volume for secret storage to persist across updates
+      hash: 0a8f851b1ddae32c44d034186f4d9bb38e7b0340
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+    - subject: Use correct variable when logging missing key_id
+      hash: cf96666159376084b38ac5beae8f7c75fa2c3a0e
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+    - subject: Refactor project structure so the source is easier to find
+      hash: 0561e3cb086bb568509d40fd976cb7232a0c6183
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+    - subject: Move container source out of src folder This is to avoid confusion that
+        this folder does not container the source for the balena-sign
+        application
+      hash: e1088b04a5c04bac3cd785e2858a311928bc29ff
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+    - subject: Remove `BALENA_API_DOMAIN` config because it was broken Unable to
+        quickly resolve so removing for now
+      hash: c7a31a580f3dab50a9895fb86ebb68ebd4d6f8b0
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+    - subject: Add .gitignore for .venv This is so you can use virtual env to install
+        the project dependencies so your editor's LSP can properly provide error
+        checking
+      hash: ffa82171b22c663f3532a7850bce9ef617c50611
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+    - subject: Update dependency urllib3 to 1.26.14
+      hash: 543bebab28d49219ece6aa9339bf031f098c627d
+      body: |
+        Update urllib3 to 1.26.14
+
+        Update urllib3 from 1.26.3 to 1.26.14
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+    - subject: Add haproxy + AWS/EC2 specific
+      hash: 0042d89e8711fda6ac399add7278feb6503a4f26
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: ab77
+      nested: []
+    - subject: Update dependency uWSGI to 2.0.21
+      hash: 6e9c6b94ed6ba7defed5d4e62cac57f94c7c76f1
+      body: |
+        Update uWSGI to 2.0.21
+
+        Update uWSGI from 2.0.19.1 to 2.0.21
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+    - subject: Update dependency flask to 1.1.4
+      hash: 2dad1a40a46a0a7aa8f7df9a86adc4b42668f2b5
+      body: |
+        Update flask to 1.1.4
+
+        Update flask from 1.1.2 to 1.1.4
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: Renovate Bot
+      nested: []
+    - subject: Use balena-cloud authentication for HTTP security
+      hash: 85b9f86c66ac176a6f78b0583d98d885fee8b519
+      body: ""
+      footer:
+        Closes: "#3"
+        closes: "#3"
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+    - subject: Default to SHA256 hashes in X.509 certificates
+      hash: d82dea8c129d884e0b389b9c77000e957b819b5d
+      body: >
+        This is the minimum required by the UEFI spec, anything more causes
+        failures
+
+        in some UEFI implementations.
+
+
+        While this is technically a regression (going down from SHA512 to SHA256),
+
+        we expect a separate PR to expose this in the API and make SHA512 available
+
+        if requested.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+    - subject: Increase HTTP and socket timeouts
+      hash: f11eb5375c1cdee537c1a334b6fefee9d62395a5
+      body: >
+        This is useful for slow clients or when proxying via the public
+
+        device URL in balenaCloud. In practice we have observed that the default
+
+        60s is exactly the boundary that sometimes works and sometimes times out.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+    - subject: Update to linux-kbuild-5.10 because previous version was not available
+      hash: 92609489cc5fa860ceeda9823057caeab09288d3
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+        signed-off-by: 20k-ultra <3946250+20k-ultra@users.noreply.github.com>
+      author: 20k-ultra
+      nested: []
+  version: 0.2.0
+  title: ""
+  date: 2023-03-07T13:58:42.045Z
+- commits:
     - subject: Enable flowzone workflows
       hash: 90322243d243e76ec897d718f2143402c9c3dac2
       body: ""
