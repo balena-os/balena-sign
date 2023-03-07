@@ -30,12 +30,12 @@ def bootstrap(body, user):
     pk_cert_id = body["certificates"]["pk"]["cert_id"]
     sign_pk({"key_id": pk_cert_id, "signing_key_id": pk_cert_id}, user)
 
-    kek_cert_id = body["certificates"]["pk"]["cert_id"]
-    sign_kek({"key_id": kek_cert_id, "signing_key_id": pk_cert_id}, user)
+    kek_cert_id = body["certificates"]["kek"]["cert_id"]
+    sign_kek({"key_id": kek_cert_id, "signing_key_id": kek_cert_id}, user)
 
     if "db" in body["certificates"]:
         db_cert_id = body["certificates"]["db"]["cert_id"]
-        sign_db({"key_id": db_cert_id, "signing_key_id": kek_cert_id}, user)
+        sign_db({"key_id": db_cert_id, "signing_key_id": db_cert_id}, user)
 
     # Create gpg key pair
     gpg = create_gpg(body["gpg"], user)
