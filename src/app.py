@@ -31,7 +31,7 @@ def bootstrap(body, user):
     sign_pk({"key_id": pk_cert_id, "signing_key_id": pk_cert_id}, user)
 
     kek_cert_id = body["certificates"]["kek"]["cert_id"]
-    sign_kek({"key_id": kek_cert_id, "signing_key_id": kek_cert_id}, user)
+    sign_kek({"key_id": kek_cert_id, "signing_key_id": pk_cert_id}, user)
 
     if "db" in body["certificates"]:
         db_cert_id = body["certificates"]["db"]["cert_id"]
