@@ -1,4 +1,20 @@
 - commits:
+    - subject: "bootstrap: do not self-sign KEK, sign by PK instead"
+      hash: 51a43dee36ea9115c8a98197092e3ba950865d0d
+      body: |
+        This was a copy/paste error, while it would work for initial
+        provisioning as is, HUP would fail.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+  version: 0.2.1
+  title: ""
+  date: 2023-03-08T19:35:00.630Z
+- commits:
     - subject: "flowzone: don't try to publish"
       hash: 4af679b393a2566b56cce78409189c2542aceb5f
       body: |
