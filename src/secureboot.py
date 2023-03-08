@@ -54,39 +54,48 @@ def _get_signed_esl(cert_id, var):
     return response
 
 
-def _sign_esl(cert_id, signing_cert_id, var):
+def _sign_esl(signing_cert_id, var, cert_id=None, esl_data=None):
     if var not in ALLOWED_VARS:
         raise ValueError("`var` must be one of %s" % ALLOWED_VARS)
 
-    cert_filename = "%s.crt" % cert_id
-    cert_path = os.path.join(X509_DIR, cert_filename)
-
-    if not os.path.isfile(cert_path):
-        return {"error": "Certificate '%s' does not exist" % cert_id}, 404
-
     signing_cert_filename = "%s.crt" % signing_cert_id
     signing_cert_path = os.path.join(X509_DIR, signing_cert_filename)
-
     if not os.path.isfile(signing_cert_path):
         return {
             "error": "Certificate '%s' does not exist" % signing_cert_id
         }, 404
 
-    auth_path = "%s.%s.auth" % (cert_path[:-4], var)
-    if os.path.isfile(auth_path):
-        return {
-            "error": "%s for '%s' has already been signed" % (var, cert_id)
-        }, 409
-
     signing_key_filename = "%s.key" % signing_cert_id
     signing_key_path = os.path.join(X509_DIR, signing_key_filename)
-
     if not os.path.isfile(signing_key_path):
         return {
             "error": "Private key '%s' does not exist" % signing_cert_id
         }, 404
 
-    esl_path = get_esl_path(cert_path)
+    if cert_id is not None:
+        cert_filename = "%s.crt" % cert_id
+        cert_path = os.path.join(X509_DIR, cert_filename)
+        if not os.path.isfile(cert_path):
+            return {"error": "Certificate '%s' does not exist" % cert_id}, 404
+
+        auth_path = "%s.%s.auth" % (cert_path[:-4], var)
+        if os.path.isfile(auth_path):
+            return {
+                "error": "%s for '%s' has already been signed" % (var, cert_id)
+            }, 409
+
+        esl_path = get_esl_path(cert_path)
+
+    elif esl_data is not None:
+        with tempfile.NamedTemporaryFile(delete=False) as esl_file:
+            esl_path = esl_file.name
+            esl_file.write(esl_data)
+
+        auth_path = "%s.auth" % esl_path
+
+    else:
+        return {"error": "Either 'cert_id' or 'esl' must be defined"}, 400
+
     cmd = [
         "sign-efi-sig-list", "-k", signing_key_path, "-c", signing_cert_path,
         var, esl_path, auth_path
@@ -96,6 +105,17 @@ def _sign_esl(cert_id, signing_cert_id, var):
         return {"error": "Failed to sign EFI signature list"}, 500
 
     response = {}
+    if esl_data is not None:
+        with open(auth_path, "rb") as auth_file:
+            auth_data = auth_file.read(1 << 28)
+
+        os.unlink(auth_path)
+        os.unlink(esl_path)
+
+        response = {
+            "auth": binascii.b2a_base64(auth_data).decode().rstrip("\n")
+        }
+
     return response
 
 
@@ -115,21 +135,32 @@ def sign_pk(body, user):
     cert_id = body["key_id"]
     signing_cert_id = body.get("signing_key_id", cert_id)
 
-    return _sign_esl(cert_id, signing_cert_id, "PK")
+    return _sign_esl(signing_cert_id, "PK", cert_id=cert_id)
 
 
 def sign_kek(body, user):
     cert_id = body["key_id"]
     signing_cert_id = body.get("signing_key_id", cert_id)
 
-    return _sign_esl(cert_id, signing_cert_id, "KEK")
+    return _sign_esl(signing_cert_id, "KEK", cert_id=cert_id)
 
 
 def sign_db(body, user):
-    cert_id = body["key_id"]
-    signing_cert_id = body.get("signing_key_id", cert_id)
+    # Internal ESL
+    if "key_id" in body:
+        cert_id = body["key_id"]
+        signing_cert_id = body.get("signing_key_id", cert_id)
 
-    return _sign_esl(cert_id, signing_cert_id, "db")
+        return _sign_esl(signing_cert_id, "db", cert_id=cert_id)
+
+    # External ESL
+    signing_cert_id = body["signing_key_id"]
+    try:
+        esl_data = binascii.a2b_base64(body["esl"])
+    except Exception as ex:
+        return {"error": "Failed to base64-decode esl: %s" % ex}, 400
+
+    return _sign_esl(signing_cert_id, "db", esl_data=esl_data)
 
 
 def sign_efi(body, user):

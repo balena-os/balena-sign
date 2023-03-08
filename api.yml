@@ -171,7 +171,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/securebootESLSignRequest"
+              $ref: "#/components/schemas/securebootInternalESLSignRequest"
       responses:
         200:
           description: empty
@@ -202,7 +202,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/securebootESLSignRequest"
+              $ref: "#/components/schemas/securebootInternalESLSignRequest"
       responses:
         200:
           description: empty
@@ -233,7 +233,9 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/securebootESLSignRequest"
+              oneOf:
+                - $ref: "#/components/schemas/securebootInternalESLSignRequest"
+                - $ref: "#/components/schemas/securebootExternalESLSignRequest"
       responses:
         200:
           description: empty
@@ -548,13 +550,24 @@ components:
         db:
           $ref: "#/components/schemas/base64"
 
-    securebootESLSignRequest:
+    securebootInternalESLSignRequest:
       type: object
       required:
         - key_id
       properties:
         key_id:
           $ref: "#/components/schemas/certId"
+        signing_key_id:
+          $ref: "#/components/schemas/certId"
+
+    securebootExternalESLSignRequest:
+      type: object
+      required:
+        - esl
+        - signing_key_id
+      properties:
+        esl:
+          $ref: "#/components/schemas/base64"
         signing_key_id:
           $ref: "#/components/schemas/certId"
 
