@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v0.2.2
+## (2023-03-09)
+
+* Allow signing external ESL at db level [Michal Toman]
+
 # v0.2.1
 ## (2023-03-08)
 

@@ -1,4 +1,25 @@
 - commits:
+    - subject: Allow signing external ESL at db level
+      hash: 5f37a8b8d1845d312e7df5ad5ad929c4c8255eb9
+      body: |
+        We are moving to authenticating the bootable images by hashes
+        of the EFI binaries instead of an embedded signature. This way the ESL
+        with the hashes is built by the client (yocto) and sent to sign
+        as is. This patch extends the secureboot/db signing API to allow
+        sending an external ESL instead of cert_id.
+
+        This only applies to db, PK and KEK are still certificates.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+  version: 0.2.2
+  title: ""
+  date: 2023-03-09T05:48:22.546Z
+- commits:
     - subject: "bootstrap: do not self-sign KEK, sign by PK instead"
       hash: 51a43dee36ea9115c8a98197092e3ba950865d0d
       body: |
