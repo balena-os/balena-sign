@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v0.2.3
+## (2023-03-09)
+
+* README: update bootstrap example to match with meta-balena defaults [Michal Toman]
+
 # v0.2.2
 ## (2023-03-09)
 

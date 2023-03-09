@@ -1,4 +1,19 @@
 - commits:
+    - subject: "README: update bootstrap example to match with meta-balena defaults"
+      hash: 4b0dac91f7e097374c448ddae5f8910768fdafe4
+      body: |
+        Also mention that db is optional.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+  version: 0.2.3
+  title: ""
+  date: 2023-03-09T05:54:05.500Z
+- commits:
     - subject: Allow signing external ESL at db level
       hash: 5f37a8b8d1845d312e7df5ad5ad929c4c8255eb9
       body: |
