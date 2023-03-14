@@ -37,6 +37,7 @@ x-base-service-definition: &base-service
 
 volumes:
   secrets:
+  logshipper-data:
 
 services:
   # https://github.com/balena-io/open-balena-haproxy
@@ -150,3 +151,13 @@ services:
     build: .
     privileged: true
     <<: [*base-service]
+
+  logshipper:
+    image: bh.cr/balenablocks/logshipper/1.0.1:rev3
+    environment:
+      LOG: warn
+    labels:
+      io.balena.features.journal-logs: "1"
+    restart: unless_stopped
+    volumes:
+      - "logshipper-data:/var/lib/logshipper"
