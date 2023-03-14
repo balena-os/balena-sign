@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v0.2.4
+## (2023-03-14)
+
+* compose: add logshipper service [Alex Gonzalez]
+
 # v0.2.3
 ## (2023-03-09)
 

@@ -1,4 +1,19 @@
 - commits:
+    - subject: "compose: add logshipper service"
+      hash: 2f5806eae714496ea41ecb850ff01f32a508d80a
+      body: |
+        This service will log events to the remote log servers.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+  version: 0.2.4
+  title: ""
+  date: 2023-03-14T16:59:20.760Z
+- commits:
     - subject: "README: update bootstrap example to match with meta-balena defaults"
       hash: 4b0dac91f7e097374c448ddae5f8910768fdafe4
       body: |
