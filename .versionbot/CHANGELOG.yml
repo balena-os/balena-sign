@@ -1,4 +1,20 @@
 - commits:
+    - subject: "README: revert to using lower case for certificates names"
+      hash: 24e20ce1c41d71cd5b4adc75f1d0fb87a46ba12a
+      body: |
+        This was modified in meta-balena to use lower case as it is less prone
+        to confusion.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+  version: 0.2.5
+  title: ""
+  date: 2023-03-15T13:38:50.529Z
+- commits:
     - subject: "compose: add logshipper service"
       hash: 2f5806eae714496ea41ecb850ff01f32a508d80a
       body: |
