@@ -35,8 +35,8 @@ You can bootstrap all the secrets necessary for integration with balenaOS yocto 
 curl -X POST -H "X-API-Key: XXX" -H "Content-type: application/json" -d '{
   "gpg": {"name_real": "balenaOS GRUB GPG key", "name_email": "security@balena.io"},
   "certificates": {
-    "pk": {"cert_id": "balenaos-PK", "subject": "/CN=balenaOS PK/"},
-    "kek": {"cert_id": "balenaos-KEK", "subject": "/CN=balenaOS KEK/"},
+    "pk": {"cert_id": "balenaos-pk", "subject": "/CN=balenaOS PK/"},
+    "kek": {"cert_id": "balenaos-kek", "subject": "/CN=balenaOS KEK/"},
     "db": {"cert_id": "balenaos-db", "subject": "/CN=balenaOS db/"},
     "kmod": {"cert_id": "balenaos-kmod", "subject": "/CN=key for signing 3rd party balenaOS kernel modules/", "key_length": 4096}
   }
