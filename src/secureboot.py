@@ -11,7 +11,7 @@ from utils import get_der_path, get_esl_path, unlink_if_exists
 LOG = logging.getLogger("secureboot")
 
 
-ALLOWED_VARS = {"PK", "KEK", "db"}
+ALLOWED_VARS = {"PK", "KEK", "db", "dbx"}
 
 
 def _get_signed_esl(cert_id, var):
@@ -148,7 +148,9 @@ def sign_kek(body, user):
     return _sign_esl(signing_cert_id, "KEK", cert_id=cert_id)
 
 
-def sign_db(body, user):
+def _sign_db(body, user, dbx=False):
+    var = "dbx" if dbx else "db"
+
     append = body.get("append", False)
 
     # Internal ESL
@@ -156,7 +158,7 @@ def sign_db(body, user):
         cert_id = body["key_id"]
         signing_cert_id = body.get("signing_key_id", cert_id)
 
-        return _sign_esl(signing_cert_id, "db", cert_id=cert_id, append=append)
+        return _sign_esl(signing_cert_id, var, cert_id=cert_id, append=append)
 
     # External ESL
     signing_cert_id = body["signing_key_id"]
@@ -165,7 +167,15 @@ def sign_db(body, user):
     except Exception as ex:
         return {"error": "Failed to base64-decode esl: %s" % ex}, 400
 
-    return _sign_esl(signing_cert_id, "db", esl_data=esl_data, append=append)
+    return _sign_esl(signing_cert_id, var, esl_data=esl_data, append=append)
+
+
+def sign_db(body, user):
+    return _sign_db(body, user, dbx=False)
+
+
+def sign_dbx(body, user):
+    return _sign_db(body, user, dbx=True)
 
 
 def sign_efi(body, user):
