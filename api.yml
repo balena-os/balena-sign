@@ -244,6 +244,26 @@ paths:
               schema:
                 $ref: "#/components/schemas/securebootESLSignResponse"
 
+  /secureboot/dbx:
+    post:
+      operationId: secureboot.sign_dbx
+      security:
+        - apiKey: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: "#/components/schemas/securebootInternalESLSignRequest"
+                - $ref: "#/components/schemas/securebootExternalESLSignRequest"
+      responses:
+        200:
+          description: empty
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/securebootESLSignResponse"
+
   /secureboot/efi:
     post:
       operationId: secureboot.sign_efi
