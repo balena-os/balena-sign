@@ -1,4 +1,21 @@
 - commits:
+    - subject: Allow signing for dbx
+      hash: 7579584736fb42ef8d6ccf47a224b08a1ebf400a
+      body: |
+        With db appends we also need dbx to be able to prevent older
+        systems from booting. This patch adds the API necessary to sign
+        for dbx EFI variable.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+  version: 0.2.7
+  title: ""
+  date: 2023-03-29T11:08:04.460Z
+- commits:
     - subject: Allow signing db for appending
       hash: b55550158193a5b812df357f272e386e85bb0f16
       body: |

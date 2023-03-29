@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v0.2.7
+## (2023-03-29)
+
+* Allow signing for dbx [Michal Toman]
+
 # v0.2.6
 ## (2023-03-29)
 
