@@ -1,4 +1,22 @@
 - commits:
+    - subject: Allow signing db for appending
+      hash: b55550158193a5b812df357f272e386e85bb0f16
+      body: |
+        EFI variables can be either flagged as appends or replacements.
+        A replacement is always time-authenticated, which in our use-case
+        breaks rollbacks. Appending bypasses the time protection and gives
+        us better control in HUP scripts.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+  version: 0.2.6
+  title: ""
+  date: 2023-03-29T09:53:55.654Z
+- commits:
     - subject: "README: revert to using lower case for certificates names"
       hash: 24e20ce1c41d71cd5b4adc75f1d0fb87a46ba12a
       body: |
