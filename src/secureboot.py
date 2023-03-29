@@ -54,7 +54,7 @@ def _get_signed_esl(cert_id, var):
     return response
 
 
-def _sign_esl(signing_cert_id, var, cert_id=None, esl_data=None):
+def _sign_esl(signing_cert_id, var, cert_id=None, esl_data=None, append=False):
     if var not in ALLOWED_VARS:
         raise ValueError("`var` must be one of %s" % ALLOWED_VARS)
 
@@ -96,10 +96,13 @@ def _sign_esl(signing_cert_id, var, cert_id=None, esl_data=None):
     else:
         return {"error": "Either 'cert_id' or 'esl' must be defined"}, 400
 
-    cmd = [
-        "sign-efi-sig-list", "-k", signing_key_path, "-c", signing_cert_path,
+    cmd = ["sign-efi-sig-list"]
+    if append:
+        cmd.append("-a")
+    cmd.extend([
+        "-k", signing_key_path, "-c", signing_cert_path,
         var, esl_path, auth_path
-    ]
+    ])
     cmd_result = subprocess.run(cmd)
     if cmd_result.returncode != 0:
         return {"error": "Failed to sign EFI signature list"}, 500
@@ -146,12 +149,14 @@ def sign_kek(body, user):
 
 
 def sign_db(body, user):
+    append = body.get("append", False)
+
     # Internal ESL
     if "key_id" in body:
         cert_id = body["key_id"]
         signing_cert_id = body.get("signing_key_id", cert_id)
 
-        return _sign_esl(signing_cert_id, "db", cert_id=cert_id)
+        return _sign_esl(signing_cert_id, "db", cert_id=cert_id, append=append)
 
     # External ESL
     signing_cert_id = body["signing_key_id"]
@@ -160,7 +165,7 @@ def sign_db(body, user):
     except Exception as ex:
         return {"error": "Failed to base64-decode esl: %s" % ex}, 400
 
-    return _sign_esl(signing_cert_id, "db", esl_data=esl_data)
+    return _sign_esl(signing_cert_id, "db", esl_data=esl_data, append=append)
 
 
 def sign_efi(body, user):

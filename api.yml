@@ -555,6 +555,8 @@ components:
       required:
         - key_id
       properties:
+        append:
+          type: boolean
         key_id:
           $ref: "#/components/schemas/certId"
         signing_key_id:
@@ -566,6 +568,8 @@ components:
         - esl
         - signing_key_id
       properties:
+        append:
+          type: boolean
         esl:
           $ref: "#/components/schemas/base64"
         signing_key_id:
