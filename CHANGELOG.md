@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v0.3.1
+## (2023-04-05)
+
+* Fix calls to _sign_esl for multiple certificates [Michal Toman]
+
 # v0.3.0
 ## (2023-04-05)
 
