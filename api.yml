@@ -368,6 +368,11 @@ components:
       items:
         $ref: "#/components/schemas/certId"
 
+    certDays:
+      type: integer
+      default: 7305
+      minimum: 1
+
     keyLength:
       type: integer
       default: 2048
@@ -551,6 +556,8 @@ components:
           $ref: "#/components/schemas/certSubject"
         key_length:
           $ref: "#/components/schemas/keyLength"
+        days:
+          $ref: "#/components/schemas/certDays"
 
     certNewResponse:
       type: object
