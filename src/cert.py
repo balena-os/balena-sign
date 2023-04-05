@@ -24,6 +24,9 @@ def get(cert_id):
 def new(body, user):
     cert_id = body["cert_id"]
 
+    # The default 7305 means 20 years
+    cert_days = body.get("days", 7305)
+
     cert_filename = "%s.crt" % cert_id
     cert_path = os.path.join(X509_DIR, cert_filename)
     if os.path.isfile(cert_path):
@@ -40,7 +43,7 @@ def new(body, user):
     cmd = [
         "openssl", "req", "-new", "-x509", "-newkey", "rsa:%d" % key_length,
         "-subj", body["subject"], "-keyout", key_path, "-out", cert_path,
-        "-days", "3650", "-sha256", "-nodes"
+        "-days", "%d" % cert_days, "-sha256", "-nodes"
     ]
 
     cmd_result = subprocess.run(cmd)
