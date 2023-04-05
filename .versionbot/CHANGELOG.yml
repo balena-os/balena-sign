@@ -1,4 +1,32 @@
 - commits:
+    - subject: Allow to specify certificate expiry in the API and default to 20 years
+      hash: e616dca75980e617a4c36ad1509fdbca9383a089
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+    - subject: Allow signing multiple certificates for secure boot variables
+      hash: 9192883781895c6e86aff2ca9f36ce72b74e9a12
+      body: |
+        In order to be able to properly rotate keys, we need to be able
+        to distribute updates that contain multiple certificates valid
+        during overlapping periods. This PR makes it possible to specify
+        a list of certificates when signing PK, KEK and db.
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+  version: 0.3.0
+  title: ""
+  date: 2023-04-05T08:54:15.787Z
+- commits:
     - subject: Allow signing for dbx
       hash: 7579584736fb42ef8d6ccf47a224b08a1ebf400a
       body: |

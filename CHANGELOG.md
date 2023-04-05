@@ -4,6 +4,12 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v0.3.0
+## (2023-04-05)
+
+* Allow to specify certificate expiry in the API and default to 20 years [Michal Toman]
+* Allow signing multiple certificates for secure boot variables [Michal Toman]
+
 # v0.2.7
 ## (2023-03-29)
 
