@@ -168,14 +168,14 @@ def sign_pk(body, user):
     cert_id = body["key_id"]
     signing_cert_id = body.get("signing_key_id", cert_id)
 
-    return _sign_esl(signing_cert_id, "PK", cert_id=cert_id)
+    return _sign_esl(signing_cert_id, "PK", cert_ids=cert_id)
 
 
 def sign_kek(body, user):
     cert_id = body["key_id"]
     signing_cert_id = body.get("signing_key_id", cert_id)
 
-    return _sign_esl(signing_cert_id, "KEK", cert_id=cert_id)
+    return _sign_esl(signing_cert_id, "KEK", cert_ids=cert_id)
 
 
 def _sign_db(body, user, dbx=False):
@@ -188,7 +188,7 @@ def _sign_db(body, user, dbx=False):
         cert_id = body["key_id"]
         signing_cert_id = body.get("signing_key_id", cert_id)
 
-        return _sign_esl(signing_cert_id, var, cert_id=cert_id, append=append)
+        return _sign_esl(signing_cert_id, var, cert_ids=cert_id, append=append)
 
     # External ESL
     signing_cert_id = body["signing_key_id"]
