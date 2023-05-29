@@ -1,4 +1,18 @@
 - commits:
+    - subject: Extend renovate config from balena-io/renovate-config
+      hash: 242da5a9fd516d33e2ab02bc99e2db97974b8de0
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 0.3.2
+  title: ""
+  date: 2023-05-29T20:03:22.350Z
+- commits:
     - subject: Fix calls to _sign_esl for multiple certificates
       hash: 227a4ec7a5ce2a6be7bed93a63206b8b44069012
       body: ""
@@ -175,7 +189,8 @@
     - subject: "app: fix signing of kek and db certificates"
       hash: b0a7823ee14fec10752eecce2f7f94905b382c46
       body: >
-        Correct what seems some copy/paste errors that make the bootstrap endpoint
+        Correct what seems some copy/paste errors that make the bootstrap
+        endpoint
 
         not generate the singned certificates correctly.
       footer:

@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v0.3.2
+## (2023-05-29)
+
+* Extend renovate config from balena-io/renovate-config [Kyle Harding]
+
 # v0.3.1
 ## (2023-04-05)
 
