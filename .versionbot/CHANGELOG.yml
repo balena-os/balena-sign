@@ -1,4 +1,15 @@
 - commits:
+    - subject: notify on HC failure
+      hash: ae1370ba088329c5c2677f719c3cf7fc16be3b14
+      body: ""
+      footer:
+        change-type: patch
+      author: Anton Belodedenko
+      nested: []
+  version: 0.3.3
+  title: ""
+  date: 2023-08-07T17:27:20.698Z
+- commits:
     - subject: Extend renovate config from balena-io/renovate-config
       hash: 242da5a9fd516d33e2ab02bc99e2db97974b8de0
       body: ""

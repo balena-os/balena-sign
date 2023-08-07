@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v0.3.3
+## (2023-08-07)
+
+* notify on HC failure [Anton Belodedenko]
+
 # v0.3.2
 ## (2023-05-29)
 
