@@ -151,6 +151,9 @@ services:
     build: .
     privileged: true
     <<: [*base-service]
+    healthcheck:
+      <<: *default-healthcheck
+      test: curl -I --fail ${HC_URL:-localhost:8080/gpg/keys}
 
   logshipper:
     image: bh.cr/balenablocks/logshipper/1.0.1:rev3
