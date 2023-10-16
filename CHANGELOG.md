@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v0.3.4
+## (2023-10-16)
+
+* Add Apache 2.0 LICENSE [Michal Toman]
+
 # v0.3.3
 ## (2023-08-07)
 

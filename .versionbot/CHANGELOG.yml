@@ -1,4 +1,18 @@
 - commits:
+    - subject: Add Apache 2.0 LICENSE
+      hash: 6ddeed147319be86f5f2dc0b2096c43ae49a433c
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+  version: 0.3.4
+  title: ""
+  date: 2023-10-16T09:51:28.068Z
+- commits:
     - subject: notify on HC failure
       hash: ae1370ba088329c5c2677f719c3cf7fc16be3b14
       body: ""
