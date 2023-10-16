@@ -19,3 +19,4 @@ jobs:
     with:
       repo_config: true
       repo_description: "Service used to sign data over the network and retrieve the respective public keys"
+      balena_slugs: balena_restricted/balena-sign
