@@ -2,7 +2,7 @@ openapi: 3.0.0
 
 info:
   title: balenaSign API
-  version: 0.9.1
+  version: 0.10.0
 
 paths:
   /bootstrap:
@@ -313,6 +313,66 @@ paths:
               schema:
                 $ref: "#/components/schemas/kmodSignResponse"
 
+  /rsa/keys:
+    get:
+      operationId: rsa.keys
+      responses:
+        200:
+          description: Fingerprints of RSA keys available on the server
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/rsaKeysResponse"
+
+  /rsa/key/{key_id}:
+    get:
+      operationId: rsa.key
+      parameters:
+        - $ref: "#/components/parameters/rsaKey"
+      responses:
+        200:
+          description: RSA public key for the given fingerprint
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/rsaKeyResponse"
+
+  /rsa/key:
+    post:
+      operationId: rsa.new
+      security:
+        - apiKey: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/rsaNewRequest"
+      responses:
+        200:
+          description: Fingerprint of the newly created RSA key
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/rsaNewResponse"
+
+  /rsa/sign:
+    post:
+      operationId: rsa.sign
+      security:
+        - apiKey: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/rsaSignRequest"
+      responses:
+        200:
+          description: base64-encoded RSA signature of the given payload
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/rsaSignResponse"
+
 components:
   securitySchemes:
     apiKey:
@@ -329,6 +389,14 @@ components:
       required: true
       schema:
         $ref: "#/components/schemas/gpgKeyFingerprint"
+
+    rsaKey:
+      name: key_id
+      description: Fingeprint of the RSA key to fetch
+      in: path
+      required: true
+      schema:
+        $ref: "#/components/schemas/rsaKeyFingerprint"
 
     certId:
       name: cert_id
@@ -384,10 +452,13 @@ components:
       type: object
       required:
         - gpg
+        - rsa
         - certificates
       properties:
         gpg:
           $ref: "#/components/schemas/gpgNewRequest"
+        rsa:
+          $ref: "#/components/schemas/rsaNewRequest"
         certificates:
           type: object
           required:
@@ -408,10 +479,13 @@ components:
       type: object
       required:
         - gpg
+        - rsa
         - certificates
       properties:
         gpg:
           $ref: "#/components/schemas/gpgNewResponse"
+        rsa:
+          $ref: "#/components/schemas/rsaNewResponse"
         certificates:
           type: object
           required:
@@ -537,6 +611,65 @@ components:
           $ref: "#/components/schemas/base64"
 
     gpgSignResponse:
+      type: object
+      required:
+        - signature
+      properties:
+        signature:
+          $ref: "#/components/schemas/base64"
+
+    rsaKey:
+      type: string
+
+    rsaKeyFingerprint:
+      type: string
+      pattern: "^[a-fA-F0-9]+$"
+      example: "61D762833B1F104A4237E7E5B9C6464953950D96"
+
+    rsaKeyFingerprintList:
+      type: array
+      items:
+        $ref: "#/components/schemas/rsaKeyFingerprint"
+
+    rsaKeysResponse:
+      type: object
+      required:
+        - keys
+      properties:
+        keys:
+          $ref: "#/components/schemas/rsaKeyFingerprintList"
+
+    rsaNewRequest:
+      type: object
+
+    rsaNewResponse:
+      type: object
+      required:
+        - fingerprint
+      properties:
+        fingerprint:
+          $ref: "#/components/schemas/rsaKeyFingerprint"
+
+    rsaKeyResponse:
+      type: object
+      required:
+        - key
+      properties:
+        key:
+          $ref: "#/components/schemas/rsaKey"
+
+    rsaSignRequest:
+      type: object
+      required:
+        - key_id
+        - payload
+      properties:
+        key_id:
+          $ref: "#/components/schemas/rsaKeyFingerprint"
+        payload:
+          $ref: "#/components/schemas/base64"
+
+    rsaSignResponse:
       type: object
       required:
         - signature
