@@ -5,6 +5,7 @@ import config
 from config import load as load_config
 
 from gpg import new as create_gpg
+from rsa import new as create_rsa
 from cert import new as create_cert
 from secureboot import sign_pk, sign_kek, sign_db
 
@@ -40,11 +41,15 @@ def bootstrap(body, user):
     # Create gpg key pair
     gpg = create_gpg(body["gpg"], user)
 
+    # Create a RSA key pair
+    rsa = create_rsa(body["rsa"], user)
+
     LOG.info("%s bootstrapped signing service", user)
 
     # Return newly created signing material
     return {
         "gpg": gpg,
+        "rsa": rsa,
         "certificates": certificates
     }
 
