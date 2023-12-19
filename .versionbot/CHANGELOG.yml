@@ -1,4 +1,21 @@
 - commits:
+    - subject: Remove repo config from flowzone.yml
+      hash: c30c80eb9739c3dd1d1be6d2d43579182fd3308e
+      body: |
+        This functionality is being deprecated in Flowzone.
+
+        See: https://github.com/product-os/flowzone/pull/833
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Kyle Harding <kyle@balena.io>
+        signed-off-by: Kyle Harding <kyle@balena.io>
+      author: Kyle Harding
+      nested: []
+  version: 0.3.5
+  title: ""
+  date: 2023-12-19T21:49:47.052Z
+- commits:
     - subject: Add Apache 2.0 LICENSE
       hash: 6ddeed147319be86f5f2dc0b2096c43ae49a433c
       body: ""

@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v0.3.5
+## (2023-12-19)
+
+* Remove repo config from flowzone.yml [Kyle Harding]
+
 # v0.3.4
 ## (2023-10-16)
 
