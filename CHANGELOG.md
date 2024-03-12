@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.0.0
+## (2024-03-12)
+
+* Add support for RPI signing [Alex Gonzalez]
+
 # v0.3.5
 ## (2023-12-19)
 

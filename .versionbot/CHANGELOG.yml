@@ -1,4 +1,18 @@
 - commits:
+    - subject: Add support for RPI signing
+      hash: e694f6e84f18e3a259110f43901514842fe8950e
+      body: ""
+      footer:
+        Change-type: major
+        change-type: major
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+  version: 1.0.0
+  title: ""
+  date: 2024-03-12T09:26:08.740Z
+- commits:
     - subject: Remove repo config from flowzone.yml
       hash: c30c80eb9739c3dd1d1be6d2d43579182fd3308e
       body: |
@@ -445,9 +459,11 @@
         in some UEFI implementations.
 
 
-        While this is technically a regression (going down from SHA512 to SHA256),
+        While this is technically a regression (going down from SHA512 to
+        SHA256),
 
-        we expect a separate PR to expose this in the API and make SHA512 available
+        we expect a separate PR to expose this in the API and make SHA512
+        available
 
         if requested.
       footer:
@@ -464,7 +480,8 @@
 
         device URL in balenaCloud. In practice we have observed that the default
 
-        60s is exactly the boundary that sometimes works and sometimes times out.
+        60s is exactly the boundary that sometimes works and sometimes times
+        out.
       footer:
         Change-type: patch
         change-type: patch
