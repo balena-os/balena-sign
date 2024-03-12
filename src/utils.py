@@ -22,6 +22,7 @@ APP_DIR = os.path.dirname(MODULE_DIR)
 VAULT_DIR = os.path.join(APP_DIR, "secrets")
 GPG_HOME_DIR = os.path.join(VAULT_DIR, "gpg")
 X509_DIR = os.path.join(VAULT_DIR, "x509")
+RSA_DIR = os.path.join(VAULT_DIR, "rsa")
 
 
 def unlink_if_exists(path):
