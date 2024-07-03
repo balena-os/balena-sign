@@ -80,45 +80,63 @@ def sign(body, user):
         except Exception as ex:
             return {"error": f"Failed to base64-decode payload: {ex}"}, 400
 
-        tmpinput = tempfile.mkstemp(prefix="rsa-")[1]
-        with open(tmpinput, 'wb') as ifile:
-            ifile.write(payload)
-            tmpfile = tempfile.mkstemp(prefix="rsa-")[1]
+        try:
+            tmpinput_path = None
+            tmpout_path = None
+            tmpfile_path = None
+            with tempfile.NamedTemporaryFile(prefix="rsa-", delete=False,
+                                             mode='wb') as tmpinput:
+                tmpinput.write(payload)
+                tmpinput_path = tmpinput.name
+
+            with tempfile.NamedTemporaryFile(prefix="rsa-", delete=False,
+                                             mode='wb') as tmpfile:
+                tmpfile_path = tmpfile.name
+
             cmd = [ "openssl", "dgst", "-sign",
                    os.path.join(RSA_DIR, key_id, "private.pem"),
                    "-keyform", "PEM",
-                   "-sha256", "-out", tmpfile, tmpinput ]
-            cmd_result = subprocess.run(cmd, check=False)
-            if cmd_result.returncode != 0:
-                raise RuntimeError("Failed to sign payload")
-            tmpout = tempfile.mkstemp(prefix="rsa-")[1]
-            with open(tmpout, 'a', encoding='utf-8') as output:
-                output.write(sha256sum(tmpinput))
-                output.write("\n")
-                output.write("ts: " +
+                   "-sha256", "-out", tmpfile_path, tmpinput_path ]
+            subprocess.run(cmd, check=True)
+
+            with tempfile.NamedTemporaryFile(prefix="rsa-", delete=False,
+                                             mode='w', encoding='utf-8') as tmpout:
+                tmpout_path = tmpout.name
+                tmpout.write(sha256sum(tmpinput_path))
+                tmpout.write("\n")
+                tmpout.write("ts: " +
                              str(int(datetime.utcnow().timestamp())))
-                output.write("\n")
+                tmpout.write("\n")
                 hex_string=""
-                with open(tmpfile, 'rb') as ifile:
+                with open(tmpfile_path, 'rb') as ifile:
                     while True:
                         chunk = ifile.read(4096)
                         if not chunk:
                             break
                         hex_string += binascii.hexlify(chunk).decode('utf-8')
-                output.write("rsa2048: " + hex_string)
-                output.write("\n")
+                tmpout.write("rsa2048: " + hex_string)
+                tmpout.write("\n")
 
-            with open(tmpout, 'rb') as signature:
+            with open(tmpout_path, 'rb') as signature:
                 response = {
                     "signature": binascii.b2a_base64(signature.read()).decode().rstrip("\n")
                 }
 
                 LOG.info("%s successfully signed a payload using %s key", user, key_id)
-
-        os.remove(tmpinput)
-        os.remove(tmpout)
-        os.remove(tmpfile)
-        return response
+                return response
+        except subprocess.CalledProcessError as excp:
+            LOG.error("Subprocess failed: %s", excp)
+            return {"error": "Failed to sign payload"}, 500
+        except Exception as excp:
+            LOG.error("Unexpected error: %s", excp)
+            return {"error": str(excp)}, 500
+        finally:
+            if tmpinput_path is not None:
+                os.remove(tmpinput_path)
+            if tmpout_path is not None:
+                os.remove(tmpout_path)
+            if tmpfile_path is not None:
+                os.remove(tmpfile_path)
 
     LOG.info("%s failed to find key %s", user, key_id)
     return {"error": f"RSA key {key_id} is unknown"}, 404
