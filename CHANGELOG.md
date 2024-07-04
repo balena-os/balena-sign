@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.0.1
+## (2024-07-04)
+
+* workflows: flowzone: fix linter errors [Alex Gonzalez]
+
 # v1.0.0
 ## (2024-03-12)
 

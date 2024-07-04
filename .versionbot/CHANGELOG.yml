@@ -1,4 +1,19 @@
 - commits:
+    - subject: "workflows: flowzone: fix linter errors"
+      hash: 845df75df894c5d783c3839066b4af0ce47cf40e
+      body: |
+        Remove empty with.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+  version: 1.0.1
+  title: ""
+  date: 2024-07-04T17:05:13.396Z
+- commits:
     - subject: Add support for RPI signing
       hash: e694f6e84f18e3a259110f43901514842fe8950e
       body: ""
