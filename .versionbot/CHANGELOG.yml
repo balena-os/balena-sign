@@ -1,4 +1,19 @@
 - commits:
+    - subject: "rsa: improve handling of temporary files"
+      hash: 366463131d65e2d06320a3a130dc4ced001b321a
+      body: |
+        Avoid temporary files to be left dangling while the process is running.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+  version: 1.0.2
+  title: ""
+  date: 2024-07-04T20:52:25.454Z
+- commits:
     - subject: "workflows: flowzone: fix linter errors"
       hash: 845df75df894c5d783c3839066b4af0ce47cf40e
       body: |

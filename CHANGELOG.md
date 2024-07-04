@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.0.2
+## (2024-07-04)
+
+* rsa: improve handling of temporary files [Alex Gonzalez]
+
 # v1.0.1
 ## (2024-07-04)
 
