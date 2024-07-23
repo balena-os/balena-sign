@@ -6,6 +6,7 @@ from config import load as load_config
 
 from gpg import new as create_gpg
 from rsa import new as create_rsa
+from imx import new as create_pki
 from cert import new as create_cert
 from secureboot import sign_pk, sign_kek, sign_db
 
@@ -44,12 +45,18 @@ def bootstrap(body, user):
     # Create a RSA key pair
     rsa = create_rsa(body["rsa"], user)
 
+    # Create NXP's PKI trees
+    hab = create_pki(body["hab"], user)
+    ahab = create_pki(body["ahab"], user)
+
     LOG.info("%s bootstrapped signing service", user)
 
     # Return newly created signing material
     return {
         "gpg": gpg,
         "rsa": rsa,
+        "hab": hab,
+        "ahab": ahab,
         "certificates": certificates
     }
 
