@@ -373,6 +373,66 @@ paths:
               schema:
                 $ref: "#/components/schemas/rsaSignResponse"
 
+  /imx/pkis:
+    get:
+      operationId: imx.pkis
+      responses:
+        200:
+          description: Ids of PKI trees available on the server
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/pkisResponse"
+
+  /imx/efuses/{pki_id}:
+    get:
+      operationId: imx.efuses
+      parameters:
+        - $ref: "#/components/parameters/pkiId"
+      responses:
+        200:
+          description: Efuses hash file for the given PKI tree ID
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/efusesResponse"
+
+  /imx/pki:
+    post:
+      operationId: imx.new
+      security:
+        - apiKey: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/pkiNewRequest"
+      responses:
+        200:
+          description: Id of the newly created PKI tree
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/pkiNewResponse"
+
+  /imx/cst:
+    post:
+      operationId: imx.cst
+      security:
+        - apiKey: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/cstRequest"
+      responses:
+        200:
+          description: base64-encoded CSF binary of the given CSF description file
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/cstResponse"
+
 components:
   securitySchemes:
     apiKey:
@@ -384,7 +444,7 @@ components:
   parameters:
     gpgKey:
       name: key_id
-      description: Fingeprint of the GPG key to fetch
+      description: Fingerprint of the GPG key to fetch
       in: path
       required: true
       schema:
@@ -392,11 +452,19 @@ components:
 
     rsaKey:
       name: key_id
-      description: Fingeprint of the RSA key to fetch
+      description: Fingerprint of the RSA key to fetch
       in: path
       required: true
       schema:
         $ref: "#/components/schemas/rsaKeyFingerprint"
+
+    pkiId:
+      name: pki_id
+      description: Id of the PKI tree to fetch
+      in: path
+      required: true
+      schema:
+        $ref: "#/components/schemas/pkiId"
 
     certId:
       name: cert_id
@@ -441,6 +509,9 @@ components:
       default: 7305
       minimum: 1
 
+    csf:
+      type: string
+      example : '[Header]\n	Version = 4.3\n	Hash Algorithm = sha256\n	Engine = CAAM\n	Engine Configuration = 0\n	Certificate Format = X509\n	Signature Format = CMS\n\n[Install SRK]\n	File = "../crts/SRK_1_2_3_4_table.bin"\n	Source index = 0\n\n[Install CSFK]\n	File = "../crts/CSF1_1_sha256_2048_65537_v3_usr_crt.pem"\n\n[Authenticate CSF]\n\n[Unlock]\n	Engine = CAAM\n	Features = MID\n\n[Install Key]\n	Verification index = 0\n	Target index = 2\n	File = "../crts/IMG1_1_sha256_2048_65537_v3_usr_crt.pem"\n\n[Authenticate Data]\n	Verification index = 2\n	Blocks =  \\n'
     keyLength:
       type: integer
       default: 2048
@@ -453,12 +524,18 @@ components:
       required:
         - gpg
         - rsa
+        - hab
+        - ahab
         - certificates
       properties:
         gpg:
           $ref: "#/components/schemas/gpgNewRequest"
         rsa:
           $ref: "#/components/schemas/rsaNewRequest"
+        hab:
+          $ref: "#/components/schemas/pkiNewRequest"
+        ahab:
+          $ref: "#/components/schemas/pkiNewRequest"
         certificates:
           type: object
           required:
@@ -480,12 +557,18 @@ components:
       required:
         - gpg
         - rsa
+        - pkiHab
+        - pkiAhab
         - certificates
       properties:
         gpg:
           $ref: "#/components/schemas/gpgNewResponse"
         rsa:
           $ref: "#/components/schemas/rsaNewResponse"
+        pkiHab:
+          $ref: "#/components/schemas/pkiNewResponse"
+        pkiAhab:
+          $ref: "#/components/schemas/pkiNewResponse"
         certificates:
           type: object
           required:
@@ -675,6 +758,78 @@ components:
         - signature
       properties:
         signature:
+          $ref: "#/components/schemas/base64"
+
+    pkiId:
+      type: string
+      pattern: "^[a-fA-F0-9]+$"
+      example: "61D762833B1F104A4237E7E5B9C6464953950D96"
+
+    pkiIdList:
+      type: array
+      items:
+        $ref: "#/components/schemas/pkiId"
+
+    pkisResponse:
+      type: object
+      required:
+        - pkis
+      properties:
+        pkis:
+          $ref: "#/components/schemas/pkiIdList"
+
+    pkiNewRequest:
+      type: object
+      required:
+        - hab_type 
+      properties:
+        hab_type:
+          $ref: "#/components/schemas/pkiHabType"
+
+    pkiNewResponse:
+      type: object
+      required:
+        - pki_id
+      properties:
+        pki_id:
+          $ref: "#/components/schemas/pkiId"
+
+    pkiHabType:
+      type: string
+      pattern: "^(hab|ahab)$"
+      example: "hab"
+
+    efusesResponse:
+      type: object
+      required:
+        - efuses
+      properties:
+        efuses:
+          $ref: "#/components/schemas/base64"
+
+    cstRequest:
+      type: object
+      required:
+        - pki_id
+        - hab_type
+        - payload
+        - csf
+      properties:
+        pki_id:
+          $ref: "#/components/schemas/pkiId"
+        hab_type:
+          $ref: "#/components/schemas/pkiHabType"
+        payload:
+          $ref: "#/components/schemas/base64"
+        csf:
+          $ref: "#/components/schemas/csf"
+
+    cstResponse:
+      type: object
+      required:
+        - csf_bin
+      properties:
+        csf_bin:
           $ref: "#/components/schemas/base64"
 
     certNewRequest:
