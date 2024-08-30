@@ -1,0 +1,25 @@
+[
+  {
+    "request": {
+      "key": {
+        "algo": "${key_algo}",
+        "size": ${key_size}
+      },
+      "hosts": [
+        "logs-to-vector.${DNS_TLD}",
+        "logs-to-vector.${TLD}"
+      ],
+      "names": [
+        {
+          "C": "${country}",
+          "L": "${locality_name}",
+          "O": "${org}",
+          "OU": "${org_unit}",
+          "ST": "${state}"
+        }
+      ],
+      "CN": "logs-to-vector.${DNS_TLD}"
+    },
+    "profile": "client"
+  }
+]

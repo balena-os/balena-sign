@@ -36,8 +36,10 @@ x-base-service-definition: &base-service
   restart: unless-stopped
 
 volumes:
+  cert-manager:
+  certs:
+  logs-to-vector:
   secrets:
-  logshipper-data:
 
 services:
   # https://github.com/balena-io/open-balena-haproxy
@@ -155,12 +157,31 @@ services:
       <<: *default-healthcheck
       test: curl -I --fail ${HC_URL:-localhost:8080/gpg/keys}
 
-  logshipper:
-    image: bh.cr/balenablocks/logshipper/1.0.1:rev3
+  # https://github.com/balena-io/logs-to-vector
+  # This service handles log collection from the balenaEngine/journald logs (AKA: logshipper)
+  # .. sends logs to log-aggregator in product-os namespace over AWS/VPC peering link
+  logs-to-vector:
+    # FIXME: switch to ghcr.io or implement registry-proxy tag listing for updates
+    image: bh.cr/balena/logs-to-vector-amd64/1.10.8
+    restart: unless-stopped
     environment:
       LOG: warn
     labels:
-      io.balena.features.journal-logs: "1"
-    restart: unless_stopped
+      io.balena.features.journal-logs: 1
     volumes:
-      - "logshipper-data:/var/lib/logshipper"
+      - logs-to-vector:/var/lib/logs-to-vector
+      - certs:/certs
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8686/health"]
+
+  # https://github.com/balenablocks/cert-manager
+  # .. obtains certificates from balena-ca in product-os namespace over AWS/VPC peering link
+  cert-manager:
+    build: cert-manager
+    restart: unless-stopped
+    volumes:
+      - cert-manager:/etc/letsencrypt
+      - certs:/certs
+    labels:
+      io.balena.features.balena-api: 1
+      io.balena.features.supervisor-api: 1
