@@ -8,7 +8,6 @@ import uuid
 
 
 __all__ = [
-    "APP_DIR",
     "GPG_HOME_DIR",
     "MODULE_DIR",
     "VAULT_DIR",
@@ -18,8 +17,7 @@ __all__ = [
 
 
 MODULE_DIR = os.path.dirname(__file__)
-APP_DIR = os.path.dirname(MODULE_DIR)
-VAULT_DIR = os.path.join(APP_DIR, "secrets")
+VAULT_DIR = os.path.join(MODULE_DIR, "secrets")
 GPG_HOME_DIR = os.path.join(VAULT_DIR, "gpg")
 X509_DIR = os.path.join(VAULT_DIR, "x509")
 RSA_DIR = os.path.join(VAULT_DIR, "rsa")

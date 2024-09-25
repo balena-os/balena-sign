@@ -60,7 +60,7 @@ services:
   # FIXME: use container contracts when additional types are supported
   # https://www.balena.io/docs/learn/develop/container-contracts/#valid-contract-types
   tag-sidecar:
-    image: bash:alpine3.14
+    image: bash:alpine3.19
     restart: "no"
     entrypoint:
       - /usr/local/bin/bash
