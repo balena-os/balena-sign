@@ -67,9 +67,10 @@ def create_application():
 
     LOG.info(f"Configured to authenticate with FLEET_ID={config.CONFIG.fleet_id}")
 
-    app = connexion.FlaskApp("balena sign API", options={"swagger_ui": False})
-    app.add_api("api.yml")
-    return app.app
+    options = connexion.options.SwaggerUIOptions(swagger_ui=False)
+    app = connexion.FlaskApp("balena sign API", specification_dir='./', swagger_ui_options=options)
+    app.add_api("api.yml", swagger_ui_options=options)
+    return app
 
 
 application = create_application()
