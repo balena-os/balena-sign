@@ -42,7 +42,7 @@ curl -X POST -H "X-API-Key: XXX" -H "Content-type: application/json" -d '{
     "db": {"cert_id": "balenaos-db", "subject": "/CN=balenaOS db/"},
     "kmod": {"cert_id": "balenaos-kmod", "subject": "/CN=key for signing 3rd party balenaOS kernel modules/", "key_length": 4096}
   }
-}'
+}' https://sign.<your-balena-domain>/bootstrap
 ```
 
 `db` is optional, if you are using hashes for authentication, you do not need the `db` certificate and you can omit it.
