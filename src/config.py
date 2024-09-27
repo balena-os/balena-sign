@@ -1,25 +1,28 @@
 import re
 import os
 
-DEFAULT_API_DOMAIN = "api.balena-cloud.com"
+DEFAULT_DOMAIN = "balena-cloud.com"
 
 CONFIG = None
 
 
 class Config(object):
-    def __init__(self, api_domain, fleet_id):
-        if not is_domain(api_domain):
+    def __init__(self, balena_domain, fleet_id):
+        if not is_domain(balena_domain):
             raise ValueError(
-                f"`api_domain` value: '{api_domain}' is not a valid domain")
+                f"`balena_domain` value: '{balena_domain}' is not a valid domain")
         if not fleet_id.isdigit():
             raise ValueError(
                 f"`fleet_id` value: '{fleet_id}' is not a valid fleet ID.")
-        self._api_domain = api_domain
-        self._fleet_id = fleet_id
+        self._balena_domain = balena_domain
+
+        # note: the balena sdk uses the fleet id type to distinguish between using a lookup by
+        #       slug name (in case of string) or id (in case of int), so we need to cast it to int
+        self._fleet_id = int(fleet_id)
 
     @property
-    def api_domain(self):
-        return self._api_domain
+    def balena_domain(self):
+        return self._balena_domain
 
     @property
     def fleet_id(self):
@@ -32,13 +35,13 @@ def is_domain(value):
 
 
 def load(glob=False):
-    api_domain = os.environ.get("BALENA_API_DOMAIN", DEFAULT_API_DOMAIN)
+    balena_domain = os.environ.get("BALENA_DOMAIN", DEFAULT_DOMAIN)
     fleet_id = os.environ.get("FLEET_ID")
 
     if not fleet_id:
         raise ValueError("`FLEET_ID` env var cannot be empty!")
 
-    result = Config(api_domain, fleet_id)
+    result = Config(balena_domain, fleet_id)
 
     if glob:
         global CONFIG
