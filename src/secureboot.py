@@ -240,7 +240,7 @@ def sign_efi(body, user):
         return {"error": "Signature failed"}, 500
 
     with open(signed_filename, "rb") as signed_file:
-        signed_payload = signed_file.read(1 << 26)
+        signed_payload = signed_file.read(1 << 28)
         response = {
             "signed": binascii.b2a_base64(signed_payload).decode().rstrip("\n")
         }
