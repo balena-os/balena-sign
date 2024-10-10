@@ -6,6 +6,7 @@ from config import load as load_config
 
 from gpg import new as create_gpg
 from rsa import new as create_rsa
+from imx import new as create_pki
 from cert import new as create_cert
 from secureboot import sign_pk, sign_kek, sign_db
 
@@ -44,12 +45,18 @@ def bootstrap(body, user):
     # Create a RSA key pair
     rsa = create_rsa(body["rsa"], user)
 
+    # Create NXP's PKI trees
+    hab = create_pki(body["hab"], user)
+    ahab = create_pki(body["ahab"], user)
+
     LOG.info("%s bootstrapped signing service", user)
 
     # Return newly created signing material
     return {
         "gpg": gpg,
         "rsa": rsa,
+        "hab": hab,
+        "ahab": ahab,
         "certificates": certificates
     }
 
@@ -60,9 +67,10 @@ def create_application():
 
     LOG.info(f"Configured to authenticate with FLEET_ID={config.CONFIG.fleet_id}")
 
-    app = connexion.FlaskApp("balena sign API", options={"swagger_ui": False})
-    app.add_api("api.yml")
-    return app.app
+    options = connexion.options.SwaggerUIOptions(swagger_ui=False)
+    app = connexion.FlaskApp("balena sign API", specification_dir='./', swagger_ui_options=options)
+    app.add_api("api.yml", swagger_ui_options=options)
+    return app
 
 
 application = create_application()
