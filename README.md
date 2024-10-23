@@ -39,7 +39,10 @@ curl -X POST -H "X-API-Key: XXX" -H "Content-type: application/json" -d '{
     "kek": {"cert_id": "balenaos-kek", "subject": "/CN=balenaOS KEK/"},
     "db": {"cert_id": "balenaos-db", "subject": "/CN=balenaOS db/"},
     "kmod": {"cert_id": "balenaos-kmod", "subject": "/CN=key for signing 3rd party balenaOS kernel modules/", "key_length": 4096}
-  }
+  },
+  "rsa": {},
+  "hab": {"hab_type": "hab"},
+  "ahab": {"hab_type": "ahab"}
 }'
 ```
 
