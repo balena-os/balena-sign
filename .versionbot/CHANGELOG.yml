@@ -1,4 +1,96 @@
 - commits:
+    - subject: "README: update bootstrapping example"
+      hash: c5f0bc0f715999fba7a34b2c34878fecdddf8391
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+    - subject: "rsa: Return an empty list when no keys are present"
+      hash: e11508f28db314cd02e3480a05c3fed76fa9ee61
+      body: |
+        Not having a key is valid so handle the exception and return an empty
+        list.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+    - subject: "secureboot: extend the capped size for EFI image signing"
+      hash: 1144540ed8ca3f149fdf8cebbca1811f54bbd831
+      body: >
+        Some device types have kernel bundles that go above the current capped
+
+        size.
+
+
+        It's unclear why the cap size on read exists in the first place so I
+        only
+
+        made the minimum change required.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+    - subject: Use python 3.12 and update dependencies
+      hash: d5a6404bbfb29e5a519c2ff57b8e9d2174990070
+      body: |
+        The connexion 3 update switches from using a WSGI server to a ASGI one,
+        so needs to be served by gunicorn using the uvicorn backend.
+
+        Also update base images to using current stable versions:
+
+        * Debian bookworm
+        * Alpine 3.19
+        * Golang 1.22
+
+        Stop using balenalib images as they are not up to date and not likely
+        to keep up with upstream.
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+    - subject: "Dockerfile: build NXP's CST tool"
+      hash: cb96a77daaddd112d22b3500595c11cfb8b50655
+      body: >
+        The tool is only available via NXP's download page prior license
+        acceptance.
+
+        To avoid licenses issues, the source must be manually downloaded and
+
+        installed prior to building the signing server app.
+
+
+        The source can be fetched from:
+
+        https://www.nxp.com/webapp/Download?colCode=IMX_CST_TOOL_NEW&location=null
+
+
+        And it is only provided for x86_64 architectures, so the signing server
+
+        is now restricted to running on x86_64 hardware.
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+  version: 1.1.0
+  title: ""
+  date: 2024-10-23T14:28:00.455Z
+- commits:
     - subject: "rsa: improve handling of temporary files"
       hash: 366463131d65e2d06320a3a130dc4ced001b321a
       body: |

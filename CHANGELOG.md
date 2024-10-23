@@ -4,6 +4,15 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.1.0
+## (2024-10-23)
+
+* README: update bootstrapping example [Alex Gonzalez]
+* rsa: Return an empty list when no keys are present [Alex Gonzalez]
+* secureboot: extend the capped size for EFI image signing [Alex Gonzalez]
+* Use python 3.12 and update dependencies [Alex Gonzalez]
+* Dockerfile: build NXP's CST tool [Alex Gonzalez]
+
 # v1.0.2
 ## (2024-07-04)
 
