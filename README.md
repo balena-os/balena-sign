@@ -8,7 +8,7 @@ that it never exposes and provides an API that lets users use them for signing.
 
 Balena sign uses balenaCloud as the authentication backend. Authorization is controlled by specifying a `FLEET_ID` environment variable. This value enforces that the balenaCloud API key provided must have permissions (operator/developer/etc) access to that fleet to be authorized with this application.
 
-API Keys are handled by passing them in the `X-API-KEY` header like in the follow httpie request:
+API Keys are handled by passing them in the `X-API-KEY` header like in the following http request:
 
 ```
 http POST 10.0.0.13/gpg/keys \
