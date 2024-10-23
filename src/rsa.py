@@ -13,9 +13,12 @@ LOG = logging.getLogger("rsa")
 
 
 def keys():
-    dirs = os.listdir(RSA_DIR)
+    try:
+        dirs = os.listdir(RSA_DIR)
+    except FileNotFoundError:
+        dirs = []
     response = {
-        "keys": [dirs],
+        "keys": dirs,
     }
     return response
 

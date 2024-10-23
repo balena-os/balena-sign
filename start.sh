@@ -54,4 +54,4 @@ if [ "x${BALENASIGN_LUKS_KEY}" != "x" ]; then
 	fi
 fi
 
-exec /usr/local/bin/uwsgi --http-socket :8080 --socket-timeout 300 --http-timeout 300 --uid balenasign --gid balenasign --processes 4 --chdir /opt/balena/balenasign --pythonpath /opt/balena/balenasign/src --module app
+gunicorn -k uvicorn.workers.UvicornWorker -u balenasign -g balenasign --chdir /opt/balena/balenasign --workers 4 --bind 0.0.0.0:8080 app:application
