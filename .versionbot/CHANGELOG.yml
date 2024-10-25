@@ -1,4 +1,15 @@
 - commits:
+    - subject: Fix typos
+      hash: 5482ffff9384cdaa435d6cd7d297ea201ee55fe6
+      body: ""
+      footer:
+        change-type: patch
+      author: Anton Belodedenko
+      nested: []
+  version: 1.2.1
+  title: ""
+  date: 2024-10-25T21:02:24.824Z
+- commits:
     - subject: Add capability to send logs to Loki
       hash: 3d37675f7987112af7aaa23d76fe10120a65b46b
       body: |
