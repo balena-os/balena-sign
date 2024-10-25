@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.2.0
+## (2024-10-25)
+
+* Add capability to send logs to Loki [Anton Belodedenko]
+
 # v1.1.0
 ## (2024-10-23)
 

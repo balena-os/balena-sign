@@ -1,4 +1,17 @@
 - commits:
+    - subject: Add capability to send logs to Loki
+      hash: 3d37675f7987112af7aaa23d76fe10120a65b46b
+      body: |
+        * adds logs-to-vector and cert-manager components
+        * obtains certs from common balena-ca in AWS/EKS via static IP ACLs
+      footer:
+        change-type: minor
+      author: Anton Belodedenko
+      nested: []
+  version: 1.2.0
+  title: ""
+  date: 2024-10-25T19:58:10.726Z
+- commits:
     - subject: "README: update bootstrapping example"
       hash: c5f0bc0f715999fba7a34b2c34878fecdddf8391
       body: ""
