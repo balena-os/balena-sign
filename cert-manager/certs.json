@@ -21,5 +21,28 @@
       "CN": "logs-to-vector.${DNS_TLD}"
     },
     "profile": "client"
+  },
+  {
+    "request": {
+      "key": {
+        "algo": "${key_algo}",
+        "size": ${key_size}
+      },
+      "hosts": [
+        "metrics-agent.${DNS_TLD}",
+        "metrics-agent.${TLD}"
+      ],
+      "names": [
+        {
+          "C": "${country}",
+          "L": "${locality_name}",
+          "O": "${org}",
+          "OU": "${org_unit}",
+          "ST": "${state}"
+        }
+      ],
+      "CN": "metrics-agent.${DNS_TLD}"
+    },
+    "profile": "client"
   }
 ]
