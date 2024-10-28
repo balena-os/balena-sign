@@ -1,4 +1,20 @@
 - commits:
+    - subject: Add a metrics agent for collecting worker resource metrics.
+      hash: 47af463d27bfdc6011795c3466e3c71ca1b045c7
+      body: >
+        Related project:
+        https://balena.fibery.io/Work/Project/Add-node-exporter-metrics-to-builder-worker-fleets-600
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Carlo Miguel F. Cruz <carloc@balena.io>
+        signed-off-by: Carlo Miguel F. Cruz <carloc@balena.io>
+      author: Carlo Miguel F. Cruz
+      nested: []
+  version: 1.3.0
+  title: ""
+  date: 2024-10-28T16:05:28.533Z
+- commits:
     - subject: Fix typos
       hash: 5482ffff9384cdaa435d6cd7d297ea201ee55fe6
       body: ""

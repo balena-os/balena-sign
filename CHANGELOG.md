@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.3.0
+## (2024-10-28)
+
+* Add a metrics agent for collecting worker resource metrics. [Carlo Miguel F. Cruz]
+
 # v1.2.1
 ## (2024-10-25)
 
