@@ -185,3 +185,17 @@ services:
     labels:
       io.balena.features.balena-api: 1
       io.balena.features.supervisor-api: 1
+
+  # https://github.com/balena-io/metrics-agent
+  metrics-agent:
+    image: ghcr.io/balena-io/metrics-agent:v1.0.0
+    volumes:
+      - certs:/certs:ro
+    healthcheck:
+      test: ["CMD", "curl", "--fail", "http://localhost:9273/metrics"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    labels:
+      io.resin.features.balena-socket: '1'
+    privileged: true
