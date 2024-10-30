@@ -149,6 +149,24 @@ paths:
               schema:
                 $ref: "#/components/schemas/certNewResponse"
 
+  /cert/sign:
+    post:
+      operationId: cert.sign
+      security:
+        - apiKey: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/certSignRequest"
+      responses:
+        200:
+          description: Signature
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/certSignResponse"
+
   /secureboot/pk/{cert_id}:
     get:
       operationId: secureboot.get_pk
@@ -488,6 +506,10 @@ components:
       type: string
       pattern: "^[a-zA-Z0-9_/\\+\\-]+=?=?$"
 
+    sha256:
+      type: string
+      pattern: "^[a-fA-F0-9]{64}$"
+
     certId:
       type: string
 
@@ -641,6 +663,25 @@ components:
         data:
           $ref: "#/components/schemas/base64"
         salt:
+          $ref: "#/components/schemas/base64"
+
+    certSignRequest:
+      type: object
+      required:
+        - cert_id
+        - digest
+      properties:
+        cert_id:
+          $ref: "#/components/schemas/certId"
+        digest:
+          $ref: "#/components/schemas/sha256"
+
+    certSignResponse:
+      type: object
+      required:
+        - signature
+      properties:
+        signature:
           $ref: "#/components/schemas/base64"
 
     gpgKeysResponse:
