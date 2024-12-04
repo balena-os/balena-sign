@@ -32,7 +32,10 @@ crypto features implemented in hardware.
 
 You can bootstrap all the secrets necessary for integration with balenaOS yocto build using a single bootstrap command:
 ```
-curl -X POST -H "X-API-Key: XXX" -H "Content-type: application/json" -d '{
+curl -X POST ${SIGNING_SERVER_URL}/bootstrap \
+             -H "X-API-Key: XXX" \
+             -H "Content-type: application/json" \
+             -d '{
   "gpg": {"name_real": "balenaOS GRUB GPG key", "name_email": "security@balena.io"},
   "certificates": {
     "pk": {"cert_id": "balenaos-pk", "subject": "/CN=balenaOS PK/"},
