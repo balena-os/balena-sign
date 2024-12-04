@@ -1,3 +1,4 @@
+import binascii
 import logging
 import os
 import subprocess
@@ -56,5 +57,30 @@ def new(body, user):
     response = {"cert": cert_data}
 
     LOG.info("%s successfully generated a new certificate %s", user, cert_id)
+
+    return response
+
+
+def sign(body, user):
+    cert_id = body["cert_id"]
+    digest = bytes.fromhex(body["digest"])
+
+    key_filename = "%s.key" % cert_id
+    key_path = os.path.join(X509_DIR, key_filename)
+    if not os.path.isfile(key_path):
+        return {"error": "Certificate '%s' not found" % cert_id}, 404
+
+    cmd = ["openssl", "pkeyutl", "-sign", "-inkey", key_path]
+    cmd_result = subprocess.run(cmd, input=digest, capture_output=True)
+    if cmd_result.returncode != 0:
+        return {"error": "Failed to sign digest"}, 500
+
+    response = {
+        "signature": binascii.b2a_base64(cmd_result.stdout).decode().rstrip("\n")
+    }
+
+    LOG.info(
+        "%s successfully signed a digest using certificate '%s'", user, cert_id
+    )
 
     return response
