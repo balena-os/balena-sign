@@ -1,9 +1,24 @@
 - commits:
+    - subject: "README: improve bootstrap example"
+      hash: 1ecf9b40717ef139ea590e94952ae6217f4e290c
+      body: |
+        The bootstrap example is missing the endpoint used in the request.
+        Add it.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Joseph Kogut <joseph@balena.io>
+        signed-off-by: Joseph Kogut <joseph@balena.io>
+      author: Joseph Kogut
+      nested: []
+  version: 1.3.1
+  title: ""
+  date: 2024-12-04T08:39:39.330Z
+- commits:
     - subject: Add a metrics agent for collecting worker resource metrics.
       hash: 47af463d27bfdc6011795c3466e3c71ca1b045c7
-      body: >
-        Related project:
-        https://balena.fibery.io/Work/Project/Add-node-exporter-metrics-to-builder-worker-fleets-600
+      body: |
+        Related project: https://balena.fibery.io/Work/Project/Add-node-exporter-metrics-to-builder-worker-fleets-600
       footer:
         Change-type: minor
         change-type: minor
@@ -103,22 +118,15 @@
       nested: []
     - subject: "Dockerfile: build NXP's CST tool"
       hash: cb96a77daaddd112d22b3500595c11cfb8b50655
-      body: >
-        The tool is only available via NXP's download page prior license
-        acceptance.
-
+      body: |
+        The tool is only available via NXP's download page prior license acceptance.
         To avoid licenses issues, the source must be manually downloaded and
-
         installed prior to building the signing server app.
 
-
         The source can be fetched from:
-
         https://www.nxp.com/webapp/Download?colCode=IMX_CST_TOOL_NEW&location=null
 
-
         And it is only provided for x86_64 architectures, so the signing server
-
         is now restricted to running on x86_64 hardware.
       footer:
         Change-type: minor
