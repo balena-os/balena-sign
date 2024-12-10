@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.4.0
+## (2024-12-10)
+
+* Add support for signing SHA256 digests using an existing certificate [Michal Toman]
+
 # v1.3.1
 ## (2024-12-04)
 

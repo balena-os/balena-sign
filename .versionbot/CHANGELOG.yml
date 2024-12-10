@@ -1,4 +1,20 @@
 - commits:
+    - subject: Add support for signing SHA256 digests using an existing certificate
+      hash: 41392528a515589529143d825aa6fe6c9ae5f062
+      body: |
+        This is useful to avoid transferring big files back and forth
+        if we only need a detached signature.
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+  version: 1.4.0
+  title: ""
+  date: 2024-12-10T10:18:43.580Z
+- commits:
     - subject: "README: improve bootstrap example"
       hash: 1ecf9b40717ef139ea590e94952ae6217f4e290c
       body: |
