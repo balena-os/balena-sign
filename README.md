@@ -67,3 +67,8 @@ env variable. The unlocked DM device must be mountable by balenaOS, just use
 ext4 if unsure. It must hold two directories: `gpg` and `x509`, both owned
 and by user:group `999:999` which will map to `balenasign:balenasign`
 within the app. The `gpg` directory must also have `0700` access rights set.
+
+## Development
+* download [IMX CST TOOL](https://www.nxp.com/webapp/Download?colCode=IMX_CST_TOOL) from NXP
+* place the tool into the `cst` directory
+* adjust build ARGs in `Dockerfile.template` if required
