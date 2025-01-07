@@ -1,4 +1,15 @@
 - commits:
+    - subject: deploy to balenaCloud with Flowzone
+      hash: a290e1dec6f4422baa3967460f29f6940130feb2
+      body: ""
+      footer:
+        change-type: patch
+      author: Anton Belodedenko
+      nested: []
+  version: 1.4.1
+  title: ""
+  date: 2025-01-07T20:50:29.379Z
+- commits:
     - subject: Add support for signing SHA256 digests using an existing certificate
       hash: 41392528a515589529143d825aa6fe6c9ae5f062
       body: |

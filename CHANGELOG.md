@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.4.1
+## (2025-01-07)
+
+* deploy to balenaCloud with Flowzone [Anton Belodedenko]
+
 # v1.4.0
 ## (2024-12-10)
 
