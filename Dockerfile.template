@@ -4,7 +4,7 @@ ARG CST_TARBALL=cst-3.4.1.tgz
 ARG CST_TARBALL_CKSUM=b23ed5983734d4812fcf1da33eac8f31
 # Won't fail if CST_TARBALL is not present to allow for a better error message
 # to be surfaced with instructions later on
-COPY requirements.txt ${CST_TARBALL} /var/tmp/
+COPY requirements.txt cst/${CST_TARBALL} /var/tmp/
 RUN pip3 install -r /var/tmp/requirements.txt
 RUN apt-get update && apt-get install -y linux-kbuild-6.1 byacc flex && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/*
 
