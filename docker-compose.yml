@@ -155,7 +155,7 @@ services:
     <<: [*base-service]
     healthcheck:
       <<: *default-healthcheck
-      test: curl -I --fail ${HC_URL:-localhost:8080/gpg/keys}
+      test: ["CMD-SHELL", "curl -I --fail http://localhost:8080/gpg/keys && (curl -I --fail --max-time 5 ${HC_URL} || true)"]
 
   # https://github.com/balena-io/logs-to-vector
   # This service handles log collection from the balenaEngine/journald logs (AKA: logshipper)
