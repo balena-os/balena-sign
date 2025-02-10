@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.4.2
+## (2025-02-10)
+
+* Check balena-sign health before pinging external HC hook. [Carlo Miguel F. Cruz]
+
 # v1.4.1
 ## (2025-01-07)
 

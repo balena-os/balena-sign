@@ -1,4 +1,20 @@
 - commits:
+    - subject: Check balena-sign health before pinging external HC hook.
+      hash: 450ff2bf8342eefe6ccadb31c0252d820ef3ac14
+      body: |
+        This ensures that the external healthcheck hook is called only if the
+        balena-sign service is operational.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Carlo Miguel F. Cruz <carloc@balena.io>
+        signed-off-by: Carlo Miguel F. Cruz <carloc@balena.io>
+      author: Carlo Miguel F. Cruz
+      nested: []
+  version: 1.4.2
+  title: ""
+  date: 2025-02-10T15:18:52.079Z
+- commits:
     - subject: deploy to balenaCloud with Flowzone
       hash: a290e1dec6f4422baa3967460f29f6940130feb2
       body: ""
