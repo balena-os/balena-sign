@@ -1,26 +1,37 @@
-FROM python:3.12-bookworm as build
+ARG PYTHON_MINOR_VERSION=3.12
+ARG PYTHON_PATCH_VERSION=9
+ARG DEBIAN_RELEASE=bookworm
+FROM python:${PYTHON_MINOR_VERSION}.${PYTHON_PATCH_VERSION}-${DEBIAN_RELEASE} as build
+ENV DEBIAN_FRONTEND=noninteractive
 
-ARG CST_TARBALL=cst-3.4.1.tgz
-ARG CST_TARBALL_CKSUM=b23ed5983734d4812fcf1da33eac8f31
+ARG CST_VERSION=4.0.0
+ARG CST_TARBALL=cst-${CST_VERSION}.tgz
+ARG CST_TARBALL_CKSUM=f597448ffaec0225e317a7eebd1efe13
 # Won't fail if CST_TARBALL is not present to allow for a better error message
 # to be surfaced with instructions later on
 COPY requirements.txt cst/${CST_TARBALL} /var/tmp/
 RUN pip3 install -r /var/tmp/requirements.txt
-RUN apt-get update && apt-get install -y linux-kbuild-6.1 byacc flex && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/*
+RUN apt-get update && apt-get install -y linux-kbuild-6.1 byacc flex bison cmake libjson-c-dev libhidapi-dev libusb-1.0-0-dev libudev-dev && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/*
 
 # NXP's CST tool only available for x86_64 architecture
 RUN if [ $(uname -m) != "x86_64" ]; then echo "Signing server only supported for x86_84 architectures"; exit 1; fi
 
 RUN if [ ! -f "/var/tmp/${CST_TARBALL}" ]; then echo "Please download the CST tool from https://www.nxp.com/webapp/Download?colCode=IMX_CST_TOOL_NEW&location=null"; exit 1; fi
+ 
+RUN if [ "${CST_TARBALL_CKSUM}" = "$(md5sum "/var/tmp/${CST_TARBALL}" | awk '{print $1}')" ]; then tar -xvf /var/tmp/${CST_TARBALL} && cmake -S ${CST_TARBALL%.*}/src -B ${CST_TARBALL%.*} && make -C ${CST_TARBALL%.*}; else echo "Invalid checksum for ${CST_TARBALL} - expecting ${CST_TARBALL_CKSUM}"; exit 1; fi
 
-RUN if [ "${CST_TARBALL_CKSUM}" = "$(md5sum "/var/tmp/${CST_TARBALL}" | awk '{print $1}')" ]; then tar -xvf /var/tmp/${CST_TARBALL} && sed -i '/$(OPENSSL_TAR):/{N;s/curl /curl -L /;}' ${CST_TARBALL%.*}/Makefile && make -C "${CST_TARBALL%.*}"; else echo "Invalid checksum for ${CST_TARBALL} - expecting ${CST_TARBALL_CKSUM}"; exit 1; fi
-
-FROM python:3.12-bookworm
-ARG CST_DIR=cst-3.4.1
+ARG PYTHON_MINOR_VERSION=3.12
+ARG PYTHON_PATCH_VERSION=9
+ARG DEBIAN_RELEASE=bookworm
+FROM python:${PYTHON_MINOR_VERSION}.${PYTHON_PATCH_VERSION}-${DEBIAN_RELEASE}
+ARG PYTHON_MINOR_VERSION=3.12
+ARG CST_VERSION=4.0.0
+ENV DEBIAN_FRONTEND=noninteractive
+ARG CST_DIR=cst-${CST_VERSION}
 COPY --from=build /usr/local/bin/gunicorn /usr/src/linux-kbuild-6.1/scripts/sign-file /usr/local/bin/
-COPY --from=build /usr/local/lib/python3.12/site-packages/ /usr/local/lib/python3.12/
+COPY --from=build /usr/local/lib/python${PYTHON_MINOR_VERSION}/site-packages/ /usr/local/lib/python${PYTHON_MINOR_VERSION}/
 RUN mkdir -p /usr/local/cst/keys /usr/local/cst/crts
-COPY --from=build ${CST_DIR}/linux64/bin/* /usr/local/bin/
+COPY --from=build ${CST_DIR}/bin/* /usr/local/bin/
 COPY --from=build ${CST_DIR}/keys/hab4_pki_tree.sh /usr/local/cst/keys/
 COPY --from=build ${CST_DIR}/keys/ahab_pki_tree.sh /usr/local/cst/keys
 COPY --from=build ${CST_DIR}/keys/add_key.sh /usr/local/cst/keys
