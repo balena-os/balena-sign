@@ -99,7 +99,9 @@ def generate_srks(hab_type, tree_dir):
     if hab_type == "ahab":
         hab_ver = "--ahab_ver"
         srk_digest = "sign_digest sha512"
-    csv_certs = ','.join(glob.glob(f"{tree_dir}/crts/SRK*crt.pem"))
+    # Beware this sort will only work for up to 9 certicates as SRK10 will
+    # be sortered after SRK1.
+    csv_certs = ','.join(sorted(glob.glob(f"{tree_dir}/crts/SRK*crt.pem")))
     cmd = [ "srktool",
             "--table", f"{tree_dir}/{srk_table}",
             "--efuses", f"{tree_dir}/{SRK_EFUSES}",
