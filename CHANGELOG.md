@@ -4,6 +4,15 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.0
+## (2025-02-17)
+
+* cst: update submodule to version 0.0.3 [Alex Gonzalez]
+* requirements: update to patch known vulnerabilities [Alex Gonzalez]
+* Dockerfile: update to cst 4.0.0 and Python 3.12.9 [Alex Gonzalez]
+* imx: Fix linter warnings [Alex Gonzalez]
+* imx: sort the certificate list [Alex Gonzalez]
+
 # v1.4.2
 ## (2025-02-10)
 

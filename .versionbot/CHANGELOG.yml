@@ -1,4 +1,69 @@
 - commits:
+    - subject: "cst: update submodule to version 0.0.3"
+      hash: 663c4f1c09651363057bf8a581d349182ec01d4b
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+    - subject: "requirements: update to patch known vulnerabilities"
+      hash: d8e1ec75bd3b0c9bbe175b924590181980136a2f
+      body: |
+        * https://github.com/balena-os/balena-sign/security/dependabot/22
+        * https://github.com/balena-os/balena-sign/security/dependabot/19
+        * https://github.com/balena-os/balena-sign/security/dependabot/25
+        * https://github.com/balena-os/balena-sign/security/dependabot/24
+        * https://github.com/balena-os/balena-sign/security/dependabot/21
+        * https://github.com/balena-os/balena-sign/security/dependabot/20
+        * https://github.com/balena-os/balena-sign/security/dependabot/26
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+    - subject: "Dockerfile: update to cst 4.0.0 and Python 3.12.9"
+      hash: ad7ab0c9bbe99e5df4b1fee428a2bf97497a9ac9
+      body: ""
+      footer:
+        Change-type: minor
+        change-type: minor
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+    - subject: "imx: Fix linter warnings"
+      hash: f4022e59974d1a1473240c24386245ce822668e8
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+    - subject: "imx: sort the certificate list"
+      hash: b8df03290823bf726dc8618d8ceed2cbe418d559
+      body: |
+        The glob module uses the readdir system call which does not guarantee
+        the order of results. Some systems order this alphabetically in which
+        case the keys will work fine, others will not in which case the keys
+        will fail to authenticate.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Alex Gonzalez <alexg@balena.io>
+        signed-off-by: Alex Gonzalez <alexg@balena.io>
+      author: Alex Gonzalez
+      nested: []
+  version: 1.5.0
+  title: ""
+  date: 2025-02-17T14:18:01.895Z
+- commits:
     - subject: Check balena-sign health before pinging external HC hook.
       hash: 450ff2bf8342eefe6ccadb31c0252d820ef3ac14
       body: |
