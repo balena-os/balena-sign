@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: Use the default env. var. set by Supervisor"
+      hash: 15e1086bed74b03789b0206b84c7c9ba97446f20
+      body: ""
+      footer: {}
+      author: Anton Belodedenko
+      nested: []
+  version: 1.5.2
+  title: ""
+  date: 2025-04-10T23:20:21.098Z
+- commits:
     - subject: "patch: Fix Renovate config"
       hash: 757816cf164a9c695fec4b8f07e22483fa24d3b7
       body: ""

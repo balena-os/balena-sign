@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.2
+## (2025-04-10)
+
+* patch: Use the default env. var. set by Supervisor [Anton Belodedenko]
+
 # v1.5.1
 ## (2025-04-10)
 
