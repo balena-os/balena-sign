@@ -33,7 +33,7 @@ def is_domain(value):
 
 def load(glob=False):
     api_domain = os.environ.get("BALENA_API_DOMAIN", DEFAULT_API_DOMAIN)
-    fleet_id = os.environ.get("FLEET_ID")
+    fleet_id = os.environ.get("BALENA_APP_ID", os.environ.get("FLEET_ID")) 
 
     if not fleet_id:
         raise ValueError("`FLEET_ID` env var cannot be empty!")
