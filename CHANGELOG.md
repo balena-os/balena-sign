@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.1
+## (2025-04-10)
+
+* patch: Fix Renovate config [Anton Belodedenko]
+
 # v1.5.0
 ## (2025-02-17)
 

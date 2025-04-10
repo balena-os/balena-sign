@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: Fix Renovate config"
+      hash: 757816cf164a9c695fec4b8f07e22483fa24d3b7
+      body: ""
+      footer: {}
+      author: Anton Belodedenko
+      nested: []
+  version: 1.5.1
+  title: ""
+  date: 2025-04-10T23:07:46.434Z
+- commits:
     - subject: "cst: update submodule to version 0.0.3"
       hash: 663c4f1c09651363057bf8a581d349182ec01d4b
       body: ""
