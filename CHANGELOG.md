@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.3
+## (2025-04-11)
+
+* patch: explicitly allow docker image updates by renovate. [Carlo Miguel F. Cruz]
+
 # v1.5.2
 ## (2025-04-10)
 

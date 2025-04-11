@@ -1,4 +1,22 @@
 - commits:
+    - subject: "patch: explicitly allow docker image updates by renovate."
+      hash: 4308792586610f079d79500d82a9f34db2633032
+      body: |
+        This overrides the package rule in balena-os/renovate-config
+        that disables package updates.
+
+        https://github.com/balena-os/renovate-config/blob/eb34653365230f0bda0874c37c37858bfb49e7e3/default.json#L25-L32
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Carlo Miguel F. Cruz <carloc@balena.io>
+        signed-off-by: Carlo Miguel F. Cruz <carloc@balena.io>
+      author: Carlo Miguel F. Cruz
+      nested: []
+  version: 1.5.3
+  title: ""
+  date: 2025-04-11T13:19:18.018Z
+- commits:
     - subject: "patch: Use the default env. var. set by Supervisor"
       hash: 15e1086bed74b03789b0206b84c7c9ba97446f20
       body: ""
