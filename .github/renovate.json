@@ -1,3 +1,10 @@
 {
-  "extends": ["github>balena-io/renovate-config"]
+  "extends": ["github>balena-io/renovate-config"],
+  "packageRules": [
+    {
+      "automerge": false,
+      "enabled": true,
+      "matchManagers": ["docker"]
+    }
+  ]
 }
