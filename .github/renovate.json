@@ -4,7 +4,12 @@
     {
       "automerge": false,
       "enabled": true,
-      "matchManagers": ["docker"]
+      "matchManagers": ["dockerfile"]
+    },
+    {
+      "automerge": false,
+      "enabled": true,
+      "matchManagers": ["docker-compose"]
     }
   ]
 }
