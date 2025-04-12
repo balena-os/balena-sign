@@ -1,4 +1,18 @@
 - commits:
+    - subject: Fix package rules in renovate config.
+      hash: 502d29f61dfa2bbe35f8661820da56d3ecdbd46d
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Carlo Miguel F. Cruz <carloc@balena.io>
+        signed-off-by: Carlo Miguel F. Cruz <carloc@balena.io>
+      author: Carlo Miguel F. Cruz
+      nested: []
+  version: 1.5.4
+  title: ""
+  date: 2025-04-12T00:22:51.986Z
+- commits:
     - subject: "patch: explicitly allow docker image updates by renovate."
       hash: 4308792586610f079d79500d82a9f34db2633032
       body: |
