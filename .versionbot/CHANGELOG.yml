@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update golang Docker tag to v1.23
+      hash: 3a5a82ac448b62c0a5d274025a4ad617514f7d54
+      body: |
+        Update golang from 1.22 to 1.23
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.7
+  title: ""
+  date: 2025-04-15T20:36:52.023Z
+- commits:
     - subject: Update ghcr.io/balena-io/metrics-agent Docker tag to v1.0.2
       hash: ef81b51f0837d2b1ff95379b2f3526186180c33d
       body: |
