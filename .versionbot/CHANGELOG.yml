@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update balena/cert-manager Docker tag to v0.3.3
+      hash: 1e7703f304d07f6ca85484a49873415c8da89233
+      body: |
+        Update balena/cert-manager from 0.2.2 to 0.3.3
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.5
+  title: ""
+  date: 2025-04-15T15:51:22.173Z
+- commits:
     - subject: Fix package rules in renovate config.
       hash: 502d29f61dfa2bbe35f8661820da56d3ecdbd46d
       body: ""
