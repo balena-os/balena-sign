@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.6
+## (2025-04-15)
+
+* Update ghcr.io/balena-io/metrics-agent Docker tag to v1.0.2 [balena-renovate[bot]]
+
 # v1.5.5
 ## (2025-04-15)
 
