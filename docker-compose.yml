@@ -188,7 +188,7 @@ services:
 
   # https://github.com/balena-io/metrics-agent
   metrics-agent:
-    image: ghcr.io/balena-io/metrics-agent:v1.0.0
+    image: ghcr.io/balena-io/metrics-agent:1.0.2
     volumes:
       - certs:/certs:ro
     healthcheck:
