@@ -1,3 +1,3 @@
-FROM balena/cert-manager:0.3.3
+FROM balena/cert-manager:0.4.6
 
 COPY *.json /opt/
