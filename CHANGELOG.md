@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.10
+## (2026-02-03)
+
+* Update balena/cert-manager Docker tag to v0.4.6 [balena-renovate[bot]]
+
 # v1.5.9
 ## (2026-02-03)
 

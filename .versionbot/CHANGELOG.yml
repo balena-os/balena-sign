@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update balena/cert-manager Docker tag to v0.4.6
+      hash: 000087404e197971d6b69633c50e6bc9b65202b4
+      body: |
+        Update balena/cert-manager from 0.3.3 to 0.4.6
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.10
+  title: ""
+  date: 2026-02-03T21:45:12.271Z
+- commits:
     - subject: "secureboot.py: Remove EFI binary from /tmp after using it"
       hash: 5072de9c6453e979f6425e0d3fbd2b720d574810
       body: |
