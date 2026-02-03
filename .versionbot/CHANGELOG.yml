@@ -1,4 +1,24 @@
 - commits:
+    - subject: "secureboot.py: Remove EFI binary from /tmp after using it"
+      hash: 5072de9c6453e979f6425e0d3fbd2b720d574810
+      body: |
+        At this moment, when signing an EFI binary for secure boot, the binary
+        is saved into a temporary file, used by the sbsign tool, but never
+        removed. This means all the (unsigned) binaries pile up in /tmp until
+        the system runs out of memory.
+
+        With this patch the binary is removed from /tmp after it's been used.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+  version: 1.5.9
+  title: ""
+  date: 2026-02-03T21:24:18.966Z
+- commits:
     - subject: "patch: Pull submodule using HTTPS"
       hash: 5f05d819c66723c43e3c4e3952d6ad04df8ec3ba
       body: ""

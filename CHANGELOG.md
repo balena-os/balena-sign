@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.9
+## (2026-02-03)
+
+* secureboot.py: Remove EFI binary from /tmp after using it [Michal Toman]
+
 # v1.5.8
 ## (2026-02-03)
 
