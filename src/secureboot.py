@@ -235,6 +235,8 @@ def sign_efi(body, user):
     ]
     cmd_result = subprocess.run(cmd)
 
+    os.unlink(payload_filename)
+
     if cmd_result.returncode != 0:
         unlink_if_exists(signed_filename)
         return {"error": "Signature failed"}, 500
