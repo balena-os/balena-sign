@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: Pull submodule using HTTPS"
+      hash: 5f05d819c66723c43e3c4e3952d6ad04df8ec3ba
+      body: ""
+      footer: {}
+      author: Anton Belodedenko
+      nested: []
+  version: 1.5.8
+  title: ""
+  date: 2026-02-03T21:19:20.865Z
+- commits:
     - subject: Update golang Docker tag to v1.23
       hash: 3a5a82ac448b62c0a5d274025a4ad617514f7d54
       body: |

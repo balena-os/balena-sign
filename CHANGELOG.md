@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.8
+## (2026-02-03)
+
+* patch: Pull submodule using HTTPS [Anton Belodedenko]
+
 # v1.5.7
 ## (2025-04-15)
 
