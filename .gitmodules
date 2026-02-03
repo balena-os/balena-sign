@@ -1,4 +1,4 @@
 [submodule "cst"]
 	path = cst
-	url = git@github.com:balena-os/cst.git
+	url = https://github.com/balena-os/cst.git
 	branch = master
