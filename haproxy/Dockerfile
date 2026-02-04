@@ -1,3 +1,3 @@
-FROM balena/open-balena-haproxy:v4.1.3
+FROM balena/open-balena-haproxy:4.3.2
 
 COPY haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
