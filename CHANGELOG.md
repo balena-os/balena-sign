@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.12
+## (2026-02-04)
+
+* Update balena/open-balena-haproxy Docker tag to v4.3.2 [balena-renovate[bot]]
+
 # v1.5.11
 ## (2026-02-04)
 
