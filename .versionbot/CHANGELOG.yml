@@ -1,4 +1,14 @@
 - commits:
+    - subject: "patch: Revert Flowzone workflow to master branch"
+      hash: c240daed9ba0dcea702e4b4168d77e6ba14eaa54
+      body: ""
+      footer: {}
+      author: Anton B.
+      nested: []
+  version: 1.5.11
+  title: ""
+  date: 2026-02-04T15:15:20.243Z
+- commits:
     - subject: Update balena/cert-manager Docker tag to v0.4.6
       hash: 000087404e197971d6b69633c50e6bc9b65202b4
       body: |

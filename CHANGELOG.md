@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.11
+## (2026-02-04)
+
+* patch: Revert Flowzone workflow to master branch [Anton B.]
+
 # v1.5.10
 ## (2026-02-03)
 
