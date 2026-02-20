@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.14
+## (2026-02-20)
+
+* upgrade golang ssm-agent version [Yann CARDAILLAC]
+
 # v1.5.13
 ## (2026-02-10)
 

@@ -1,4 +1,19 @@
 - commits:
+    - subject: upgrade golang ssm-agent version
+      hash: 3a23bbd83d9a144cc1c2f055127ac169a6741bf6
+      body: >
+        fixing goimports:latest not compatible with previous golang image version
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Yann CARDAILLAC <yann.cardaillac@balena.io>
+        signed-off-by: Yann CARDAILLAC <yann.cardaillac@balena.io>
+      author: Yann CARDAILLAC
+      nested: []
+  version: 1.5.14
+  title: ""
+  date: 2026-02-20T09:53:16.643Z
+- commits:
     - subject: Update balena/cert-manager Docker tag to v0.4.7
       hash: d69fac25e04ebbcf7b6c5cec3b502e764e5e3c3c
       body: |
