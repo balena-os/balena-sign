@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update python-dotenv to v1.2.2 [SECURITY]
+      hash: 91ac7dcd06658210f0ab1773d720585d19048237
+      body: |
+        Update python-dotenv from 1.0.1 to 1.2.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.20
+  title: ""
+  date: 2026-04-30T22:50:30.072Z
+- commits:
     - subject: Update urllib3 to v2.6.3 [SECURITY]
       hash: e251b83c6380b92223f4ca904c3847e19f2b66e7
       body: |
