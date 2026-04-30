@@ -49,7 +49,7 @@ python-multipart>=0.0.18
 PyYAML==6.0.2
 ratelimit==2.2.1
 referencing==0.35.1
-requests==2.32.3
+requests==2.33.0
 rfc3339-validator==0.1.4
 rpds-py==0.20.0
 semver==3.0.2
