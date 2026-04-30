@@ -37,7 +37,7 @@ openapi-spec-validator==0.7.1
 packaging==24.1
 pathable==0.4.3
 pine-client==0.2.0
-pyasn1==0.6.1
+pyasn1==0.6.3
 pyasn1_modules==0.4.1
 pycparser==2.22
 PyJWT==2.9.0
