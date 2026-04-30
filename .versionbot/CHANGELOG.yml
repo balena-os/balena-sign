@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update urllib3 to v2.6.3 [SECURITY]
+      hash: e251b83c6380b92223f4ca904c3847e19f2b66e7
+      body: |
+        Update urllib3 from 2.2.3 to 2.6.3
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.19
+  title: ""
+  date: 2026-04-30T21:03:18.136Z
+- commits:
     - subject: Update requests to v2.33.0 [SECURITY]
       hash: aa7987b9b17e8d4d689ac84d9a28e8708d058d69
       body: |
