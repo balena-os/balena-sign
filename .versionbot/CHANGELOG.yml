@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update pyasn1 to v0.6.3 [SECURITY]
+      hash: 43d0768ab0ca96a1418fa60a5c6ebc59b0537da9
+      body: |
+        Update pyasn1 from 0.6.1 to 0.6.3
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.16
+  title: ""
+  date: 2026-04-30T17:02:53.062Z
+- commits:
     - subject: Update balena/cert-manager Docker tag to v0.4.8
       hash: cb85474aa4d05ed7a175f63be7f66be6ca100589
       body: |
