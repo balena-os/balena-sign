@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update requests to v2.33.0 [SECURITY]
+      hash: aa7987b9b17e8d4d689ac84d9a28e8708d058d69
+      body: |
+        Update requests from 2.32.3 to 2.33.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.18
+  title: ""
+  date: 2026-04-30T19:19:45.896Z
+- commits:
     - subject: Update PyJWT to v2.12.0 [SECURITY]
       hash: 3f0d1af2ba769d0508718ff8d6aa759ae37a23dd
       body: |
