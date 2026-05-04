@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update Pin dependencies
+      hash: 692f0e090877daa873418aa2f73b743e8691f156
+      body: |
+        Update alpine
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.24
+  title: ""
+  date: 2026-05-04T08:06:01.201Z
+- commits:
     - subject: Update balena/open-balena-haproxy Docker tag to v4.3.16
       hash: bfe77a8a60cce4de775ad8f708e3b76e0863785d
       body: |

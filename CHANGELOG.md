@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.24
+## (2026-05-04)
+
+* Update Pin dependencies [balena-renovate[bot]]
+
 # v1.5.23
 ## (2026-05-04)
 
