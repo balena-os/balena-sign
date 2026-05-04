@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update setuptools to v78 [SECURITY]
+      hash: 7813ad2b6208a0d90b6f65a1daf6680e331fff22
+      body: |
+        Update setuptools from 75.1.0 to 78.1.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.21
+  title: ""
+  date: 2026-05-04T06:34:26.634Z
+- commits:
     - subject: Update python-dotenv to v1.2.2 [SECURITY]
       hash: 91ac7dcd06658210f0ab1773d720585d19048237
       body: |
