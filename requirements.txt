@@ -32,7 +32,7 @@ jsonschema-path==0.3.4
 jsonschema-specifications==2023.12.1
 lazy-object-proxy==1.10.0
 MarkupSafe==2.1.5
-openapi-schema-validator==0.6.2
+openapi-schema-validator==0.6.3
 openapi-spec-validator==0.7.2
 packaging==24.1
 pathable==0.4.3
