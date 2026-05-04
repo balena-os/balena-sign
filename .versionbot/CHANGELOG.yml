@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update Deprecated to v1.2.18
+      hash: da7c18d0ff35d3ca10149795f592edf30f56cba8
+      body: |
+        Update Deprecated from 1.2.14 to 1.2.18
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.33
+  title: ""
+  date: 2026-05-04T21:07:35.312Z
+- commits:
     - subject: Update openapi-spec-validator to v0.7.2
       hash: e17bcc847afea70188041bc5a04fc221f58d1d46
       body: |
