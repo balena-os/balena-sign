@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update httptools to v0.6.4
+      hash: b5014563269f109b7e13b3b129fbcd49279d8988
+      body: |
+        Update httptools from 0.6.1 to 0.6.4
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.31
+  title: ""
+  date: 2026-05-04T17:12:42.211Z
+- commits:
     - subject: Update jsonschema-path to v0.3.4
       hash: 7198f2a1e6a332cca3a5e9d78a22ecab50b7a36d
       body: |
