@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update openapi-schema-validator to v0.6.3
+      hash: 1d21c2f1b70e87855ad443d63c5e27251056a9b4
+      body: |
+        Update openapi-schema-validator from 0.6.2 to 0.6.3
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.34
+  title: ""
+  date: 2026-05-04T22:52:23.875Z
+- commits:
     - subject: Update Deprecated to v1.2.18
       hash: da7c18d0ff35d3ca10149795f592edf30f56cba8
       body: |

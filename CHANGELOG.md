@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.34
+## (2026-05-04)
+
+* Update openapi-schema-validator to v0.6.3 [balena-renovate[bot]]
+
 # v1.5.33
 ## (2026-05-04)
 
