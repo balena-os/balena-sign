@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update jsonschema-path to v0.3.4
+      hash: 7198f2a1e6a332cca3a5e9d78a22ecab50b7a36d
+      body: |
+        Update jsonschema-path from 0.3.3 to 0.3.4
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.30
+  title: ""
+  date: 2026-05-04T15:23:13.768Z
+- commits:
     - subject: Update click to v8.1.8
       hash: 216bfdf16840b5a78fb87ccf1981fac74fd5f542
       body: |
