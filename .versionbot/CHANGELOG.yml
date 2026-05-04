@@ -1,4 +1,27 @@
 - commits:
+    - subject: Update blinker to 1.9.0 to meet flask requirements
+      hash: c996f6a0826f007baf9087f32b94c19a4610317e
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+    - subject: Update Flask to v3.1.3 [SECURITY]
+      hash: bbd31ce3467d0c8020136c91c18b588199b1417d
+      body: |
+        Update Flask from 3.0.3 to 3.1.3
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.25
+  title: ""
+  date: 2026-05-04T08:31:48.751Z
+- commits:
     - subject: Update Pin dependencies
       hash: 692f0e090877daa873418aa2f73b743e8691f156
       body: |

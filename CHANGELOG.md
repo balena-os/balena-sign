@@ -4,6 +4,12 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.25
+## (2026-05-04)
+
+* Update blinker to 1.9.0 to meet flask requirements [Michal Toman]
+* Update Flask to v3.1.3 [SECURITY] [balena-renovate[bot]]
+
 # v1.5.24
 ## (2026-05-04)
 
