@@ -62,7 +62,7 @@ services:
   # FIXME: use container contracts when additional types are supported
   # https://www.balena.io/docs/learn/develop/container-contracts/#valid-contract-types
   tag-sidecar:
-    image: bash:alpine3.19
+    image: bash:alpine3.19@sha256:890897682a8025c1e178b5ec6126b3b532ad8535f1e81dbf60bc2b7300b1bcf8
     restart: "no"
     entrypoint:
       - /usr/local/bin/bash
@@ -188,7 +188,7 @@ services:
 
   # https://github.com/balena-io/metrics-agent
   metrics-agent:
-    image: ghcr.io/balena-io/metrics-agent:1.0.2
+    image: ghcr.io/balena-io/metrics-agent:1.0.2@sha256:d02079119a6f7db59c253bcf2018da941cdb4e5b83c44b2f1ffe2a43f023a0e5
     volumes:
       - certs:/certs:ro
     healthcheck:
