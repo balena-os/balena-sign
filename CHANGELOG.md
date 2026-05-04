@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.32
+## (2026-05-04)
+
+* Update openapi-spec-validator to v0.7.2 [balena-renovate[bot]]
+
 # v1.5.31
 ## (2026-05-04)
 

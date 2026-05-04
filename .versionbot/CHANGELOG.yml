@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update openapi-spec-validator to v0.7.2
+      hash: e17bcc847afea70188041bc5a04fc221f58d1d46
+      body: |
+        Update openapi-spec-validator from 0.7.1 to 0.7.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.32
+  title: ""
+  date: 2026-05-04T19:29:36.700Z
+- commits:
     - subject: Update httptools to v0.6.4
       hash: b5014563269f109b7e13b3b129fbcd49279d8988
       body: |
