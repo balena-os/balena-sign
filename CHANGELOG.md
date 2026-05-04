@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.28
+## (2026-05-04)
+
+* Update a2wsgi to v1.10.10 [balena-renovate[bot]]
+
 # v1.5.27
 ## (2026-05-04)
 

@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update a2wsgi to v1.10.10
+      hash: 24dff77517730255f0e4fde42370eddb1c6e3a44
+      body: |
+        Update a2wsgi from 1.10.7 to 1.10.10
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.28
+  title: ""
+  date: 2026-05-04T11:19:45.316Z
+- commits:
     - subject: Update anyio to v4.6.2.post1
       hash: 389df7f9e9ef4637936b604649aeaa64e90f3538
       body: |
