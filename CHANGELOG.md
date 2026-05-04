@@ -4,6 +4,12 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.26
+## (2026-05-04)
+
+* Update httpcore to 1.0.9 to meet h11 requirements [Michal Toman]
+* Update h11 to v0.16.0 [SECURITY] [balena-renovate[bot]]
+
 # v1.5.25
 ## (2026-05-04)
 

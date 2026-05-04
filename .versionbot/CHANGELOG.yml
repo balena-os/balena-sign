@@ -1,4 +1,27 @@
 - commits:
+    - subject: Update httpcore to 1.0.9 to meet h11 requirements
+      hash: c23b8031d77b5d4297e7e04e76cf16f897d02863
+      body: ""
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+    - subject: Update h11 to v0.16.0 [SECURITY]
+      hash: 960c01f7aac5a520e514c8e1f34d5a9876ad0952
+      body: |
+        Update h11 from 0.14.0 to 0.16.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.26
+  title: ""
+  date: 2026-05-04T08:44:38.192Z
+- commits:
     - subject: Update blinker to 1.9.0 to meet flask requirements
       hash: c996f6a0826f007baf9087f32b94c19a4610317e
       body: ""
