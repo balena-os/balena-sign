@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update click to v8.1.8
+      hash: 216bfdf16840b5a78fb87ccf1981fac74fd5f542
+      body: |
+        Update click from 8.1.7 to 8.1.8
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.29
+  title: ""
+  date: 2026-05-04T13:12:56.014Z
+- commits:
     - subject: Update a2wsgi to v1.10.10
       hash: 24dff77517730255f0e4fde42370eddb1c6e3a44
       body: |
