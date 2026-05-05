@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update pyasn1_modules to v0.4.2
+      hash: af4bfeb388250a88f34de0700fd8eafa20f65883
+      body: |
+        Update pyasn1_modules from 0.4.1 to 0.4.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.38
+  title: ""
+  date: 2026-05-05T07:23:22.511Z
+- commits:
     - subject: Update python-gnupg to v0.5.6
       hash: 726cdd0491b1b0fcc00270186d00af32c82344dd
       body: |
