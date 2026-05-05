@@ -52,7 +52,7 @@ referencing==0.35.1
 requests==2.33.1
 rfc3339-validator==0.1.4
 rpds-py==0.20.1
-semver==3.0.2
+semver==3.0.4
 service-identity==24.1.0
 setuptools==78.1.1
 six==1.16.0
