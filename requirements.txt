@@ -46,7 +46,7 @@ pyrsistent==0.20.0
 python-dotenv==1.2.2
 python-gnupg==0.5.6
 python-multipart>=0.0.18
-PyYAML==6.0.2
+PyYAML==6.0.3
 ratelimit==2.2.1
 referencing==0.35.1
 requests==2.33.0
