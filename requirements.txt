@@ -35,7 +35,7 @@ MarkupSafe==2.1.5
 openapi-schema-validator==0.6.3
 openapi-spec-validator==0.7.2
 packaging==24.1
-pathable==0.4.3
+pathable==0.4.4
 pine-client==0.2.0
 pyasn1==0.6.3
 pyasn1_modules==0.4.1
