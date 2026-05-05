@@ -44,7 +44,7 @@ PyJWT==2.12.1
 pyOpenSSL>=24.2.1
 pyrsistent==0.20.0
 python-dotenv==1.2.2
-python-gnupg==0.5.3
+python-gnupg==0.5.6
 python-multipart>=0.0.18
 PyYAML==6.0.2
 ratelimit==2.2.1
