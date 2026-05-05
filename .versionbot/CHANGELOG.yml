@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update python-gnupg to v0.5.6
+      hash: 726cdd0491b1b0fcc00270186d00af32c82344dd
+      body: |
+        Update python-gnupg from 0.5.3 to 0.5.6
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.37
+  title: ""
+  date: 2026-05-05T06:01:13.490Z
+- commits:
     - subject: Update PyJWT to v2.12.1
       hash: 6c56940b82d4803671b4d74e28e9760ca186e328
       body: |
