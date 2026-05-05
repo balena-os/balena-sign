@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update uWSGI to v2.0.31
+      hash: ee4aaada690f09c1b3e2e87492e6c484eba9508f
+      body: |
+        Update uWSGI from 2.0.27 to 2.0.31
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.42
+  title: ""
+  date: 2026-05-05T15:23:52.807Z
+- commits:
     - subject: Update requests to v2.33.1
       hash: a561a0f8ef4e354defe986484119cdb518b1ce60
       body: |

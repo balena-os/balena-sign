@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.42
+## (2026-05-05)
+
+* Update uWSGI to v2.0.31 [balena-renovate[bot]]
+
 # v1.5.41
 ## (2026-05-05)
 
