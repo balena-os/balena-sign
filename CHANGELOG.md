@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.39
+## (2026-05-05)
+
+* Update PyYAML to v6.0.3 [balena-renovate[bot]]
+
 # v1.5.38
 ## (2026-05-05)
 
