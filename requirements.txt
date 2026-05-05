@@ -38,7 +38,7 @@ packaging==24.1
 pathable==0.4.4
 pine-client==0.2.0
 pyasn1==0.6.3
-pyasn1_modules==0.4.1
+pyasn1_modules==0.4.2
 pycparser==2.22
 PyJWT==2.12.1
 pyOpenSSL>=24.2.1
