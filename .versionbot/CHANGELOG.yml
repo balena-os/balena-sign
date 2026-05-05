@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update PyJWT to v2.12.1
+      hash: 6c56940b82d4803671b4d74e28e9760ca186e328
+      body: |
+        Update PyJWT from 2.12.0 to 2.12.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.36
+  title: ""
+  date: 2026-05-05T04:01:50.154Z
+- commits:
     - subject: Update pathable to v0.4.4
       hash: dcb88604df186ed7fe7d6d4cd2f1976d4037620d
       body: |
