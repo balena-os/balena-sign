@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update pathable to v0.4.4
+      hash: dcb88604df186ed7fe7d6d4cd2f1976d4037620d
+      body: |
+        Update pathable from 0.4.3 to 0.4.4
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.35
+  title: ""
+  date: 2026-05-05T01:35:35.795Z
+- commits:
     - subject: Update openapi-schema-validator to v0.6.3
       hash: 1d21c2f1b70e87855ad443d63c5e27251056a9b4
       body: |
