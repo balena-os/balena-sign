@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update rpds-py to v0.20.1
+      hash: c82239580c98264577dc91b96b958a6dd5740aa0
+      body: |
+        Update rpds-py from 0.20.0 to 0.20.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.40
+  title: ""
+  date: 2026-05-05T11:07:26.908Z
+- commits:
     - subject: Update PyYAML to v6.0.3
       hash: 7923e847b507563259dce833e1955dbffce195b4
       body: |
