@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update anyio to v4.13.0
+      hash: 781c20b285541a0060d5b471c7f5ca0fe3c585a9
+      body: |
+        Update anyio from 4.6.2.post1 to 4.13.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.44
+  title: ""
+  date: 2026-05-05T19:10:14.020Z
+- commits:
     - subject: Update semver to v3.0.4
       hash: d5dfd309d9eadeaeea6a34334d85f022cde63ce5
       body: |
