@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update requests to v2.33.1
+      hash: a561a0f8ef4e354defe986484119cdb518b1ce60
+      body: |
+        Update requests from 2.33.0 to 2.33.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.41
+  title: ""
+  date: 2026-05-05T13:09:04.567Z
+- commits:
     - subject: Update rpds-py to v0.20.1
       hash: c82239580c98264577dc91b96b958a6dd5740aa0
       body: |
