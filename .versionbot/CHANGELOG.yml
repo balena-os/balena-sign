@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update semver to v3.0.4
+      hash: d5dfd309d9eadeaeea6a34334d85f022cde63ce5
+      body: |
+        Update semver from 3.0.2 to 3.0.4
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.43
+  title: ""
+  date: 2026-05-05T17:11:37.014Z
+- commits:
     - subject: Update uWSGI to v2.0.31
       hash: ee4aaada690f09c1b3e2e87492e6c484eba9508f
       body: |
