@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update asgiref to v3.11.1
+      hash: b460093f4e94cf0984c74645b269dd48a43c60b7
+      body: |
+        Update asgiref from 3.8.1 to 3.11.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.45
+  title: ""
+  date: 2026-05-05T21:02:27.608Z
+- commits:
     - subject: Update anyio to v4.13.0
       hash: 781c20b285541a0060d5b471c7f5ca0fe3c585a9
       body: |
