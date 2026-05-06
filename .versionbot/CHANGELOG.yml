@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update certifi to v2024.12.14
+      hash: 80d14312790c43be69e6fde0972266f259819bb7
+      body: |
+        Update certifi from 2024.8.30 to 2024.12.14
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.47
+  title: ""
+  date: 2026-05-06T01:31:50.424Z
+- commits:
     - subject: Update attrs to v24.3.0
       hash: 9ec47974d4adb715a0349803cfe11cfc613b28b2
       body: |
