@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update charset-normalizer to v3.4.7
+      hash: 5722483832fd24a02cb3395c991699eccd39a1f3
+      body: |
+        Update charset-normalizer from 3.3.2 to 3.4.7
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.48
+  title: ""
+  date: 2026-05-06T03:46:37.261Z
+- commits:
     - subject: Update certifi to v2024.12.14
       hash: 80d14312790c43be69e6fde0972266f259819bb7
       body: |
