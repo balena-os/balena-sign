@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update click to v8.3.3
+      hash: 5ab1b695403ea9e2d7663b858e9f66c851ef7985
+      body: |
+        Update click from 8.1.8 to 8.3.3
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.50
+  title: ""
+  date: 2026-05-11T21:26:47.846Z
+- commits:
     - subject: Update urllib3 to v2.7.0 [SECURITY]
       hash: bc08bac8d885f4b50cebf0d8c8a7d84ff033f976
       body: |

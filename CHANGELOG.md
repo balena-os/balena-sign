@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.50
+## (2026-05-11)
+
+* Update click to v8.3.3 [balena-renovate[bot]]
+
 # v1.5.49
 ## (2026-05-11)
 
