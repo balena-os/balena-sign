@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.49
+## (2026-05-11)
+
+* Update urllib3 to v2.7.0 [SECURITY] [balena-renovate[bot]]
+
 # v1.5.48
 ## (2026-05-06)
 

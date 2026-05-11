@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update urllib3 to v2.7.0 [SECURITY]
+      hash: bc08bac8d885f4b50cebf0d8c8a7d84ff033f976
+      body: |
+        Update urllib3 from 2.6.3 to 2.7.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.49
+  title: ""
+  date: 2026-05-11T19:48:07.261Z
+- commits:
     - subject: Update charset-normalizer to v3.4.7
       hash: 5722483832fd24a02cb3395c991699eccd39a1f3
       body: |
