@@ -1,3 +1,3 @@
-FROM balena/open-balena-haproxy:4.3.16@sha256:2a3d47b5daf2e33d490face2da73b8d6aeee475a2372ed8720145a72cdbca00d
+FROM balena/open-balena-haproxy:4.3.18@sha256:0a76ed72a926eb38152b3fe9938ed603be192295bceefee94d13397eddbb6ba1
 
 COPY haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
