@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.51
+## (2026-05-13)
+
+* Update Twisted to v26 [SECURITY] [balena-renovate[bot]]
+
 # v1.5.50
 ## (2026-05-11)
 
