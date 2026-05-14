@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update balena/open-balena-haproxy Docker tag to v4.3.18
+      hash: 18e87634c6407e2d0f43b634dc31d7db4b74c289
+      body: |
+        Update balena/open-balena-haproxy from 4.3.16 to 4.3.18
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.52
+  title: ""
+  date: 2026-05-14T17:22:30.276Z
+- commits:
     - subject: Update Twisted to v26 [SECURITY]
       hash: cde96ba2ddd0b4f268dce136cd8ce7de674e98c9
       body: |
