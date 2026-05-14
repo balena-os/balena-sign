@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update connexion to v3.3.0
+      hash: 3e1e5b51a53d7b6b690cce0326a39094ef63af29
+      body: |
+        Update connexion from 3.1.0 to 3.3.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.54
+  title: ""
+  date: 2026-05-14T23:04:37.309Z
+- commits:
     - subject: Update balena/cert-manager Docker tag to v0.4.26
       hash: 5b7c90a7fe7155b11ef7f7aee02b5086c0cfd3f5
       body: |
