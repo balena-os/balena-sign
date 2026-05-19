@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update Deprecated to v1.3.1
+      hash: 537416e4e82a8ec02aed2cde529d786a78fa7fa4
+      body: |
+        Update Deprecated from 1.2.18 to 1.3.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.57
+  title: ""
+  date: 2026-05-19T10:19:20.632Z
+- commits:
     - subject: Update click to v8.4.0
       hash: 2059f78f860195c778e614e04d105e63efffeb51
       body: |
