@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update golang:1.26-alpine3.23 Docker digest to 91eda97
+      hash: 3d4b30ec7aec90984a0159adc86585934cdeba22
+      body: |
+        Update golang
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.58
+  title: ""
+  date: 2026-05-19T16:42:19.744Z
+- commits:
     - subject: Update Deprecated to v1.3.1
       hash: 537416e4e82a8ec02aed2cde529d786a78fa7fa4
       body: |
