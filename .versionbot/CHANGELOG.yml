@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update click to v8.4.0
+      hash: 2059f78f860195c778e614e04d105e63efffeb51
+      body: |
+        Update click from 8.3.3 to 8.4.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.56
+  title: ""
+  date: 2026-05-19T08:17:40.022Z
+- commits:
     - subject: Update balena/cert-manager Docker tag to v0.4.27
       hash: 91ef8809c6b2f3411967841a71def7a5ac067e43
       body: |
