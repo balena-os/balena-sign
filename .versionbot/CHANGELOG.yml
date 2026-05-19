@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update idna to v3.15 [SECURITY]
+      hash: c23effb2f9f8c51d345d80a3915117169f62df6d
+      body: |
+        Update idna from 3.10 to 3.15
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.59
+  title: ""
+  date: 2026-05-19T17:48:59.203Z
+- commits:
     - subject: Update golang:1.26-alpine3.23 Docker digest to 91eda97
       hash: 3d4b30ec7aec90984a0159adc86585934cdeba22
       body: |
