@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update httpx to v0.28.1
+      hash: 889a22095e7aa3cb5c6a28bbe53ebf2fbe09488d
+      body: |
+        Update httpx from 0.27.2 to 0.28.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.62
+  title: ""
+  date: 2026-05-20T16:47:56.342Z
+- commits:
     - subject: Update incremental to v24.11.0
       hash: 8ad99114334c14e43d5bda95fdd5b941b98fffaa
       body: |

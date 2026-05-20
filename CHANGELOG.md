@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.62
+## (2026-05-20)
+
+* Update httpx to v0.28.1 [balena-renovate[bot]]
+
 # v1.5.61
 ## (2026-05-20)
 
