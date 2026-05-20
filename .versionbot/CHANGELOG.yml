@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update incremental to v24.11.0
+      hash: 8ad99114334c14e43d5bda95fdd5b941b98fffaa
+      body: |
+        Update incremental from 24.7.2 to 24.11.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.61
+  title: ""
+  date: 2026-05-20T13:57:06.439Z
+- commits:
     - subject: Update httptools to v0.7.1
       hash: 36bbcff6de6064fc31ff1f93591f4e43c1cb17c5
       body: |
