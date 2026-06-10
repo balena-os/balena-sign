@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.65
+## (2026-06-10)
+
+* Update httptools to v0.8.0 [balena-renovate[bot]]
+
 # v1.5.64
 ## (2026-06-08)
 

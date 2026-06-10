@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update httptools to v0.8.0
+      hash: a9e735bf79e0753ab316421c93ec9aa11c3d216c
+      body: |
+        Update httptools from 0.7.1 to 0.8.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.65
+  title: ""
+  date: 2026-06-10T12:01:11.220Z
+- commits:
     - subject: Update click to v8.4.1
       hash: b588c70dd95e8adf336c5046d1b88775d2f2794e
       body: |
