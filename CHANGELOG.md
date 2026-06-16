@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.66
+## (2026-06-16)
+
+* Update PyJWT to v2.13.0 [SECURITY] [balena-renovate[bot]]
+
 # v1.5.65
 ## (2026-06-10)
 

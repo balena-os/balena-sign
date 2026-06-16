@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update PyJWT to v2.13.0 [SECURITY]
+      hash: 64b3ec86be3526d46f512231332414f8c2d2e862
+      body: |
+        Update PyJWT from 2.12.1 to 2.13.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.66
+  title: ""
+  date: 2026-06-16T06:31:18.682Z
+- commits:
     - subject: Update httptools to v0.8.0
       hash: a9e735bf79e0753ab316421c93ec9aa11c3d216c
       body: |
