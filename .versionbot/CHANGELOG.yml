@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update lazy-object-proxy to v1.12.0
+      hash: 5a6c54b61dd401a281ef98bd18fd71b6dd8d06a3
+      body: |
+        Update lazy-object-proxy from 1.10.0 to 1.12.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.68
+  title: ""
+  date: 2026-06-25T17:27:56.242Z
+- commits:
     - subject: Update click to v8.4.2
       hash: b858d671f4e76045c9b68cb4d875001961f5f096
       body: |
