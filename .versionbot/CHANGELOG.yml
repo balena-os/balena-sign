@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update click to v8.4.2
+      hash: b858d671f4e76045c9b68cb4d875001961f5f096
+      body: |
+        Update click from 8.4.1 to 8.4.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.67
+  title: ""
+  date: 2026-06-25T15:41:32.891Z
+- commits:
     - subject: Update PyJWT to v2.13.0 [SECURITY]
       hash: 64b3ec86be3526d46f512231332414f8c2d2e862
       body: |
