@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update six to v1.17.0
+      hash: f7aacc5e319301c13c980500e36a65247888598d
+      body: |
+        Update six from 1.16.0 to 1.17.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.69
+  title: ""
+  date: 2026-06-25T19:39:18.615Z
+- commits:
     - subject: Update lazy-object-proxy to v1.12.0
       hash: 5a6c54b61dd401a281ef98bd18fd71b6dd8d06a3
       body: |
