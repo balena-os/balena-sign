@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update packaging to v24.2
+      hash: e078caca3ba20a5654ff15158e3cd817acae0791
+      body: |
+        Update packaging from 24.1 to 24.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.71
+  title: ""
+  date: 2026-06-25T23:03:33.527Z
+- commits:
     - subject: Update idna to v3.18
       hash: 5858923388a4af1472e312dda6886a14fac7867f
       body: |
