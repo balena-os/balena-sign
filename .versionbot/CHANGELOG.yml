@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update idna to v3.18
+      hash: 5858923388a4af1472e312dda6886a14fac7867f
+      body: |
+        Update idna from 3.15 to 3.18
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.70
+  title: ""
+  date: 2026-06-25T21:23:44.719Z
+- commits:
     - subject: Update six to v1.17.0
       hash: f7aacc5e319301c13c980500e36a65247888598d
       body: |
