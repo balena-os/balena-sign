@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update zope.interface to v7.2
+      hash: c879abd70c4d3eac7ce9822ced35dde34f7d12f5
+      body: |
+        Update zope.interface from 7.0.3 to 7.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.76
+  title: ""
+  date: 2026-06-26T09:46:43.403Z
+- commits:
     - subject: Update service-identity to v24.2.0
       hash: a12cd3b4cecb170948591254fcef87e32e16e2c5
       body: |
