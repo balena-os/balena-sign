@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update wrapt to v1.17.3
+      hash: 0ef8b2d4e5dbe79d7ffd0ae8f0ec4979b7e4aebb
+      body: |
+        Update wrapt from 1.16.0 to 1.17.3
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.77
+  title: ""
+  date: 2026-06-26T11:46:01.088Z
+- commits:
     - subject: Update zope.interface to v7.2
       hash: c879abd70c4d3eac7ce9822ced35dde34f7d12f5
       body: |
