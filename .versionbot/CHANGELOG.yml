@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update pycparser to v2.23
+      hash: 49eac88a01bab5a1fdfb12c249a306abb3e7d11d
+      body: |
+        Update pycparser from 2.22 to 2.23
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.74
+  title: ""
+  date: 2026-06-26T06:03:28.699Z
+- commits:
     - subject: Update requests to v2.34.2
       hash: 724e9e1c1bb9e57294746ef650b83f1ad3a8b04c
       body: |
