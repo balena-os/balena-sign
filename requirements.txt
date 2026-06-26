@@ -1,5 +1,5 @@
 a2wsgi==1.10.10
-anyio==4.13.0
+anyio==4.14.1
 asgiref==3.11.1
 attrs==24.3.0
 Automat==24.8.1
