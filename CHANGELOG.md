@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.72
+## (2026-06-26)
+
+* Update anyio to v4.14.1 [balena-renovate[bot]]
+
 # v1.5.71
 ## (2026-06-25)
 

@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update anyio to v4.14.1
+      hash: 710e33c64b192639bde7f21fc8e75d7df8918d17
+      body: |
+        Update anyio from 4.13.0 to 4.14.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.72
+  title: ""
+  date: 2026-06-26T01:53:25.125Z
+- commits:
     - subject: Update packaging to v24.2
       hash: e078caca3ba20a5654ff15158e3cd817acae0791
       body: |
