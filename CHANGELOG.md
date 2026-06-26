@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.75
+## (2026-06-26)
+
+* Update service-identity to v24.2.0 [balena-renovate[bot]]
+
 # v1.5.74
 ## (2026-06-26)
 

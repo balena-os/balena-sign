@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update service-identity to v24.2.0
+      hash: a12cd3b4cecb170948591254fcef87e32e16e2c5
+      body: |
+        Update service-identity from 24.1.0 to 24.2.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.75
+  title: ""
+  date: 2026-06-26T08:13:10.367Z
+- commits:
     - subject: Update pycparser to v2.23
       hash: 49eac88a01bab5a1fdfb12c249a306abb3e7d11d
       body: |
