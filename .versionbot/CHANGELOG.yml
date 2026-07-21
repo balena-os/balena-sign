@@ -1,4 +1,26 @@
 - commits:
+    - subject: Update setuptools to v82
+      hash: 59bcaa2fa5538658144644a050b19e77edf81503
+      body: |
+        Update setuptools from 78.1.1 to 82.0.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+    - subject: Update typing_extensions to v4.15.0
+      hash: bdd75f491a650ad4f2e761e88c91bdfa6d3d17be
+      body: |
+        Update typing_extensions from 4.12.2 to 4.15.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.78
+  title: ""
+  date: 2026-07-21T11:45:45.119Z
+- commits:
     - subject: Update wrapt to v1.17.3
       hash: 0ef8b2d4e5dbe79d7ffd0ae8f0ec4979b7e4aebb
       body: |
