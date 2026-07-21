@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update balena-sdk to v17
+      hash: 5e8b192765fdd59e70ab2b6ad30422391d308e51
+      body: |
+        Update balena-sdk from 12.3.1 to 17.3.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.80
+  title: ""
+  date: 2026-07-21T15:29:26.514Z
+- commits:
     - subject: Update packaging to v26
       hash: 97d7292161ddf8724960b3bc873548d465a3ba7d
       body: |

@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.80
+## (2026-07-21)
+
+* Update balena-sdk to v17 [balena-renovate[bot]]
+
 # v1.5.79
 ## (2026-07-21)
 
