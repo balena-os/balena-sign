@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update packaging to v26
+      hash: 97d7292161ddf8724960b3bc873548d465a3ba7d
+      body: |
+        Update packaging from 24.2 to 26.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.79
+  title: ""
+  date: 2026-07-21T13:45:35.596Z
+- commits:
     - subject: Update setuptools to v82
       hash: 59bcaa2fa5538658144644a050b19e77edf81503
       body: |
