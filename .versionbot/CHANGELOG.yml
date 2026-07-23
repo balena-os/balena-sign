@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update attrs to v25
+      hash: 53164e88e526b205ad80c1bd48f29887f2cd4002
+      body: |
+        Update attrs from 24.3.0 to 25.4.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.82
+  title: ""
+  date: 2026-07-23T07:12:44.576Z
+- commits:
     - subject: Update jsonschema-specifications to v2025
       hash: 9f91523c3a1108f30a0d657704f4d21f1df398f7
       body: |
