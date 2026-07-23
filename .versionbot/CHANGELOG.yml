@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update cffi to v2
+      hash: c8c70008df5302437f275b6fd4a3d3770ea4ad9d
+      body: |
+        Update cffi from 1.17.1 to 2.1.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.88
+  title: ""
+  date: 2026-07-23T15:21:56.809Z
+- commits:
     - subject: Update pyasn1 to v0.6.4 [SECURITY]
       hash: 87ce90d051f75a5ec5a9d642ad46324e595189d4
       body: |
