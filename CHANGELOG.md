@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.95
+## (2026-07-23)
+
+* Update jsonschema to v4.26.0 [balena-renovate[bot]]
+
 # v1.5.94
 ## (2026-07-23)
 

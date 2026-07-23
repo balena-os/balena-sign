@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update jsonschema to v4.26.0
+      hash: 9fc61bca487c2e6cc87a042fa6847a61d0b3f9c5
+      body: |
+        Update jsonschema from 4.23.0 to 4.26.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.95
+  title: ""
+  date: 2026-07-23T17:26:58.658Z
+- commits:
     - subject: Update Automat to v25
       hash: 68a62e1d0fb36e27709547159872bc9670531204
       body: |
