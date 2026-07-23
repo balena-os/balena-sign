@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update pycparser to v3
+      hash: 30c5aa7a68d5d1691a4cc1c7645e817029adb7d1
+      body: |
+        Update pycparser from 2.23 to 3.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.92
+  title: ""
+  date: 2026-07-23T16:46:29.999Z
+- commits:
     - subject: Update uvicorn to v0.51.0
       hash: c2a65990f3231bed566d209983e52a784aba787c
       body: |

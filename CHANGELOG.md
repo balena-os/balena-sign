@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.92
+## (2026-07-23)
+
+* Update pycparser to v3 [balena-renovate[bot]]
+
 # v1.5.91
 ## (2026-07-23)
 
