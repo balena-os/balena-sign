@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.100
+## (2026-07-23)
+
+* Update gunicorn to v26 [balena-renovate[bot]]
+
 # v1.5.99
 ## (2026-07-23)
 

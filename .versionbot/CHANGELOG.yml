@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update gunicorn to v26
+      hash: 50e75500e8771664f73cc210446e7b4c06301b11
+      body: |
+        Update gunicorn from 23.0.0 to 26.0.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.100
+  title: ""
+  date: 2026-07-23T19:54:42.556Z
+- commits:
     - subject: Update setuptools to v83 [SECURITY]
       hash: 7caab14577e77ba139cd15fc86924591d9f20f43
       body: |
