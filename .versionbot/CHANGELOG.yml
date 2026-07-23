@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update Automat to v25
+      hash: 68a62e1d0fb36e27709547159872bc9670531204
+      body: |
+        Update Automat from 24.8.1 to 25.4.16
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.94
+  title: ""
+  date: 2026-07-23T17:11:19.634Z
+- commits:
     - subject: Update service-identity to v26
       hash: ee92c8c4ec45419359b987c645e69ba982717455
       body: |
