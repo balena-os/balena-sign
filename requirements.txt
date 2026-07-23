@@ -51,7 +51,7 @@ ratelimit==2.2.1
 referencing==0.35.1
 requests==2.34.2
 rfc3339-validator==0.1.4
-rpds-py==0.20.1
+rpds-py==0.30.0
 semver==3.0.4
 service-identity==24.2.0
 setuptools==82.0.1
