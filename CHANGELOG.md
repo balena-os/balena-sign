@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.96
+## (2026-07-23)
+
+* Update MarkupSafe to v3 [balena-renovate[bot]]
+
 # v1.5.95
 ## (2026-07-23)
 

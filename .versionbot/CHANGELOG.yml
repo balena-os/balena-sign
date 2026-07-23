@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update MarkupSafe to v3
+      hash: 09e8e40af416c60c9961e2635cc028996b47c9cc
+      body: |
+        Update MarkupSafe from 2.1.5 to 3.0.3
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.96
+  title: ""
+  date: 2026-07-23T17:32:18.501Z
+- commits:
     - subject: Update jsonschema to v4.26.0
       hash: 9fc61bca487c2e6cc87a042fa6847a61d0b3f9c5
       body: |
