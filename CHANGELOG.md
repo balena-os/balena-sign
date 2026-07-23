@@ -4,6 +4,12 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.83
+## (2026-07-23)
+
+* Update wrapt to v2 [balena-renovate[bot]]
+* Update certifi to v2026 [balena-renovate[bot]]
+
 # v1.5.82
 ## (2026-07-23)
 

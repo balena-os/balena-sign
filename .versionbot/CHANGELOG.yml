@@ -1,4 +1,26 @@
 - commits:
+    - subject: Update wrapt to v2
+      hash: 5a491af554ed587c875412b693bc4aa49c07a978
+      body: |
+        Update wrapt from 1.17.3 to 2.2.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+    - subject: Update certifi to v2026
+      hash: 1e01508e073f845299487a71449869e159a424fa
+      body: |
+        Update certifi from 2024.12.14 to 2026.7.22
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.83
+  title: ""
+  date: 2026-07-23T08:45:58.610Z
+- commits:
     - subject: Update attrs to v25
       hash: 53164e88e526b205ad80c1bd48f29887f2cd4002
       body: |
