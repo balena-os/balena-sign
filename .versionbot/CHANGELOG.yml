@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update uvicorn to v0.51.0
+      hash: c2a65990f3231bed566d209983e52a784aba787c
+      body: |
+        Update uvicorn from 0.30.6 to 0.51.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.91
+  title: ""
+  date: 2026-07-23T16:20:41.623Z
+- commits:
     - subject: Update rpds-py to v0.30.0
       hash: 2e1170ca9cecc113e755846b92c2f0f0540cbef2
       body: |
