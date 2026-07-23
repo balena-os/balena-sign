@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.98
+## (2026-07-23)
+
+* Update zope.interface to v8 [balena-renovate[bot]]
+
 # v1.5.97
 ## (2026-07-23)
 

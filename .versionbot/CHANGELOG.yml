@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update zope.interface to v8
+      hash: 155e730c31f92fd4d3c08ed56fd337c335548d7f
+      body: |
+        Update zope.interface from 7.2 to 8.5
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.98
+  title: ""
+  date: 2026-07-23T19:07:29.991Z
+- commits:
     - subject: Update websockets to v16
       hash: 5ff9bfcdee005e33b92122ff5a855204f88739b9
       body: |
