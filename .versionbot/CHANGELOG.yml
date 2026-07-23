@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update uvloop to v0.22.1
+      hash: 5c24ca0ec6f3f121b5135410447d9ccb76774404
+      body: |
+        Update uvloop from 0.20.0 to 0.22.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.84
+  title: ""
+  date: 2026-07-23T09:31:13.819Z
+- commits:
     - subject: Update wrapt to v2
       hash: 5a491af554ed587c875412b693bc4aa49c07a978
       body: |

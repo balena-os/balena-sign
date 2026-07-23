@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.84
+## (2026-07-23)
+
+* Update uvloop to v0.22.1 [balena-renovate[bot]]
+
 # v1.5.83
 ## (2026-07-23)
 
