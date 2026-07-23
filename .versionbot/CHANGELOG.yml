@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update setuptools to v83 [SECURITY]
+      hash: 7caab14577e77ba139cd15fc86924591d9f20f43
+      body: |
+        Update setuptools from 82.0.1 to 83.0.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.99
+  title: ""
+  date: 2026-07-23T19:44:54.320Z
+- commits:
     - subject: Update zope.interface to v8
       hash: 155e730c31f92fd4d3c08ed56fd337c335548d7f
       body: |
