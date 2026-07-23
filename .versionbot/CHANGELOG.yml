@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update jsonschema-specifications to v2025
+      hash: 9f91523c3a1108f30a0d657704f4d21f1df398f7
+      body: |
+        Update jsonschema-specifications from 2023.12.1 to 2025.9.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.81
+  title: ""
+  date: 2026-07-23T06:33:58.035Z
+- commits:
     - subject: Update balena-sdk to v17
       hash: 5e8b192765fdd59e70ab2b6ad30422391d308e51
       body: |
