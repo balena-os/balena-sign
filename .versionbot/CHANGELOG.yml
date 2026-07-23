@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update websockets to v16
+      hash: 5ff9bfcdee005e33b92122ff5a855204f88739b9
+      body: |
+        Update websockets from 13.1 to 16.1.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.97
+  title: ""
+  date: 2026-07-23T17:45:51.039Z
+- commits:
     - subject: Update MarkupSafe to v3
       hash: 09e8e40af416c60c9961e2635cc028996b47c9cc
       body: |
