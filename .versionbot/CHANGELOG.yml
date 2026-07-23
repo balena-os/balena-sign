@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update attrs to v26
+      hash: 792a65945239e61582627b920d8950bd8a4bb369
+      body: |
+        Update attrs from 25.4.0 to 26.1.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.89
+  title: ""
+  date: 2026-07-23T15:47:04.183Z
+- commits:
     - subject: Update cffi to v2
       hash: c8c70008df5302437f275b6fd4a3d3770ea4ad9d
       body: |
