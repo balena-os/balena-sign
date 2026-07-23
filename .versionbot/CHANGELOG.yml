@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update pyasn1 to v0.6.4 [SECURITY]
+      hash: 87ce90d051f75a5ec5a9d642ad46324e595189d4
+      body: |
+        Update pyasn1 from 0.6.3 to 0.6.4
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.87
+  title: ""
+  date: 2026-07-23T11:29:18.589Z
+- commits:
     - subject: Update chardet to v7
       hash: b10dde4d12ad4dd0a773bbc82871a15ea32e864b
       body: |
