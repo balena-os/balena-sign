@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update rpds-py to v0.30.0
+      hash: 2e1170ca9cecc113e755846b92c2f0f0540cbef2
+      body: |
+        Update rpds-py from 0.20.1 to 0.30.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.90
+  title: ""
+  date: 2026-07-23T16:11:31.678Z
+- commits:
     - subject: Update attrs to v26
       hash: 792a65945239e61582627b920d8950bd8a4bb369
       body: |

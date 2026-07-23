@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.90
+## (2026-07-23)
+
+* Update rpds-py to v0.30.0 [balena-renovate[bot]]
+
 # v1.5.89
 ## (2026-07-23)
 
