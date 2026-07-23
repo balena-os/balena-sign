@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.85
+## (2026-07-23)
+
+* Update watchfiles to v1 [balena-renovate[bot]]
+
 # v1.5.84
 ## (2026-07-23)
 

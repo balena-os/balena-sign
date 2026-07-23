@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update watchfiles to v1
+      hash: 915e57a98d346c2bfa8e0303479152dc379ed1ee
+      body: |
+        Update watchfiles from 0.24.0 to 1.2.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.85
+  title: ""
+  date: 2026-07-23T09:38:50.243Z
+- commits:
     - subject: Update uvloop to v0.22.1
       hash: 5c24ca0ec6f3f121b5135410447d9ccb76774404
       body: |
