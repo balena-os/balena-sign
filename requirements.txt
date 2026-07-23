@@ -64,7 +64,7 @@ urllib3==2.7.0
 uvicorn==0.30.6
 uvloop==0.22.1
 uWSGI==2.0.31
-watchfiles==0.24.0
+watchfiles==1.2.0
 websockets==13.1
 werkzeug>=3.0.6
 wrapt==2.2.2
