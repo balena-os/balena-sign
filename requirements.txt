@@ -1,6 +1,6 @@
 a2wsgi==1.10.10
 anyio==4.14.2
-asgiref==3.11.1
+asgiref==3.12.1
 attrs==26.1.0
 Automat==25.4.16
 balena-sdk==17.3.0
