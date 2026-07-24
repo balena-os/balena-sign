@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.106
+## (2026-07-24)
+
+* Update typing_extensions to v4.16.0 [balena-renovate[bot]]
+
 # v1.5.105
 ## (2026-07-24)
 

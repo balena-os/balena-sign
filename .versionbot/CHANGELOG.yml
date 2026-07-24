@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update typing_extensions to v4.16.0
+      hash: 2f1ef94e45fb6286dc9ef897324175d843bd9bad
+      body: |
+        Update typing_extensions from 4.15.0 to 4.16.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.106
+  title: ""
+  date: 2026-07-24T15:39:38.740Z
+- commits:
     - subject: Update charset-normalizer to v3.4.9
       hash: 478612a38ca62d9ab30deda59031377f1310f971
       body: |
