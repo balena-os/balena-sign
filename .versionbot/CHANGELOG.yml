@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update asgiref to v3.12.1
+      hash: 0abbb87dad1c68510a9bb6a5cd384ecf0ebb2366
+      body: |
+        Update asgiref from 3.11.1 to 3.12.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.107
+  title: ""
+  date: 2026-07-24T17:27:00.515Z
+- commits:
     - subject: Update typing_extensions to v4.16.0
       hash: 2f1ef94e45fb6286dc9ef897324175d843bd9bad
       body: |
