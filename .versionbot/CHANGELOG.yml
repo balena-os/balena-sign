@@ -1,4 +1,28 @@
 - commits:
+    - subject: Update openapi-spec-validator and dependencies
+      hash: 272dfea8fbbf8cd19f2bf4d0ac64fa09a8766e82
+      body: |
+        jsonschema-path, openapi-schema-validator, openapi-spec-validator,
+        pathable and referencing need to be bumped together, renovate can't
+        update them one by one.
+
+        This replaces:
+        * https://github.com/balena-os/balena-sign/pull/130
+        * https://github.com/balena-os/balena-sign/pull/143
+        * https://github.com/balena-os/balena-sign/pull/144
+        * https://github.com/balena-os/balena-sign/pull/146
+        * https://github.com/balena-os/balena-sign/pull/148
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+  version: 1.5.103
+  title: ""
+  date: 2026-07-24T10:07:11.575Z
+- commits:
     - subject: Update golang:1.26-alpine3.23 Docker digest to 622e56d
       hash: 1b4c2a95e3464758c88c31b1c26142c010417401
       body: |

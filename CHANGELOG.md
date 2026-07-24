@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.103
+## (2026-07-24)
+
+* Update openapi-spec-validator and dependencies [Michal Toman]
+
 # v1.5.102
 ## (2026-07-24)
 
