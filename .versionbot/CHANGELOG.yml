@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update anyio to v4.14.2
+      hash: 44989e583d804d23ce1f076a945b9af753e7b14e
+      body: |
+        Update anyio from 4.14.1 to 4.14.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.104
+  title: ""
+  date: 2026-07-24T11:24:55.896Z
+- commits:
     - subject: Update openapi-spec-validator and dependencies
       hash: 272dfea8fbbf8cd19f2bf4d0ac64fa09a8766e82
       body: |
