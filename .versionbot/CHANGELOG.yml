@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update alpine Docker digest to 28bd5fe
+      hash: 4bf38c379b2f1b9ed021e7870fdc0d322c0dfef4
+      body: |
+        Update alpine
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.101
+  title: ""
+  date: 2026-07-24T04:48:29.572Z
+- commits:
     - subject: Update gunicorn to v26
       hash: 50e75500e8771664f73cc210446e7b4c06301b11
       body: |
