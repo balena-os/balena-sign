@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update balena/cert-manager Docker tag to v0.4.30
+      hash: e079adae6a2fd66e87496b855d5eec5af2fb3741
+      body: |
+        Update balena/cert-manager from 0.4.28 to 0.4.30
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.108
+  title: ""
+  date: 2026-07-27T08:07:34.045Z
+- commits:
     - subject: Update asgiref to v3.12.1
       hash: 0abbb87dad1c68510a9bb6a5cd384ecf0ebb2366
       body: |
