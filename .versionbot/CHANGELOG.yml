@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update cffi to v2.1.1
+      hash: a2010e570f13cda2218b3fca72c87c474577340b
+      body: |
+        Update cffi from 2.1.0 to 2.1.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.110
+  title: ""
+  date: 2026-08-03T23:05:02.990Z
+- commits:
     - subject: Update wrapt to v2.3.0
       hash: db9071ba5e011bc3cabb0e981424b125794bc05b
       body: |

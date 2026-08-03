@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.110
+## (2026-08-03)
+
+* Update cffi to v2.1.1 [balena-renovate[bot]]
+
 # v1.5.109
 ## (2026-07-28)
 
