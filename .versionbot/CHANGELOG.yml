@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update packaging to v26.3
+      hash: d1f71458d4f8c247a8350d72888e8c65678d22a0
+      body: |
+        Update packaging from 26.2 to 26.3
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.111
+  title: ""
+  date: 2026-08-04T19:18:55.716Z
+- commits:
     - subject: Update cffi to v2.1.1
       hash: a2010e570f13cda2218b3fca72c87c474577340b
       body: |
