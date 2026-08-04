@@ -34,7 +34,7 @@ lazy-object-proxy==1.12.0
 MarkupSafe==3.0.3
 openapi-schema-validator==0.9.0
 openapi-spec-validator==0.9.0
-packaging==26.2
+packaging==26.3
 pathable==0.6.0
 pine-client==0.2.0
 pyasn1==0.6.4
