@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update chardet to v7.5.1
+      hash: cda4c369c8ac3aed19fb8812037cfa7492a7d1e9
+      body: |
+        Update chardet from 7.5.0 to 7.5.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.113
+  title: ""
+  date: 2026-08-06T05:49:22.717Z
+- commits:
     - subject: Update chardet to v7.5.0
       hash: ec0e34a5ca0bf7ead8362d4d66b201c75eb6d2a8
       body: |
