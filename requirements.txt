@@ -65,7 +65,7 @@ uvicorn==0.51.0
 uvloop==0.22.1
 uWSGI==2.0.31
 watchfiles==1.2.0
-websockets==16.1.1
+websockets==17.1
 werkzeug>=3.0.6
 wrapt==2.3.0
 zope.interface==8.5
