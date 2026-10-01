@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update PyJWT to v2.14.0 [SECURITY]
+      hash: 996c808456a2276966ee139885f8cd09391abf3d
+      body: |
+        Update PyJWT from 2.13.0 to 2.14.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.114
+  title: ""
+  date: 2026-10-01T07:19:17.729Z
+- commits:
     - subject: Update chardet to v7.5.1
       hash: cda4c369c8ac3aed19fb8812037cfa7492a7d1e9
       body: |
