@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update urllib3 to v2.8.0 [SECURITY]
+      hash: 60ae26b7e8d387298276dca85c6bf9c0999a461e
+      body: |
+        Update urllib3 from 2.7.0 to 2.8.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.116
+  title: ""
+  date: 2026-10-01T10:48:53.192Z
+- commits:
     - subject: Update PyJWT to v2.15.0 [SECURITY]
       hash: 4d0ab8906d47f4923af816bdcbe848cca04d0bd8
       body: |
