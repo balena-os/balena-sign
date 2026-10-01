@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update PyJWT to v2.15.0 [SECURITY]
+      hash: 4d0ab8906d47f4923af816bdcbe848cca04d0bd8
+      body: |
+        Update PyJWT from 2.14.0 to 2.15.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.115
+  title: ""
+  date: 2026-10-01T09:09:51.437Z
+- commits:
     - subject: Update PyJWT to v2.14.0 [SECURITY]
       hash: 996c808456a2276966ee139885f8cd09391abf3d
       body: |
