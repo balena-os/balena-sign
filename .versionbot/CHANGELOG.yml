@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update alpine Docker digest to 294b683
+      hash: b4d61a569f821043ea87a0a6efa424cca71be130
+      body: |
+        Update alpine
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.119
+  title: ""
+  date: 2026-10-13T19:35:27.530Z
+- commits:
     - subject: Update websockets to v17
       hash: 143fac5c370ed3ecbf211d0def4beefc75653f0e
       body: |
