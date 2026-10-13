@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update websockets to v17
+      hash: 143fac5c370ed3ecbf211d0def4beefc75653f0e
+      body: |
+        Update websockets from 16.1.1 to 17.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.118
+  title: ""
+  date: 2026-10-13T13:18:04.312Z
+- commits:
     - subject: Update setuptools to v84
       hash: 694b52393b93f9a29fa62b0eef3a133d2413121a
       body: |
