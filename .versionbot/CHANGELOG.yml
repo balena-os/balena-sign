@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update setuptools to v84
+      hash: 694b52393b93f9a29fa62b0eef3a133d2413121a
+      body: |
+        Update setuptools from 83.0.0 to 84.0.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.117
+  title: ""
+  date: 2026-10-13T11:55:05.799Z
+- commits:
     - subject: Update urllib3 to v2.8.0 [SECURITY]
       hash: 60ae26b7e8d387298276dca85c6bf9c0999a461e
       body: |
