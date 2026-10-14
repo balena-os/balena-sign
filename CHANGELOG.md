@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.126
+## (2026-10-14)
+
+* Update python-gnupg to v0.5.7 [balena-renovate[bot]]
+
 # v1.5.125
 ## (2026-10-14)
 
