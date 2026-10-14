@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update chardet to v7.6.0
+      hash: b9dc9a69f7f26ee6ac7513a2d1fd757c79a28c09
+      body: |
+        Update chardet from 7.5.1 to 7.6.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.128
+  title: ""
+  date: 2026-10-14T22:43:51.594Z
+- commits:
     - subject: Update anyio to v4.15.1
       hash: 7524308b4aab218e7b1692e8668ce255e814ef1c
       body: |
