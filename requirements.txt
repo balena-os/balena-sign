@@ -43,7 +43,7 @@ pycparser==3.0
 PyJWT==2.15.0
 pyOpenSSL>=24.2.1
 pyrsistent==0.20.0
-python-dotenv==1.2.2
+python-dotenv==1.2.4
 python-gnupg==0.5.6
 python-multipart>=0.0.18
 PyYAML==6.0.3
