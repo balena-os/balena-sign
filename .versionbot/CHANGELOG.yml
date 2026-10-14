@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update MarkupSafe to v3.0.4
+      hash: 89353f96f076679ff6f54be1812355f2f33c064f
+      body: |
+        Update MarkupSafe from 3.0.3 to 3.0.4
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.122
+  title: ""
+  date: 2026-10-14T10:48:19.593Z
+- commits:
     - subject: Update balena/open-balena-haproxy Docker tag to v4.3.19
       hash: fb84836da35992d8b6243b5b0f615a672e0c23da
       body: |
