@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update anyio to v4.15.1
+      hash: 7524308b4aab218e7b1692e8668ce255e814ef1c
+      body: |
+        Update anyio from 4.14.2 to 4.15.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.127
+  title: ""
+  date: 2026-10-14T20:59:20.673Z
+- commits:
     - subject: Update python-gnupg to v0.5.7
       hash: 49f11747b4f60292f2faf520bc9d023012dc3387
       body: |
