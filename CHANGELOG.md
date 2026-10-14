@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.124
+## (2026-10-14)
+
+* Update python-dotenv to v1.2.4 [balena-renovate[bot]]
+
 # v1.5.123
 ## (2026-10-14)
 

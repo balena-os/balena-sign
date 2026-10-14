@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update python-dotenv to v1.2.4
+      hash: bc0b6ab93686dd2dfc3d78905ed5d3147254d87c
+      body: |
+        Update python-dotenv from 1.2.2 to 1.2.4
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.124
+  title: ""
+  date: 2026-10-14T15:03:11.756Z
+- commits:
     - subject: Update balena/cert-manager Docker tag to v0.4.32
       hash: ba4421724bb4e886605bf706b6a7532a38469674
       body: |
