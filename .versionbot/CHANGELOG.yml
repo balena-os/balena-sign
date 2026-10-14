@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update PyJWT to v2.15.1
+      hash: 39ad650248076457a1b41fbe2e7b0c2ab5522b3c
+      body: |
+        Update PyJWT from 2.15.0 to 2.15.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.125
+  title: ""
+  date: 2026-10-14T16:52:25.051Z
+- commits:
     - subject: Update python-dotenv to v1.2.4
       hash: bc0b6ab93686dd2dfc3d78905ed5d3147254d87c
       body: |
