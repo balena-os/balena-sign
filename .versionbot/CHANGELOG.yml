@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update pycparser to v3.11
+      hash: e314f6ec9893b20fcffc3529ca8b28ba0c81d141
+      body: |
+        Update pycparser from 3.0 to 3.11
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.136
+  title: ""
+  date: 2026-10-15T17:27:06.997Z
+- commits:
     - subject: Update idna to v3.20
       hash: ade13727c27010c39dd58c6c6f9ad955fa8b2044
       body: |
