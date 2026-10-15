@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update balena/cert-manager Docker tag to v0.5.2
+      hash: e3bff2c5b38a0d99e3662fc9c4571ea86171ed81
+      body: |
+        Update balena/cert-manager from 0.4.32 to 0.5.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.132
+  title: ""
+  date: 2026-10-15T08:14:22.804Z
+- commits:
     - subject: Update flowzonify to v0.4.19
       hash: 0e995ce76d1cb8e9ddeda1cd93ca2d14813e5b00
       body: |
