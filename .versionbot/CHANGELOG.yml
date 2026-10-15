@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update semver to v3.1.0
+      hash: 9bf4ffb8aa6dd3116c54a18a0964a6c0cea6323d
+      body: |
+        Update semver from 3.0.4 to 3.1.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.137
+  title: ""
+  date: 2026-10-15T19:01:08.002Z
+- commits:
     - subject: Update pycparser to v3.11
       hash: e314f6ec9893b20fcffc3529ca8b28ba0c81d141
       body: |

@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.137
+## (2026-10-15)
+
+* Update semver to v3.1.0 [balena-renovate[bot]]
+
 # v1.5.136
 ## (2026-10-15)
 
