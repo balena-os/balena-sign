@@ -1,3 +1,3 @@
-FROM balena/cert-manager:0.4.32@sha256:e97ab966635184bcba040a691313428ed0faee89bb370fa37d78bf5225afd625
+FROM balena/cert-manager:0.5.2@sha256:70806c8b411da0737335b7bc3dcb25d316f02a593abf6097580322cc4665d5f3
 
 COPY *.json /opt/
