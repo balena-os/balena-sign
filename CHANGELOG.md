@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.135
+## (2026-10-15)
+
+* Update idna to v3.20 [balena-renovate[bot]]
+
 # v1.5.134
 ## (2026-10-15)
 

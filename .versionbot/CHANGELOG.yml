@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update idna to v3.20
+      hash: ade13727c27010c39dd58c6c6f9ad955fa8b2044
+      body: |
+        Update idna from 3.18 to 3.20
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.135
+  title: ""
+  date: 2026-10-15T14:55:06.712Z
+- commits:
     - subject: Update httptools to v0.9.0
       hash: 584dd799b69a181726c78533dd9814747633fc5f
       body: |
