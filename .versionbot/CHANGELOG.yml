@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update gunicorn to v26.2.0
+      hash: d8f814ac444111ec2d2cdcb11f3377b8ddf4a661
+      body: |
+        Update gunicorn from 26.0.0 to 26.2.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.133
+  title: ""
+  date: 2026-10-15T08:59:02.737Z
+- commits:
     - subject: Update balena/cert-manager Docker tag to v0.5.2
       hash: e3bff2c5b38a0d99e3662fc9c4571ea86171ed81
       body: |
