@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update click to v8.5.0
+      hash: 519852cae6d134470e1a8e4dd143bdb653a9345e
+      body: |
+        Update click from 8.4.2 to 8.5.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.130
+  title: ""
+  date: 2026-10-15T02:58:59.541Z
+- commits:
     - subject: Update charset-normalizer to v3.5.2
       hash: 1611cdb0cdd3609abeae620fbfd80481008649fd
       body: |
