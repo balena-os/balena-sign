@@ -68,4 +68,4 @@ watchfiles==1.3.0
 websockets==17.2
 werkzeug>=3.0.6
 wrapt==2.5.1
-zope.interface==8.5
+zope.interface==8.7
