@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.138
+## (2026-10-16)
+
+* Update golang Docker tag to v1.27 [balena-renovate[bot]]
+
 # v1.5.137
 ## (2026-10-15)
 
