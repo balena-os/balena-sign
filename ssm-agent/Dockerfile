@@ -1,6 +1,6 @@
 # https://gist.github.com/ipmb/a8213fb459c27178f88dda7149c35be2
 # https://github.com/aws/amazon-ssm-agent/issues/140
-FROM golang:1.26-alpine3.23@sha256:6750308561953d451210ed1a8086d36c8c8bdcbf672d38d9d0d424b8a7a0216c as builder
+FROM golang:1.27-alpine3.23@sha256:9e45f0eb4a63ed37ad6e604950407558b7c738e34e015ae77a5d4ad369cde079 as builder
 
 ARG VERSION=3.2.419.0
 
