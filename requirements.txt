@@ -67,5 +67,5 @@ uWSGI==2.0.31
 watchfiles==1.3.0
 websockets==17.2
 werkzeug>=3.0.6
-wrapt==2.3.0
+wrapt==2.5.1
 zope.interface==8.5
