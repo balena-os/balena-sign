@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update uvloop to v0.23.0
+      hash: 4b0769f9c55e153e10991ed59d82ab594a5b8ac6
+      body: |
+        Update uvloop from 0.22.1 to 0.23.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.142
+  title: ""
+  date: 2026-10-16T12:26:06.806Z
+- commits:
     - subject: Update zope.interface to v8.7
       hash: c4abcb1b5e4ea9e21e03c55d60e28f45b870f084
       body: |
