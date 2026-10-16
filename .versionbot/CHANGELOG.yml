@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update wrapt to v2.5.1
+      hash: 0bf037890f0f85a63aed76a4de87c7453455fb74
+      body: |
+        Update wrapt from 2.3.0 to 2.5.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.140
+  title: ""
+  date: 2026-10-16T07:01:47.057Z
+- commits:
     - subject: Update watchfiles to v1.3.0
       hash: fd22ed6a8b65b70032c6eb547b48f8201a51ef24
       body: |
