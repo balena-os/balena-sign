@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.143
+## (2026-10-17)
+
+* Update lazy-object-proxy to v1.13.0 [balena-renovate[bot]]
+
 # v1.5.142
 ## (2026-10-16)
 
