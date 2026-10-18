@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.144
+## (2026-10-18)
+
+* Update chardet to v7.7.0 [balena-renovate[bot]]
+
 # v1.5.143
 ## (2026-10-17)
 

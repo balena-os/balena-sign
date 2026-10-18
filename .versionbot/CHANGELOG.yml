@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update chardet to v7.7.0
+      hash: aceaf87e17bded40c828eb3e38016a6da7952a2e
+      body: |
+        Update chardet from 7.6.0 to 7.7.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.144
+  title: ""
+  date: 2026-10-18T01:27:17.650Z
+- commits:
     - subject: Update lazy-object-proxy to v1.13.0
       hash: 44221b12c08a1bd6e80861991f5f41343f4c9552
       body: |
