@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update certifi to v2026.10.18
+      hash: 9118618b18485b9ed82235ee1558101693ffd0bb
+      body: |
+        Update certifi from 2026.7.22 to 2026.10.18
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.145
+  title: ""
+  date: 2026-10-18T17:00:26.239Z
+- commits:
     - subject: Update chardet to v7.7.0
       hash: aceaf87e17bded40c828eb3e38016a6da7952a2e
       body: |
