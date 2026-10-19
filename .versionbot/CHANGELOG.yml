@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update websockets to v17.3
+      hash: 0fe6afde98c840ef35f7718f6d014fe4a1be9508
+      body: |
+        Update websockets from 17.2 to 17.3
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.148
+  title: ""
+  date: 2026-10-19T19:06:55.282Z
+- commits:
     - subject: Update uvicorn to v0.54.0
       hash: 692bdc39c15b002451ca8e47b77cb425760f3ab6
       body: |
