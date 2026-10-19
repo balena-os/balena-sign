@@ -1,17 +1,29 @@
-from balena import Balena 
+import logging
+
+from balena import Balena
 from balena.exceptions import ApplicationNotFound
 
 from config import CONFIG
 
+
+LOG = logging.getLogger("auth")
+
+
 def validate(key, fleet_id=CONFIG.fleet_id, required_scopes=None):
     balena_client = get_client(key)
     try:
-        if 'app_name' not in balena_client.models.application.get_by_id(fleet_id):
-            raise Exception("Unexpected response from fetching application data. Maybe you don't have access ?")
-    except (ApplicationNotFound, Exception):
+        fleet = balena_client.models.application.get(fleet_id)
+    except ApplicationNotFound:
+        LOG.warn(f"Fleet '{fleet_id}' doesn't exist or you don't have access")
         return None
 
-    return {"uid": balena_client.auth.who_am_i()}
+    if "app_name" not in fleet:
+        LOG.warn(f"Invalid fleet '{fleet_id}'")
+        return None
+
+    user = balena_client.auth.get_user_info()
+
+    return {"uid": user["username"]}
 
 def get_client(key):
     balena_client = Balena()

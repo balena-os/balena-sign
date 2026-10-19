@@ -15,7 +15,7 @@ class Config(object):
             raise ValueError(
                 f"`fleet_id` value: '{fleet_id}' is not a valid fleet ID.")
         self._api_domain = api_domain
-        self._fleet_id = fleet_id
+        self._fleet_id = int(fleet_id)
 
     @property
     def api_domain(self):
