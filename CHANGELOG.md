@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.146
+## (2026-10-19)
+
+* auth: Update for balena SDK v17 [Michal Toman]
+
 # v1.5.145
 ## (2026-10-18)
 

@@ -1,4 +1,23 @@
 - commits:
+    - subject: "auth: Update for balena SDK v17"
+      hash: 5fe875e3b6494ef259dff379e6d59c009f06237e
+      body: |
+        After bumping balena SDK to v17, some API calls were replaced
+        or changed semantics.
+
+        This PR updates the auth module to properly use new calls.
+        It also adds logging to make the failures more explicit.
+      footer:
+        Change-type: patch
+        change-type: patch
+        Signed-off-by: Michal Toman <michalt@balena.io>
+        signed-off-by: Michal Toman <michalt@balena.io>
+      author: Michal Toman
+      nested: []
+  version: 1.5.146
+  title: ""
+  date: 2026-10-19T15:50:37.694Z
+- commits:
     - subject: Update certifi to v2026.10.18
       hash: 9118618b18485b9ed82235ee1558101693ffd0bb
       body: |
