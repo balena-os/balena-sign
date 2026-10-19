@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.149
+## (2026-10-19)
+
+* Update setuptools to v84.2.0 [balena-renovate[bot]]
+
 # v1.5.148
 ## (2026-10-19)
 
