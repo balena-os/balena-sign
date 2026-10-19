@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update uvicorn to v0.54.0
+      hash: 692bdc39c15b002451ca8e47b77cb425760f3ab6
+      body: |
+        Update uvicorn from 0.51.0 to 0.54.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.147
+  title: ""
+  date: 2026-10-19T17:51:32.755Z
+- commits:
     - subject: "auth: Update for balena SDK v17"
       hash: 5fe875e3b6494ef259dff379e6d59c009f06237e
       body: |
