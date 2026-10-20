@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update setuptools to v84.2.1
+      hash: c82bd3203fabbd7ebf74e8f1ede1f100c73d01d4
+      body: |
+        Update setuptools from 84.2.0 to 84.2.1
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.152
+  title: ""
+  date: 2026-10-20T21:00:41.284Z
+- commits:
     - subject: Update golang:1.27-alpine3.23 Docker digest to 9e45f0e
       hash: 760c92b1df52e03f1c10024ae2fdc17cdb17a530
       body: |
