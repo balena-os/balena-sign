@@ -1,4 +1,26 @@
 - commits:
+    - subject: Update golang:1.27-alpine3.23 Docker digest to 895e5fe
+      hash: c508ba29813c6325e986276cc3e7924b637892dd
+      body: |
+        Update golang
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+    - subject: Update certifi to v2026.10.19
+      hash: 1f659f4a962b34c30400c94140141d2a1d5f729c
+      body: |
+        Update certifi from 2026.10.18 to 2026.10.19
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.150
+  title: ""
+  date: 2026-10-20T09:17:01.002Z
+- commits:
     - subject: Update setuptools to v84.2.0
       hash: 48c34c45d27f372644dfc0e47f8d68f0d817c5e0
       body: |

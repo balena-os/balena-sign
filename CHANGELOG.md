@@ -4,6 +4,12 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.150
+## (2026-10-20)
+
+* Update golang:1.27-alpine3.23 Docker digest to 895e5fe [balena-renovate[bot]]
+* Update certifi to v2026.10.19 [balena-renovate[bot]]
+
 # v1.5.149
 ## (2026-10-19)
 
