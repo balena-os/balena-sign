@@ -1,10 +1,11 @@
 PYTHON ?= python3
 VENV ?= venv
+TESTVENV ?= testvenv
 HOST ?= 127.0.0.1
 PORT ?= 8080
 WORKERS ?= 1
 
-.PHONY: venv run clean
+.PHONY: venv testvenv run check clean
 
 venv: $(VENV)/.installed
 
@@ -12,6 +13,14 @@ $(VENV)/.installed: requirements.txt
 	$(PYTHON) -m venv $(VENV)
 	$(VENV)/bin/pip install --upgrade pip
 	$(VENV)/bin/pip install -r requirements.txt
+	touch $@
+
+testvenv: $(TESTVENV)/.installed
+
+$(TESTVENV)/.installed: requirements.txt requirements-test.txt
+	$(PYTHON) -m venv $(TESTVENV)
+	$(TESTVENV)/bin/pip install --upgrade pip
+	$(TESTVENV)/bin/pip install -r requirements.txt -r requirements-test.txt
 	touch $@
 
 # Mirrors the gunicorn invocation in start.sh, minus the user/group switch.
@@ -23,5 +32,8 @@ run: venv
 	$(VENV)/bin/gunicorn -k uvicorn.workers.UvicornWorker \
 		--pythonpath src --workers $(WORKERS) --bind $(HOST):$(PORT) app:application
 
+check: testvenv
+	$(TESTVENV)/bin/pytest -v tests
+
 clean:
-	rm -rf $(VENV)
+	rm -rf $(VENV) $(TESTVENV)
