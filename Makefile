@@ -4,6 +4,7 @@ TESTVENV ?= testvenv
 HOST ?= 127.0.0.1
 PORT ?= 8080
 WORKERS ?= 1
+EFI_BINARY ?= /usr/lib/systemd/boot/efi/systemd-bootx64.efi
 
 .PHONY: venv testvenv run check clean
 
@@ -33,7 +34,7 @@ run: venv
 		--pythonpath src --workers $(WORKERS) --bind $(HOST):$(PORT) app:application
 
 check: testvenv
-	$(TESTVENV)/bin/pytest tests
+	BALENASIGN_TEST_EFI_BINARY=$(EFI_BINARY) $(TESTVENV)/bin/pytest tests
 
 clean:
 	rm -rf $(VENV) $(TESTVENV)
