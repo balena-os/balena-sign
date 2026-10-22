@@ -109,18 +109,18 @@ def server(tmp_path_factory, fleet_id):
             proc.wait()
 
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def make_client(server):
     def make(api_key=None):
         return Client(server, api_key)
     return make
 
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def anonymous_client(make_client):
     return make_client()
 
 
-@pytest.fixture
+@pytest.fixture(scope="session")
 def client(make_client, api_key):
     return make_client(api_key)
