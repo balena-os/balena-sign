@@ -83,7 +83,8 @@ def server(tmp_path_factory, fleet_id):
     (app_dir / "secrets" / "x509").mkdir()
     home_dir.mkdir()
 
-    env = dict(os.environ, FLEET_ID=fleet_id, HOME=str(home_dir))
+    # The Docker image runs in UTC, which rsa.sign relies on for its timestamp.
+    env = dict(os.environ, FLEET_ID=fleet_id, HOME=str(home_dir), TZ="UTC")
     host = "127.0.0.1"
     port = free_port()
     log_path = base_dir / "server.log"

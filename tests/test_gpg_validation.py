@@ -1,5 +1,7 @@
 import pytest
 
+from helpers import but, without
+
 NEW_KEY_REQUEST = {
     "name_real": "balenaSign test key",
     "name_email": "test@example.com",
@@ -9,14 +11,6 @@ SIGN_REQUEST = {
     "key_id": "00" * 20,
     "payload": "AA==",
 }
-
-
-def without(request, field):
-    return {k: v for k, v in request.items() if k != field}
-
-
-def but(request, **fields):
-    return dict(request, **fields)
 
 
 @pytest.mark.parametrize("body", [
