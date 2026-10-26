@@ -4,7 +4,6 @@ import json
 import os
 import re
 
-import gnupg
 import pytest
 from cryptography import x509
 from cryptography.hazmat.primitives import hashes, serialization
@@ -72,7 +71,7 @@ def test_certificate(anonymous_client, certs, name):
     assert response.json()["cert"] == certs[name]
 
 
-def test_gpg(client, anonymous_client, tmp_path, bootstrap):
+def test_gpg(client, anonymous_client, local_gpg, tmp_path, bootstrap):
     fingerprint = bootstrap["gpg"]["fingerprint"]
     response = anonymous_client.get("/gpg/keys")
     assert response.status_code == 200
@@ -80,7 +79,6 @@ def test_gpg(client, anonymous_client, tmp_path, bootstrap):
 
     response = anonymous_client.get(f"/gpg/key/{fingerprint}")
     assert response.status_code == 200
-    local_gpg = gnupg.GPG(gnupghome=str(tmp_path))
     imported = local_gpg.import_keys(response.json()["key"])
     assert imported.fingerprints == [fingerprint]
     uid = f"{REQUEST['gpg']['name_real']} <{REQUEST['gpg']['name_email']}>"

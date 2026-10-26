@@ -1,3 +1,5 @@
+import subprocess
+
 import requests
 
 
@@ -24,3 +26,9 @@ def without(request, field):
 
 def but(request, **fields):
     return dict(request, **fields)
+
+
+def kill_gpg_agent(homedir):
+    # gpg starts gpg-agent as a daemon, which outlives whoever used the keyring
+    subprocess.run(["gpgconf", "--homedir", str(homedir), "--kill", "all"],
+                   capture_output=True, check=False)
