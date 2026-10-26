@@ -6,9 +6,10 @@ import subprocess
 import sys
 import time
 
+import gnupg
 import pytest
 
-from helpers import Client
+from helpers import Client, kill_gpg_agent
 
 REPO_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SRC_DIR = os.path.join(REPO_DIR, "src")
@@ -119,9 +120,7 @@ def run_server(base_dir, fleet_id):
         except subprocess.TimeoutExpired:
             proc.kill()
             proc.wait()
-        # gpg starts gpg-agent as a daemon, which outlives the server
-        subprocess.run(["gpgconf", "--homedir", str(app_dir / "secrets" / "gpg"),
-                        "--kill", "all"], capture_output=True, check=False)
+        kill_gpg_agent(app_dir / "secrets" / "gpg")
 
 
 @pytest.fixture(scope="session")
@@ -150,3 +149,12 @@ def anonymous_client(make_client):
 @pytest.fixture(scope="session")
 def client(make_client, api_key):
     return make_client(api_key)
+
+
+@pytest.fixture
+def local_gpg(tmp_path):
+    """
+    A local keyring for checking the server's keys and signatures.
+    """
+    yield gnupg.GPG(gnupghome=str(tmp_path))
+    kill_gpg_agent(tmp_path)

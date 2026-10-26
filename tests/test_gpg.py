@@ -1,6 +1,5 @@
 import base64
 
-import gnupg
 import pytest
 
 NEW_KEY_REQUEST = {
@@ -18,11 +17,6 @@ def key_id(client):
     fingerprint = response.json()["fingerprint"]
     assert fingerprint, "Server returned an empty fingerprint"
     return fingerprint
-
-
-@pytest.fixture
-def local_gpg(tmp_path):
-    return gnupg.GPG(gnupghome=str(tmp_path))
 
 
 def test_new_key(key_id):
