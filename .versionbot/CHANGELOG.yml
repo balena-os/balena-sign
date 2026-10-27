@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update pycparser to v3.12
+      hash: 0cd78010cb0cad2babf21a33696bc2bab3dfcf5f
+      body: |
+        Update pycparser from 3.11 to 3.12
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.159
+  title: ""
+  date: 2026-10-27T20:47:44.679Z
+- commits:
     - subject: Update asgiref to v3.13.0
       hash: ce5d8880add10c0b55916680000e9e5f5b9e5218
       body: |
