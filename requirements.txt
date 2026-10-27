@@ -39,7 +39,7 @@ pathable==0.6.0
 pine-client==0.2.0
 pyasn1==0.6.5
 pyasn1_modules==0.4.2
-pycparser==3.11
+pycparser==3.12
 PyJWT==2.15.1
 pyOpenSSL>=24.2.1
 pyrsistent==0.20.0
