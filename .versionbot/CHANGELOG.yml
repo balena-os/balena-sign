@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update balena/cert-manager Docker tag to v0.5.4
+      hash: 76d23a056d606085510c3f9a155f6303fb270d6f
+      body: |
+        Update balena/cert-manager from 0.5.2 to 0.5.4
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.154
+  title: ""
+  date: 2026-10-27T11:01:15.508Z
+- commits:
     - subject: Update golang:1.27-alpine3.23 Docker digest to 754d520
       hash: 26fbffd8c1e18ae5040033fb099de6872407f802
       body: |
