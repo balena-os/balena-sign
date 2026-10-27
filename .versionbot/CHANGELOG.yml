@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update certifi to v2026.10.23
+      hash: 6fed7357654c72ae5742c167ec394ba6f53fd4fa
+      body: |
+        Update certifi from 2026.10.19 to 2026.10.23
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.156
+  title: ""
+  date: 2026-10-27T15:14:45.794Z
+- commits:
     - subject: Update alpine Docker digest to be26560
       hash: 876232d7006a756f629dfcacd8fac286f97fa434
       body: |
