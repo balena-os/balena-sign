@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.158
+## (2026-10-27)
+
+* Update asgiref to v3.13.0 [balena-renovate[bot]]
+
 # v1.5.157
 ## (2026-10-27)
 

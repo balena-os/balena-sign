@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update asgiref to v3.13.0
+      hash: ce5d8880add10c0b55916680000e9e5f5b9e5218
+      body: |
+        Update asgiref from 3.12.1 to 3.13.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.158
+  title: ""
+  date: 2026-10-27T18:58:21.939Z
+- commits:
     - subject: Update pyasn1 to v0.6.5
       hash: 27bc77f35d3fd140d4306d4f4bd3b240e2e86bc8
       body: |
