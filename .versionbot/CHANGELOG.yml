@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update pyasn1 to v0.6.5
+      hash: 27bc77f35d3fd140d4306d4f4bd3b240e2e86bc8
+      body: |
+        Update pyasn1 from 0.6.4 to 0.6.5
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.157
+  title: ""
+  date: 2026-10-27T16:54:49.149Z
+- commits:
     - subject: Update certifi to v2026.10.23
       hash: 6fed7357654c72ae5742c167ec394ba6f53fd4fa
       body: |

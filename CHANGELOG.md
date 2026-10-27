@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.157
+## (2026-10-27)
+
+* Update pyasn1 to v0.6.5 [balena-renovate[bot]]
+
 # v1.5.156
 ## (2026-10-27)
 
