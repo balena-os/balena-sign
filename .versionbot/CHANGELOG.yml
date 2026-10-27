@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update alpine Docker digest to be26560
+      hash: 876232d7006a756f629dfcacd8fac286f97fa434
+      body: |
+        Update alpine
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.155
+  title: ""
+  date: 2026-10-27T13:17:00.658Z
+- commits:
     - subject: Update balena/cert-manager Docker tag to v0.5.4
       hash: 76d23a056d606085510c3f9a155f6303fb270d6f
       body: |
