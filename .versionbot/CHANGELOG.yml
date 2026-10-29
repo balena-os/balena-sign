@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update balena/cert-manager Docker tag to v0.5.5
+      hash: a02d81d122f731b8a80638157addbd566cb13eb3
+      body: |
+        Update balena/cert-manager from 0.5.4 to 0.5.5
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.160
+  title: ""
+  date: 2026-10-29T17:21:14.729Z
+- commits:
     - subject: Update pycparser to v3.12
       hash: 0cd78010cb0cad2babf21a33696bc2bab3dfcf5f
       body: |
