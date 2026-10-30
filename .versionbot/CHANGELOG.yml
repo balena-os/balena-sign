@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update Twisted to v26.10.0 [SECURITY]
+      hash: ca66f5a8e63670bc9fcb4b1dbc4f600ee6b8614d
+      body: |
+        Update Twisted from 26.4.0 to 26.10.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.162
+  title: ""
+  date: 2026-10-30T10:54:35.776Z
+- commits:
     - subject: Update wrapt to v2.5.2
       hash: 943bd933bf487ca75ea62b45152a5c6ebcc5ce2a
       body: |
