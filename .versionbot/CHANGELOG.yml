@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update websockets to v17.4
+      hash: 5b2a36af02d2b44b203c47e98cbec501f4a8d08d
+      body: |
+        Update websockets from 17.3 to 17.4
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.163
+  title: ""
+  date: 2026-10-30T16:47:39.053Z
+- commits:
     - subject: Update Twisted to v26.10.0 [SECURITY]
       hash: ca66f5a8e63670bc9fcb4b1dbc4f600ee6b8614d
       body: |

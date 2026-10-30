@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.163
+## (2026-10-30)
+
+* Update websockets to v17.4 [balena-renovate[bot]]
+
 # v1.5.162
 ## (2026-10-30)
 
