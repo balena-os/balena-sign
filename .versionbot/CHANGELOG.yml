@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update wrapt to v2.5.2
+      hash: 943bd933bf487ca75ea62b45152a5c6ebcc5ce2a
+      body: |
+        Update wrapt from 2.5.1 to 2.5.2
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.161
+  title: ""
+  date: 2026-10-30T01:07:38.772Z
+- commits:
     - subject: Update balena/cert-manager Docker tag to v0.5.5
       hash: a02d81d122f731b8a80638157addbd566cb13eb3
       body: |
