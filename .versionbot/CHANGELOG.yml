@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update anyio to v4.16.0
+      hash: fb6900df2f444903b6241c53f8f1456a1b633b93
+      body: |
+        Update anyio from 4.15.1 to 4.16.0
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.164
+  title: ""
+  date: 2026-11-01T12:44:35.006Z
+- commits:
     - subject: Update websockets to v17.4
       hash: 5b2a36af02d2b44b203c47e98cbec501f4a8d08d
       body: |
