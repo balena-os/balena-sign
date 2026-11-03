@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update golang:1.27-alpine3.23 Docker digest to 8a50464
+      hash: 02ff6ee902b2290322ac9e5a170aeb8e9529558b
+      body: |
+        Update golang
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.165
+  title: ""
+  date: 2026-11-03T12:56:09.241Z
+- commits:
     - subject: Update anyio to v4.16.0
       hash: fb6900df2f444903b6241c53f8f1456a1b633b93
       body: |
