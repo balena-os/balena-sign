@@ -72,3 +72,59 @@ within the app. The `gpg` directory must also have `0700` access rights set.
 * download [IMX CST TOOL](https://www.nxp.com/webapp/Download?colCode=IMX_CST_TOOL) from NXP
 * place the tool into the `cst` directory
 * adjust build ARGs in `Dockerfile.template` if required
+
+### Running the tests
+
+The test suite starts the real server (gunicorn with 4 workers) on a free
+port on `127.0.0.1`, in a throwaway directory laid out like the Docker image,
+and talks to it over HTTP. Authentication is checked live against
+balenaCloud, so the tests need network access to `api.balena-cloud.com` and
+a balenaCloud API key with access to a fleet:
+
+```
+export FLEET_ID=<fleet ID>
+export BALENASIGN_API_KEY=<balenaCloud API key>
+make check
+```
+
+`make check` creates the `testvenv` virtualenv from `requirements.txt` and
+`requirements-test.txt`, then runs `pytest tests`. `make testvenv` only sets
+up the virtualenv and `make clean` removes it.
+
+The server shells out to a number of tools, which must be installed on the
+test machine. On Debian:
+
+```
+apt install gnupg openssl sbsigntool efitools systemd-boot-efi linux-kbuild-<version>
+```
+
+* `gpg` needs a working `gpg-agent`.
+* `sign-file`, used to sign kernel modules, must be on `PATH`. Debian ships
+  it in `/usr/lib/linux-kbuild-<version>/scripts`, where `<version>` is the
+  full kernel package version, e.g.
+  `PATH=$PATH:/usr/lib/linux-kbuild-6.12.111+deb13/scripts make check`.
+* The UEFI binary signing tests need an unsigned UEFI binary. The default is
+  `/usr/lib/systemd/boot/efi/systemd-bootx64.efi` from `systemd-boot-efi`;
+  use the `EFI_BINARY` make variable to pick another one. It must not be an
+  already signed `*.efi.signed` binary.
+
+The i.MX tests need the NXP Code Signing Tool tarball, see
+[Development](#development). Download it from
+[NXP](https://www.nxp.com/webapp/Download?colCode=IMX_CST_TOOL_NEW&location=null)
+and place it at `cst/cst-<version>.tgz`, or point the `CST_TARBALL` make
+variable at it. The expected version and MD5 checksum are read from
+`Dockerfile.template`. `make testvenv` verifies the checksum and unpacks the
+prebuilt binaries into `testvenv/cst`, so no build is needed, but they are
+x86_64 only.
+
+The import/export tests start two more servers. The first is bootstrapped,
+exported and wiped. The second starts empty and imports the export, and all
+the bootstrap checks are then run against it.
+
+Tests marked `xfail` document known bugs and are expected to fail until the
+bug is fixed.
+
+> **Note:** the server stores the API key in plaintext in its
+> `.balena/balena.cfg`, which ends up in pytest's temporary directory
+> (pytest keeps the last 3 runs). Remove it after running the tests, by
+> default it's `/tmp/pytest-of-$USER`.

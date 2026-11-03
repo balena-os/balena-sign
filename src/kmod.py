@@ -52,7 +52,7 @@ def sign(body, user):
 
     cmd_output = None
     sign_cmd = [
-        "/usr/local/bin/sign-file", "sha512", key_file, cert_file,
+        "sign-file", "sha512", key_file, cert_file,
         payload_filename, signed_filename
     ]
     with tempfile.TemporaryFile() as tmp_file:
