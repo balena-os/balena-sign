@@ -391,6 +391,67 @@ paths:
               schema:
                 $ref: "#/components/schemas/rsaSignResponse"
 
+  /pkc/keys:
+    get:
+      operationId: pkc.keys
+      responses:
+        200:
+          description: Fingerprints of PKC keys available on the server
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/pkcKeysResponse"
+
+  /pkc/key/{key_id}:
+    get:
+      operationId: pkc.key
+      parameters:
+        - $ref: "#/components/parameters/pkcKey"
+      responses:
+        200:
+          description: PEM public key for the given fingerprint
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/pkcKeyResponse"
+
+  /pkc/key:
+    post:
+      operationId: pkc.new
+      security:
+        - apiKey: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/pkcNewRequest"
+      responses:
+        200:
+          description: Fingerprint of the newly created PKC key
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/pkcNewResponse"
+
+  /pkc/sign:
+    post:
+      operationId: pkc.sign
+      description: Sign a payload with RSA-PSS (32 byte salt) as used for NVIDIA Jetson secure boot
+      security:
+        - apiKey: []
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/pkcSignRequest"
+      responses:
+        200:
+          description: base64-encoded RSA-PSS signature of the given payload, big-endian
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/pkcSignResponse"
+
   /imx/pkis:
     get:
       operationId: imx.pkis
@@ -475,6 +536,14 @@ components:
       required: true
       schema:
         $ref: "#/components/schemas/rsaKeyFingerprint"
+
+    pkcKey:
+      name: key_id
+      description: Fingerprint of the PKC key to fetch
+      in: path
+      required: true
+      schema:
+        $ref: "#/components/schemas/pkcKeyFingerprint"
 
     pkiId:
       name: pki_id
@@ -794,6 +863,84 @@ components:
           $ref: "#/components/schemas/base64"
 
     rsaSignResponse:
+      type: object
+      required:
+        - signature
+      properties:
+        signature:
+          $ref: "#/components/schemas/base64"
+
+    pkcKeyType:
+      type: string
+      enum:
+        - rsa3072
+
+    pkcKeyFingerprint:
+      type: string
+      pattern: "^[a-fA-F0-9]+$"
+      example: "61D762833B1F104A4237E7E5B9C6464953950D96"
+
+    pkcKeyFingerprintList:
+      type: array
+      items:
+        $ref: "#/components/schemas/pkcKeyFingerprint"
+
+    pkcKeysResponse:
+      type: object
+      required:
+        - keys
+      properties:
+        keys:
+          $ref: "#/components/schemas/pkcKeyFingerprintList"
+
+    pkcNewRequest:
+      type: object
+      required:
+        - key_type
+      properties:
+        key_type:
+          $ref: "#/components/schemas/pkcKeyType"
+
+    pkcNewResponse:
+      type: object
+      required:
+        - fingerprint
+        - key_type
+      properties:
+        fingerprint:
+          $ref: "#/components/schemas/pkcKeyFingerprint"
+        key_type:
+          $ref: "#/components/schemas/pkcKeyType"
+
+    pkcKeyResponse:
+      type: object
+      required:
+        - key
+        - key_type
+      properties:
+        key:
+          type: string
+        key_type:
+          $ref: "#/components/schemas/pkcKeyType"
+
+    pkcSignRequest:
+      type: object
+      required:
+        - key_id
+        - payload
+      properties:
+        key_id:
+          $ref: "#/components/schemas/pkcKeyFingerprint"
+        payload:
+          $ref: "#/components/schemas/base64"
+        digest:
+          type: string
+          default: sha512
+          enum:
+            - sha256
+            - sha512
+
+    pkcSignResponse:
       type: object
       required:
         - signature

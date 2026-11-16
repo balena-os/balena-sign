@@ -51,6 +51,59 @@ curl -X POST ${SIGNING_SERVER_URL}/bootstrap \
 
 `db` is optional, if you are using hashes for authentication, you do not need the `db` certificate and you can omit it.
 
+## PKC keys
+
+Additional public key cryptography key types (e.g. for NVIDIA Jetson secure
+boot) can be created with `POST /pkc/key`. The only supported `key_type` is
+currently `rsa3072`.
+```
+curl -X POST ${SIGNING_SERVER_URL}/pkc/key \
+             -H "X-API-Key: XXX" \
+             -H "Content-type: application/json" \
+             -d '{"key_type": "rsa3072"}'
+```
+
+The response contains the key `fingerprint`, which can be used to fetch the
+PEM public key with `GET /pkc/key/{fingerprint}`. `GET /pkc/keys` lists all
+available PKC keys.
+
+The existing `/rsa/*` endpoints are unchanged and still create RSA-2048 keys.
+
+### Signing NVIDIA Jetson Orin boot binaries
+
+`POST /pkc/sign` signs a payload with a PKC key using RSA-PSS with a 32 byte
+salt and SHA-512 (default) or SHA-256, the scheme used by NVIDIA Jetson secure
+boot. The signature is returned base64-encoded in big-endian byte order.
+
+The whole Jetson Linux (L4T) image preparation stays on the build machine,
+only the signing operations are sent to balenaSign through the L4T HSM hooks:
+
+1. Replace Linux_for_Tegra/bootloader/tegrasign_v3_softhsm.py with the custom one which
+   performs API calls to the signing server
+2. Create a configuration file on the host, in `/etc/balenasign/jetson.json` (or to the path in
+   the `BALENASIGN_CONFIG` environment variable), readable only by the user
+   running the build (`chmod 600`):
+   ```
+   {"url": "https://sign.example.com", "api_key": "XXX", "pkc_key_id": "<fingerprint>"}
+   ```
+3. Fetch the PKC public key from the server and save it out side of Linux_for_Tegra/bootloader,
+   i.e in ~/keys/pkc_pub.pem`
+
+4. Export the path to the jetson.json file as well as the variables defined for the hardware type (BOARDID,
+   CHIP_SKU, BOARD_REV and FAB) and then trigger the creation of the QSPI images:
+   cd Linux_for_Tegra/
+   # These board variables were obtained from a Jetson Orin Nano 8GB SD-CARD module
+   sudo env PATH="$HOME/l4t-venv/bin:$PATH" BALENASIGN_CONFIG="$BALENASIGN_CONFIG" \
+       BOARDID=3767 FAB=300 BOARDSKU=0005 BOARDREV=V.2 CHIP_SKU=00:00:00:D5 \
+       NO_RECOVERY_IMG=1 NO_ESP_IMG=1 NO_ROOTFS=1 \
+       ./tools/kernel_flash/l4t_create_images_for_kernel_flash.sh \
+       --qspi-only --hsm -u ~/keys/pkc_pub.pem\
+       -p "-c $PWD/bootloader/generic/cfg/flash_t234_qspi.xml" \
+       jetson-orin-nano-devkit-super internal
+
+
+Only PKC signing is supported, encryption (SBK, OEM_K1/EKB) is not.
+
 ## Configuration
 
 Specify the fleet that the provided `X-API-KEY` value has access to by setting a `FLEET_ID` to the ID of the fleet.

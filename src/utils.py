@@ -21,6 +21,7 @@ VAULT_DIR = os.path.join(MODULE_DIR, "secrets")
 GPG_HOME_DIR = os.path.join(VAULT_DIR, "gpg")
 X509_DIR = os.path.join(VAULT_DIR, "x509")
 RSA_DIR = os.path.join(VAULT_DIR, "rsa")
+PKC_DIR = os.path.join(VAULT_DIR, "pkc")
 PKI_DIR = os.path.join(VAULT_DIR, "pki")
 
 
