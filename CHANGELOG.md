@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.166
+## (2026-11-23)
+
+* Update alpine Docker digest to f59abe6 [balena-renovate[bot]]
+
 # v1.5.165
 ## (2026-11-03)
 
