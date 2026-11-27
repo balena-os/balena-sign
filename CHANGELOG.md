@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.169
+## (2026-11-27)
+
+* Update charset-normalizer to v3.5.3 [balena-renovate[bot]]
+
 # v1.5.168
 ## (2026-11-27)
 

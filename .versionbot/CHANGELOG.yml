@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update charset-normalizer to v3.5.3
+      hash: 94ee50a3ff0c2360de4ee8cf4eaa62b19e029826
+      body: |
+        Update charset-normalizer from 3.5.2 to 3.5.3
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.169
+  title: ""
+  date: 2026-11-27T08:50:03.928Z
+- commits:
     - subject: Update balena-sdk to v17.3.3
       hash: 52cc6825354c3143b24d3871a7eb6b242a989256
       body: |
