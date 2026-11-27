@@ -8,7 +8,7 @@ blinker==1.9.0
 certifi==2026.10.23
 cffi==2.1.1
 chardet==7.7.0
-charset-normalizer==3.5.2
+charset-normalizer==3.5.3
 click==8.5.0
 clickclick==20.10.2
 connexion[flask,uvicorn]==3.3.0
