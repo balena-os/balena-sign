@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update PyYAML to v6.0.4
+      hash: 04e7c255fe86167daaef949d7cedb2ad0b0c758f
+      body: |
+        Update PyYAML from 6.0.3 to 6.0.4
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.171
+  title: ""
+  date: 2026-11-27T12:49:42.017Z
+- commits:
     - subject: Update click to v8.5.1
       hash: e03adef18b69117452cfe90cf545472054f291b9
       body: |
