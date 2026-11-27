@@ -13,6 +13,7 @@ from utils import PKI_DIR
 LOG = logging.getLogger("imx")
 
 SRK_EFUSES = "SRK_efuses.bin"
+CST_DIR = os.environ.get("CST_DIR", "/usr/local/cst")
 
 
 def pkis():
@@ -48,9 +49,9 @@ def generate_hab(hab_type, tree_dir):
     # Must be created new
     os.makedirs(f"{PKI_DIR}/crts", exist_ok=False)
     os.makedirs(f"{PKI_DIR}/keys", exist_ok=False)
-    shutil.copy2(f"/usr/local/cst/keys/{script}", f"{tree_dir}/{script}")
+    shutil.copy2(f"{CST_DIR}/keys/{script}", f"{tree_dir}/{script}")
     if not os.path.exists(f"{PKI_DIR}/ca"):
-        shutil.copytree("/usr/local/cst/ca", f"{PKI_DIR}/ca")
+        shutil.copytree(f"{CST_DIR}/ca", f"{PKI_DIR}/ca")
     # Generate a serial number
     with open(f"{PKI_DIR}/keys/serial", 'w', encoding='utf-8') as file:
         file.write(datetime.now().strftime('%Y%m%d'))
@@ -103,7 +104,7 @@ def generate_srks(hab_type, tree_dir):
     # Beware this sort will only work for up to 9 certicates as SRK10 will
     # be sortered after SRK1.
     csv_certs = ','.join(sorted(glob.glob(f"{tree_dir}/crts/SRK*crt.pem")))
-    cmd = ["/usr/local/bin/srktool",
+    cmd = ["srktool",
            "--table", f"{tree_dir}/{srk_table}",
            "--efuses", f"{tree_dir}/{SRK_EFUSES}",
            "--certs", csv_certs, ]
