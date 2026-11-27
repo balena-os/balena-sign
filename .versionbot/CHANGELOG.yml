@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update semver to v3.1.3
+      hash: ebdb016d1ec0d2b65bacc4f81c8791e458f9f6d3
+      body: |
+        Update semver from 3.1.0 to 3.1.3
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.172
+  title: ""
+  date: 2026-11-27T14:51:40.796Z
+- commits:
     - subject: Update PyYAML to v6.0.4
       hash: 04e7c255fe86167daaef949d7cedb2ad0b0c758f
       body: |
