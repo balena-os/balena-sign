@@ -4,6 +4,11 @@ Change log
 # v0.1.0
 ## (2022-12-09)
 
+# v1.5.173
+## (2026-11-27)
+
+* Update certifi to v2026.11.20 [balena-renovate[bot]]
+
 # v1.5.172
 ## (2026-11-27)
 

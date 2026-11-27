@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update certifi to v2026.11.20
+      hash: 47c6473567929caad729ea161d2007bce1a1caac
+      body: |
+        Update certifi from 2026.10.23 to 2026.11.20
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.173
+  title: ""
+  date: 2026-11-27T16:41:35.357Z
+- commits:
     - subject: Update semver to v3.1.3
       hash: ebdb016d1ec0d2b65bacc4f81c8791e458f9f6d3
       body: |
