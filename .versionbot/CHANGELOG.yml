@@ -1,4 +1,17 @@
 - commits:
+    - subject: Update balena-sdk to v17.3.3
+      hash: 52cc6825354c3143b24d3871a7eb6b242a989256
+      body: |
+        Update balena-sdk from 17.3.0 to 17.3.3
+      footer:
+        Change-type: patch
+        change-type: patch
+      author: balena-renovate[bot]
+      nested: []
+  version: 1.5.168
+  title: ""
+  date: 2026-11-27T06:48:58.658Z
+- commits:
     - subject: Update golang:1.27-alpine3.23 Docker digest to f70850e
       hash: e433f96c8bcd3f8e738ce31e6f7b24d990ebdc8a
       body: |
